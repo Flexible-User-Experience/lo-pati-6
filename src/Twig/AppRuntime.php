@@ -18,7 +18,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Extension\RuntimeExtensionInterface;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
-class AppRuntime implements RuntimeExtensionInterface
+final class AppRuntime implements RuntimeExtensionInterface
 {
     private UploaderHelper $vuh;
     private CacheManager $lcm;

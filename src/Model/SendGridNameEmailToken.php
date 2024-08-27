@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class SendGridNameEmailToken extends SendGridEmailToken
+final class SendGridNameEmailToken extends SendGridEmailToken
 {
     private string $name;
 

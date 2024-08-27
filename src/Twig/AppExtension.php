@@ -7,7 +7,7 @@ use Twig\TwigFilter;
 use Twig\TwigFunction;
 use Twig\TwigTest;
 
-class AppExtension extends AbstractExtension
+final class AppExtension extends AbstractExtension
 {
     public function getTests(): array
     {

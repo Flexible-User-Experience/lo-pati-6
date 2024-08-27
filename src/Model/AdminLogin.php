@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class AdminLogin
+final class AdminLogin
 {
     private string $email;
     private string $password;
