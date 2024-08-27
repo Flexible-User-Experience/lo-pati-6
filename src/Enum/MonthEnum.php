@@ -21,7 +21,7 @@ final class MonthEnum
     {
         return [
             self::JANUARY => 'enum.month.january',
-            self::FEBRUARY => 'enum.month.febraury',
+            self::FEBRUARY => 'enum.month.february',
             self::MARCH => 'enum.month.march',
             self::APRIL => 'enum.month.april',
             self::MAY => 'enum.month.may',
