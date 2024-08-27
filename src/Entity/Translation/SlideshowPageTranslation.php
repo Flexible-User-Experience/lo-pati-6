@@ -3,6 +3,7 @@
 namespace App\Entity\Translation;
 
 use App\Entity\SlideshowPage;
+use App\Repository\SlideshowPageTranslationRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Translatable\Entity\MappedSuperclass\AbstractPersonalTranslation;
 

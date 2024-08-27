@@ -3,6 +3,7 @@
 namespace App\Entity\Translation;
 
 use App\Entity\Artist;
+use App\Repository\ArtistTranslationRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Translatable\Entity\MappedSuperclass\AbstractPersonalTranslation;
 
