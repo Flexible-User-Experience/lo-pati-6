@@ -1,0 +1,61 @@
+{% if page.imageFileName %}
+    <div class="container-fluid" style="background-image:url('{{ asset('build/images/page_detail_header_backgroung.jpg') }}');background-size:cover;">
+        <div class="row">
+            <div class="text-center">
+                <img src="{{ vich_uploader_asset(page, 'imageFile') | imagine_filter('1200xY') }}" class="img-fluid rounded-0" alt="{{ page.name }}" style="margin-bottom:-70px;border-bottom:solid {{ page.menuLevel1.color }} 20px;">
+            </div>
+        </div>
+    </div>
+{% endif %}
+<div class="container mt-3 pt-3">
+    <div class="row my-5 pt-5">
+        <div class="col">
+            <div class="position-relative">
+                <div class="position-absolute top-50 start-50 translate-middle">
+                    <div style="background-color:{{ page.menuLevel1.color }}" class="mini-colored-box-detail d-flex me-auto"></div>
+                    <div>
+                        <span class="h6 card-title mb-0 d-inline-flex py-2 ps-2 pe-5 lp-bg-black text-white text-uppercase">{% if page.menuLevel2 %}{{ page.menuLevel2.name }}{% else %}{{ page.menuLevel1.name }}{% endif %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-5 justify-content-center">
+        <div class="col-9 col-sm-8 col-md-7 col-lg-6">
+            <div class="row">
+                <div class="col">
+                    <h1>{{ page.name }}</h1>
+                    <h2 class="h3 text-muted">{{ page.summary }}</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ page.description | raw }}
+                </div>
+            </div>
+            {% if page.showSocialNetworksSharingButtons %}
+                <div class="row my-5">
+                    <div class="col">
+                        <p class="mb-1">{{ 'front.layout.share_buttons' | trans }}</p>
+                        <div class="addthis_inline_share_toolbox"></div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-3 col-sm-3 col-md-3 col-lg-2" data-controller="calendar" data-calendar-month-value="{{ 'now' | date('n') }}" data-calendar-year-value="{{ 'now' | date('Y') }}">
+            <div class="row">
+                <div class="col-6">
+                    <h6 class="lp-bg-light-grey text-white text-uppercase p-2 mb-3">{{ 'front.layout.footer.agenda.dates' | trans }}</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div data-calendar-target="agenda">
+                        <i class="fas fa-spin fa-circle-notch fa-5x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

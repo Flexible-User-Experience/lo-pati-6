@@ -505,7 +505,7 @@ front:
     title: 'Agenda'
     activities: 'Activitats per al dia:'
   artist:
-    donwload_button: 'Descarregar CV'
+    download_button: 'Descarregar CV'
   page:
     images: 'Imatges'
     slide: 'Imatge'
