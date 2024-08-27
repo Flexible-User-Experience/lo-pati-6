@@ -7,6 +7,7 @@ use App\Entity\Traits\PositionTrait;
 use App\Entity\Traits\SlugTrait;
 use App\Entity\Traits\TranslationsTrait;
 use App\Entity\Translation\MenuLevel2Translation;
+use App\Enum\SortOrderTypeEnum;
 use App\Repository\MenuLevel2Repository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -47,7 +48,7 @@ class MenuLevel2 extends AbstractBase
     private ?Page $page = null;
 
     #[ORM\OneToMany(targetEntity: Page::class, mappedBy: 'menuLevel2', cascade: ['persist', 'remove'])]
-    #[ORM\OrderBy(['publishDate' => 'ASC'])]
+    #[ORM\OrderBy(['publishDate' => SortOrderTypeEnum::ASC])]
     private ?Collection $pages;
 
     #[Assert\Valid]

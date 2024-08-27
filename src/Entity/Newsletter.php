@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Entity\Traits\LegacyIdTrait;
 use App\Enum\NewsletterStatusEnum;
 use App\Enum\NewsletterTypeEnum;
+use App\Enum\SortOrderTypeEnum;
 use App\Repository\NewsletterRepository;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -40,7 +41,7 @@ class Newsletter extends AbstractBase
     private ?DateTimeInterface $endSend = null;
 
     #[ORM\OneToMany(targetEntity: NewsletterPost::class, mappedBy: 'newsletter', cascade: ['persist', 'remove'], orphanRemoval: true)]
-    #[ORM\OrderBy(['position' => 'ASC'])]
+    #[ORM\OrderBy(['position' => SortOrderTypeEnum::ASC])]
     private Collection $posts;
 
     #[ORM\JoinColumn(name: 'newsletter_group_id', referencedColumnName: 'id', nullable: false)]

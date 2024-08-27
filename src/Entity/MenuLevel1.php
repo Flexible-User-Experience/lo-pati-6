@@ -8,6 +8,7 @@ use App\Entity\Traits\SlugTrait;
 use App\Entity\Traits\TranslationsTrait;
 use App\Entity\Translation\MenuLevel1Translation;
 use App\Enum\LabelColorEnum;
+use App\Enum\SortOrderTypeEnum;
 use App\Repository\MenuLevel1Repository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -46,7 +47,7 @@ class MenuLevel1 extends AbstractBase
     private bool $isArchive = false;
 
     #[ORM\OneToMany(targetEntity: MenuLevel2::class, mappedBy: 'menuLevel1')]
-    #[ORM\OrderBy(['position' => 'ASC', 'name' => 'ASC'])]
+    #[ORM\OrderBy(['position' => SortOrderTypeEnum::ASC, 'name' => SortOrderTypeEnum::ASC])]
     private ?Collection $menuLevel2items;
 
     #[ORM\OneToOne(targetEntity: Page::class, cascade: ['persist', 'remove'])]

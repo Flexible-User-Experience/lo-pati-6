@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Traits\LegacyIdTrait;
 use App\Entity\Traits\NameTrait;
+use App\Enum\SortOrderTypeEnum;
 use App\Repository\NewsletterGroupRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -25,7 +26,7 @@ class NewsletterGroup extends AbstractBase
 
     #[ORM\JoinColumn(onDelete: 'SET NULL')]
     #[ORM\ManyToMany(targetEntity: NewsletterUser::class, inversedBy: 'groups')]
-    #[ORM\OrderBy(['email' => 'ASC'])]
+    #[ORM\OrderBy(['email' => SortOrderTypeEnum::ASC])]
     private ?Collection $users;
 
     public function __construct()

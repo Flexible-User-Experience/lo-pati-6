@@ -11,6 +11,7 @@ use App\Entity\Traits\SmallImage2Trait;
 use App\Entity\Traits\TranslationsTrait;
 use App\Entity\Translation\PageTranslation;
 use App\Enum\PageTemplateTypeEnum;
+use App\Enum\SortOrderTypeEnum;
 use App\Repository\PageRepository;
 use App\Validator\UrlVimeoConstraint;
 use DateTimeImmutable;
@@ -157,12 +158,12 @@ class Page extends AbstractBase
     #[ORM\JoinColumn(name: 'page_id', referencedColumnName: 'id')]
     #[ORM\InverseJoinColumn(name: 'page_previous_edition_id', referencedColumnName: 'id')]
     #[ORM\ManyToMany(targetEntity: Page::class)]
-    #[ORM\OrderBy(['publishDate' => 'DESC'])] // TODO
+    #[ORM\OrderBy(['publishDate' => SortOrderTypeEnum::DESC])]
     private ?Collection $previousEditions;
 
     #[Assert\Valid]
     #[ORM\OneToMany(targetEntity: PageImage::class, mappedBy: 'page', cascade: ['persist', 'remove'])]
-    #[ORM\OrderBy(['position' => 'ASC'])] // TODO
+    #[ORM\OrderBy(['position' => SortOrderTypeEnum::ASC])]
     private ?Collection $images;
 
     #[Assert\Valid]
