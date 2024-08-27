@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Enum;
+
+final class NewsletterStatusEnum
+{
+    public const int WAITING = 0;
+    public const int SENDING = 1;
+    public const int SENDED = 2;
+
+    public static function getEnumArray(): array
+    {
+        return [
+            self::WAITING => 'enum.newsletter_status.wating',
+            self::SENDING => 'enum.newsletter_status.sending',
+            self::SENDED => 'enum.newsletter_status.sended',
+        ];
+    }
+
+    public static function getReversedEnumArray(): array
+    {
+        return array_flip(self::getEnumArray());
+    }
+}
