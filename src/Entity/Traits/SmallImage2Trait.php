@@ -3,14 +3,13 @@
 namespace App\Entity\Traits;
 
 use DateTimeImmutable;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 
 trait SmallImage2Trait
 {
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
+    #[ORM\Column(type: Types::STRING, length: 255, nullable: true)]
     private ?string $smallImage2FileName = null;
 
     public function getSmallImage2File(): ?File

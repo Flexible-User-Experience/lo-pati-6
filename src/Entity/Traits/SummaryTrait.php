@@ -2,15 +2,14 @@
 
 namespace App\Entity\Traits;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 trait SummaryTrait
 {
-    /**
-     * @ORM\Column(type="string", length=300, nullable=true)
-     * @Gedmo\Translatable
-     */
+    #[Gedmo\Translatable]
+    #[ORM\Column(type: Types::STRING, length: 300, nullable: true)]
     private ?string $summary = null;
 
     public function getSummary(): ?string

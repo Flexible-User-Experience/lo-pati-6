@@ -2,15 +2,14 @@
 
 namespace App\Entity\Traits;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 trait DescriptionTrait
 {
-    /**
-     * @ORM\Column(type="text", length=4000)
-     * @Gedmo\Translatable
-     */
+    #[Gedmo\Translatable]
+    #[ORM\Column(type: Types::TEXT, length: 4000, nullable: false)]
     private string $description;
 
     public function getDescription(): string
