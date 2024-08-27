@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\Repository\Translation;
 
 use App\Entity\Translation\VisitingHoursTranslation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;

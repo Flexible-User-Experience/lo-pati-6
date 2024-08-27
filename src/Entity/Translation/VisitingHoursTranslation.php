@@ -3,7 +3,7 @@
 namespace App\Entity\Translation;
 
 use App\Entity\VisitingHours;
-use App\Repository\VisitingHoursTranslationRepository;
+use App\Repository\Translation\VisitingHoursTranslationRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Translatable\Entity\MappedSuperclass\AbstractPersonalTranslation;
 

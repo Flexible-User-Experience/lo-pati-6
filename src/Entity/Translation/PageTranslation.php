@@ -3,7 +3,7 @@
 namespace App\Entity\Translation;
 
 use App\Entity\Page;
-use App\Repository\PageTranslationRepository;
+use App\Repository\Translation\PageTranslationRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Translatable\Entity\MappedSuperclass\AbstractPersonalTranslation;
 

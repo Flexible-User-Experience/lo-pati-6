@@ -3,7 +3,7 @@
 namespace App\Entity\Translation;
 
 use App\Entity\MenuLevel1;
-use App\Repository\MenuLevel1TranslationRepository;
+use App\Repository\Translation\MenuLevel1TranslationRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Translatable\Entity\MappedSuperclass\AbstractPersonalTranslation;
 
