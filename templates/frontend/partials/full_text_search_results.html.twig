@@ -1,7 +1,7 @@
 <div class="list-group">
     {% for page in pages %}
         {% if has_highlighted_image(page) and page.menuLevel1 and page.menulevel2 %} {# TODO fix this situation #}
-            <a role="option" href="{{ path('front_app_page_detail', {'menu': page.menuLevel1.slug, 'submenu': page.menuLevel2.slug, 'date': page.publishDate | date(constant('App\\Entity\\AbstractBase::DATAGRID_TYPE_DATE_FORMAT')), 'page': page.slug}) }}" class="list-group-item list-group-item-action" aria-current="true">
+            <a role="option" href="{{ path('front_app_page_detail', {'menu': page.menuLevel1.slug, 'submenu': page.menuLevel2.slug, 'date': page.publishDate | date(constant('App\\Entity\\AbstractBase::DATA_GRID_TYPE_DATE_FORMAT')), 'page': page.slug}) }}" class="list-group-item list-group-item-action" aria-current="true">
                 <div class="d-flex">
                     <div class="pe-2">
                         {% if page.smallImage1FileName %}

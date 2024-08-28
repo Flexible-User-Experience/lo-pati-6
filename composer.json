@@ -27,6 +27,7 @@
         "ehyiah/ux-quill": "^2.0",
         "excelwebzone/recaptcha-bundle": "^1.5",
         "fortawesome/font-awesome": "^6.6",
+        "friendsofsymfony/elastica-bundle": "^6.4",
         "friendsofsymfony/jsrouting-bundle": "^3.5",
         "knplabs/knp-paginator-bundle": "^6.4",
         "league/commonmark": "^2.5",

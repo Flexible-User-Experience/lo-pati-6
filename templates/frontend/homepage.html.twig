@@ -76,7 +76,7 @@
                                     <div class="col">
                                         <div class="card border-0">
                                             <div style="background-color:{{ page.menuLevel1.color }}" class="position-relative">
-                                                <a href="{{ path('front_app_page_detail', {'menu': page.menuLevel1.slug, 'submenu': page.menuLevel2.slug, 'date': page.publishDate | date(constant('App\\Entity\\AbstractBase::DATAGRID_TYPE_DATE_FORMAT')), 'page': page.slug}) }}">
+                                                <a href="{{ path('front_app_page_detail', {'menu': page.menuLevel1.slug, 'submenu': page.menuLevel2.slug, 'date': page.publishDate | date(constant('App\\Entity\\AbstractBase::DATA_GRID_TYPE_DATE_FORMAT')), 'page': page.slug}) }}">
                                                     <img src="{{ get_highlighted_image_filter(page) }}" class="card-img-top rounded-0{% if is_highlighted_image_squared(page) %} w-235-px{% endif %}" alt="{{ page.name }}">
                                                 </a>
                                                 <div class="position-absolute bottom-0 start-0">
@@ -92,7 +92,7 @@
                                                     <h6 class="card-subtitle text-muted mb-2"><i class="far fa-clock"></i> {{ page.realizationDateString }}</h6>
                                                 {% endif %}
                                                 <h5 class="card-title mb-4">{{ page.name }}</h5>
-                                                <a href="{{ path('front_app_page_detail', {'menu': page.menuLevel1.slug, 'submenu': page.menuLevel2.slug, 'date': page.publishDate | date(constant('App\\Entity\\AbstractBase::DATAGRID_TYPE_DATE_FORMAT')), 'page': page.slug}) }}" class="btn btn-outline-dark btn-sm rounded-0 border-2 text-uppercase">{{ 'front.homepage.read_more' | trans }} <i class="fas fa-chevron-right ms-5"></i></a>
+                                                <a href="{{ path('front_app_page_detail', {'menu': page.menuLevel1.slug, 'submenu': page.menuLevel2.slug, 'date': page.publishDate | date(constant('App\\Entity\\AbstractBase::DATA_GRID_TYPE_DATE_FORMAT')), 'page': page.slug}) }}" class="btn btn-outline-dark btn-sm rounded-0 border-2 text-uppercase">{{ 'front.homepage.read_more' | trans }} <i class="fas fa-chevron-right ms-5"></i></a>
                                             </div>
                                         </div>
                                     </div>

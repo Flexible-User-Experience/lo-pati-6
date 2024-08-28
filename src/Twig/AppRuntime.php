@@ -10,9 +10,7 @@ use App\Enum\NewsletterStatusEnum;
 use App\Enum\PageTemplateTypeEnum;
 use App\Enum\UserRolesEnum;
 use App\Kernel;
-use Exception;
 use Liip\ImagineBundle\Imagine\Cache\CacheManager;
-use ReflectionClass;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Extension\RuntimeExtensionInterface;
@@ -36,7 +34,7 @@ final class AppRuntime implements RuntimeExtensionInterface
     // Tests
     public function isInstanceOf($var, $instance): bool
     {
-        return (new ReflectionClass($instance))->isInstance($var);
+        return (new \ReflectionClass($instance))->isInstance($var);
     }
 
     // Functions
@@ -71,7 +69,7 @@ final class AppRuntime implements RuntimeExtensionInterface
         $imageFile = $this->vuh->asset($page, $fieldName, Page::class);
         try {
             [$width, $height] = getimagesize($this->getPublicProjectDir().$imageFile);
-        } catch (Exception $e) {
+        } catch (\Exception) {
             dd($page->getId());
         }
 
@@ -147,6 +145,6 @@ final class AppRuntime implements RuntimeExtensionInterface
 
     private function getPublicProjectDir(): string
     {
-        return $this->pb->get('kernel.project_dir').DIRECTORY_SEPARATOR.Kernel::PUBLIC_DIR;
+        return sprintf('%s%s%s', $this->pb->get('kernel.project_dir'), DIRECTORY_SEPARATOR, Kernel::PUBLIC_DIR);
     }
 }
