@@ -1,30 +1,124 @@
-# This file is the entry point to configure your own services.
-# Files in the packages/ subdirectory configure your dependencies.
+imports:
+    - { resource: 'services/sonata_admins.yaml' }
+    - { resource: 'services/sonata_blocks.yaml' }
 
-# Put parameters here that don't need to change on each machine where the app is deployed
-# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
-    google_recaptcha_site_key: '%env(GOOGLE_RECAPTCHA_SITE_KEY)%'
+    default_locale:             '%env(string:DEFAULT_LOCALE)%'
+    add_this_api_key:           '%env(string:ADD_THIS_API_KEY)%'
+    google_maps_api_key:        '%env(string:GOOGLE_MAPS_API_KEY)%'
+    google_tag_v4:              '%env(string:GOOGLE_TAG_V4)%'
+    project_title:              '%env(string:PROJECT_TITLE)%'
+    developer_name:             '%env(string:DEVELOPER_NAME)%'
+    developer_delivery_address: '%env(string:DEV_DELIVERY_ADDRESS)%'
+    developer_url:              '%env(string:DEVELOPER_URL)%'
+    send_grid_api_key:          '%env(string:SEND_GRID_API_KEY)%'
+    customer_name:              '%env(string:CUSTOMER_NAME)%'
+    customer_email:             '%env(string:CUSTOMER_EMAIL)%'
+    customer_url:               '%env(string:CUSTOMER_URL)%'
+    email_address_test_1:       '%env(string:EMAIL_ADDRESS_TEST_1)%'
+    email_address_test_2:       '%env(string:EMAIL_ADDRESS_TEST_2)%'
+    email_address_test_3:       '%env(string:EMAIL_ADDRESS_TEST_3)%'
+    id_page_contact:            '%env(int:ID_PAGE_CONTACT)%'
+    id_page_irradiador:         '%env(int:ID_PAGE_IRRADIADOR)%'
+    id_menu_archive:            '%env(int:ID_MENU_ARCHIVE)%'
+    pp_id:                      '%env(string:PP_ID)%'
+    pp_cif:                     '%env(string:PP_CIF)%'
+    pp_address:                 '%env(string:PP_ADDRESS)%'
+    pp_zip:                     '%env(string:PP_ZIP)%'
+    pp_city:                    '%env(string:PP_CITY)%'
+    pp_phone:                   '%env(string:PP_PHONE)%'
+    pp_email:                   '%env(string:PP_EMAIL)%'
+    pp_communication_email:     '%env(string:PP_COMMUNICATION_EMAIL)%'
+    locale_i18n:                [ 'es' ]
+    locale_i18n_full:           [ 'ca', 'es' ]
 
 services:
-    # default configuration for services in *this* file
     _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-
-    # makes classes in src/ available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
+        autowire:      true
+        autoconfigure: true
+        bind:
+            $sendGridApiKey:    '%send_grid_api_key%'
+            $customerName:      '%project_title%'
+            $customerEmail:     '%customer_email%'
+            $emailAddressTest1: '%email_address_test_1%'
+            $emailAddressTest2: '%email_address_test_2%'
+            $emailAddressTest3: '%email_address_test_3%'
+            $idPageIrradiador:  '%id_page_irradiador%'
+            $idMenuArchive:     '%id_menu_archive%'
+            $locale:            '%default_locale%'
+            $locales:           '%locale_i18n_full%'
     App\:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
-
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
-
-    # HTTP Discovery
+            - '../src/Tests/'
+    # menus
+    app.frontend_main_menu:
+        class: 'Knp\Menu\MenuItem'
+        factory: [ '@App\Menu\Frontend\MenuBuilder', 'createMainMenu' ]
+        tags:
+            - { name: 'knp_menu.menu', alias: 'frontend_main' }
+    app.frontend_language_menu:
+        class:   'Knp\Menu\MenuItem'
+        factory: [ '@App\Menu\Frontend\LanguageBuilder', 'createLanguageMenu' ]
+        tags:
+            - { name: 'knp_menu.menu', alias: 'frontend_language' }
+    app.backend_top_rigth_nav_menu:
+        class: 'Knp\Menu\MenuItem'
+        factory: [ '@App\Menu\Backend\TopRightNavMenuBuilder', 'createRightTopNavMenu' ]
+        tags:
+            - { name: 'knp_menu.menu', alias: 'backend_top_right_nav_menu' }
+    App\Menu\Backend\TopRightNavMenuBuilder:
+        arguments:
+            - '@knp_menu.factory'
+            - '@security.helper'
+    # event listeners
+    App\Event\Listener\SitemapListener:
+        arguments:
+            - '@router'
+            - '@App\Repository\MenuLevel1Repository'
+            - '@App\Repository\PageRepository'
+        tags:
+            - { name: 'kernel.event_subscriber', priority: 100 }
+    App\Event\Listener\UserSuccessLoginEventListener:
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: 'kernel.event_listener', event: 'app.user_success_login_event', method: 'onUserSuccessLogin', priority: 1 }
+    App\Form\EventListener\DefaultTranslationsListener:
+        arguments:
+            - '@App\Form\Translation\GedmoTranslationForm'
+    App\Form\EventListener\GedmoTranslationsListener:
+        arguments:
+            - '@App\Form\Translation\GedmoTranslationForm'
+    App\Form\Translation\DefaultTranslationForm:
+        arguments:
+            - '@form.registry'
+            - '@Doctrine\Common\Persistence\ManagerRegistry'
+    App\Form\Translation\GedmoTranslationForm:
+        arguments:
+            - '@form.registry'
+            - '@Doctrine\Common\Persistence\ManagerRegistry'
+        calls:
+            - setGedmoTranslatableListener: [ '@stof_doctrine_extensions.listener.translatable' ]
+    # forms
+    App\Form\Type\GedmoTranslationsType:
+        arguments:
+            - '@App\Form\EventListener\GedmoTranslationsListener'
+            - '@App\Form\Translation\GedmoTranslationForm'
+            - '%locale_i18n%'
+            - ~
+        tags:
+            - { name: 'form.type' }
+    App\Form\Type\TranslationsFormsType:
+        arguments:
+            - '%locale_i18n%'
+            - ~
+        tags:
+            - { name: 'form.type' }
+    # HTTP discovery (Meilisearch requirement)
     Psr\Http\Message\RequestFactoryInterface: '@http_discovery.psr17_factory'
     Psr\Http\Message\ResponseFactoryInterface: '@http_discovery.psr17_factory'
     Psr\Http\Message\ServerRequestFactoryInterface: '@http_discovery.psr17_factory'
