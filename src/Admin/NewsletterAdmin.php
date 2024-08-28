@@ -56,10 +56,10 @@ final class NewsletterAdmin extends AbstractBaseAdmin
                 [
                     'label' => 'filter.label_created_at',
                     'field_type' => DatePickerType::class,
-                    'format' => AbstractBase::DATAGRID_TYPE_DATE_FORMAT,
+                    'format' => AbstractBase::DATA_GRID_TYPE_DATE_FORMAT,
                     'field_options' => [
                         'widget' => 'single_text',
-                        'format' => AbstractBase::DATAGRID_WIDGET_DATE_FORMAT,
+                        'format' => AbstractBase::DATA_GRID_WIDGET_DATE_FORMAT,
                     ],
                 ]
             )
@@ -82,10 +82,10 @@ final class NewsletterAdmin extends AbstractBaseAdmin
                 DateFilter::class,
                 [
                     'field_type' => DatePickerType::class,
-                    'format' => AbstractBase::DATAGRID_TYPE_DATE_FORMAT,
+                    'format' => AbstractBase::DATA_GRID_TYPE_DATE_FORMAT,
                     'field_options' => [
                         'widget' => 'single_text',
-                        'format' => AbstractBase::DATAGRID_WIDGET_DATE_FORMAT,
+                        'format' => AbstractBase::DATA_GRID_WIDGET_DATE_FORMAT,
                     ],
                 ]
             )

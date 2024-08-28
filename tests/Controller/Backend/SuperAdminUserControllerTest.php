@@ -11,7 +11,7 @@ class SuperAdminUserControllerTest extends WebTestCase
 {
     private const string ADMIN_USER = 'user2@user.com';
 
-    public static function testHomepage(): void
+    public static function testSuccessfulPages(): void
     {
         $client = static::createClient();
         $userRepository = static::getContainer()->get(UserRepository::class);

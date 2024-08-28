@@ -25,6 +25,7 @@ google_apis_credentials.json
 
 ###> symfony/asset-mapper ###
 /public/assets/
+/public/uploads/
 /assets/vendor/
 ###< symfony/asset-mapper ###
 

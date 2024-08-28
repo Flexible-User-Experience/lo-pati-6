@@ -10,7 +10,12 @@ use App\Entity\Translation\PageTranslation;
 use App\Enum\PageTemplateTypeEnum;
 use App\Enum\SortOrderTypeEnum;
 use App\Form\Type\GedmoTranslationsType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\BoldField;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\ItalicField;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\LinkField;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\UnderlineField;
+use Ehyiah\QuillJsBundle\DTO\QuillGroup;
+use Ehyiah\QuillJsBundle\Form\QuillType;
 use Sonata\AdminBundle\Datagrid\DatagridInterface;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -64,10 +69,10 @@ final class PageAdmin extends AbstractBaseAdmin
                 DateFilter::class,
                 [
                     'field_type' => DatePickerType::class,
-                    'format' => AbstractBase::DATAGRID_TYPE_DATE_FORMAT,
+                    'format' => AbstractBase::DATA_GRID_TYPE_DATE_FORMAT,
                     'field_options' => [
                         'widget' => 'single_text',
-                        'format' => AbstractBase::DATAGRID_WIDGET_DATE_FORMAT,
+                        'format' => AbstractBase::DATA_GRID_WIDGET_DATE_FORMAT,
                     ],
                 ]
             )
@@ -123,10 +128,10 @@ final class PageAdmin extends AbstractBaseAdmin
                 DateFilter::class,
                 [
                     'field_type' => DatePickerType::class,
-                    'format' => AbstractBase::DATAGRID_TYPE_DATE_FORMAT,
+                    'format' => AbstractBase::DATA_GRID_TYPE_DATE_FORMAT,
                     'field_options' => [
                         'widget' => 'single_text',
-                        'format' => AbstractBase::DATAGRID_WIDGET_DATE_FORMAT,
+                        'format' => AbstractBase::DATA_GRID_WIDGET_DATE_FORMAT,
                     ],
                 ]
             )
@@ -144,10 +149,10 @@ final class PageAdmin extends AbstractBaseAdmin
                 DateFilter::class,
                 [
                     'field_type' => DatePickerType::class,
-                    'format' => AbstractBase::DATAGRID_TYPE_DATE_FORMAT,
+                    'format' => AbstractBase::DATA_GRID_TYPE_DATE_FORMAT,
                     'field_options' => [
                         'widget' => 'single_text',
-                        'format' => AbstractBase::DATAGRID_WIDGET_DATE_FORMAT,
+                        'format' => AbstractBase::DATA_GRID_WIDGET_DATE_FORMAT,
                     ],
                 ]
             )
@@ -156,10 +161,10 @@ final class PageAdmin extends AbstractBaseAdmin
                 DateFilter::class,
                 [
                     'field_type' => DatePickerType::class,
-                    'format' => AbstractBase::DATAGRID_TYPE_DATE_FORMAT,
+                    'format' => AbstractBase::DATA_GRID_TYPE_DATE_FORMAT,
                     'field_options' => [
                         'widget' => 'single_text',
-                        'format' => AbstractBase::DATAGRID_WIDGET_DATE_FORMAT,
+                        'format' => AbstractBase::DATA_GRID_WIDGET_DATE_FORMAT,
                     ],
                 ]
             )
@@ -300,11 +305,20 @@ final class PageAdmin extends AbstractBaseAdmin
             )
             ->add(
                 'description',
-                CKEditorType::class,
+                QuillType::class,
                 [
                     'required' => false,
-                    'attr' => [
-                        'rows' => 5,
+                    'quill_extra_options' => [
+                        'height' => '400px',
+                        'theme' => 'snow',
+                    ],
+                    'quill_options' => [
+                        QuillGroup::build(
+                            new BoldField(),
+                            new UnderlineField(),
+                            new ItalicField(),
+                            new LinkField(),
+                        ),
                     ],
                 ]
             )
@@ -383,10 +397,18 @@ final class PageAdmin extends AbstractBaseAdmin
                         'description' => [
                             'label' => 'form.label_description',
                             'required' => false,
-                            'field_type' => CKEditorType::class,
-                            'attr' => [
-                                'rows' => 5,
-                                'style' => 'resize:vertical',
+                            'field_type' => QuillType::class,
+                            'quill_extra_options' => [
+                                'height' => '400px',
+                                'theme' => 'snow',
+                            ],
+                            'quill_options' => [
+                                QuillGroup::build(
+                                    new BoldField(),
+                                    new UnderlineField(),
+                                    new ItalicField(),
+                                    new LinkField(),
+                                ),
                             ],
                         ],
                         'realizationDateString' => [
@@ -569,13 +591,21 @@ final class PageAdmin extends AbstractBaseAdmin
             ->end()
             ->with('admin.common.links', $this->getFormMdSuccessBoxArray(4))
             ->add(
-                'links',
-                CKEditorType::class,
+                'description',
+                QuillType::class,
                 [
                     'required' => false,
-                    'config_name' => 'app_custom_half_height_config',
-                    'attr' => [
-                        'rows' => 5,
+                    'quill_extra_options' => [
+                        'height' => '200px',
+                        'theme' => 'snow',
+                    ],
+                    'quill_options' => [
+                        QuillGroup::build(
+                            new BoldField(),
+                            new UnderlineField(),
+                            new ItalicField(),
+                            new LinkField(),
+                        ),
                     ],
                 ]
             )
@@ -648,7 +678,7 @@ final class PageAdmin extends AbstractBaseAdmin
             'showSocialNetworksSharingButtons',
             'links',
             'urlVimeo',
-//            'urlFlickr',
+            //            'urlFlickr',
             'startDateString',
             'endDateString',
             'alwaysShowOnCalendarString',

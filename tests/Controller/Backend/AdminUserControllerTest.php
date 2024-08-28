@@ -12,7 +12,7 @@ class AdminUserControllerTest extends WebTestCase
     public const string ADMIN_FIREWALL_CONTEXT = 'admin';
     private const string ADMIN_USER = 'user1@user.com';
 
-    public static function testHomepage(): void
+    public static function testSuccessfulPages(): void
     {
         $client = static::createClient();
         $userRepository = static::getContainer()->get(UserRepository::class);

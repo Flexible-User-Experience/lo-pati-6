@@ -85,6 +85,7 @@ final class NewsletterController extends AbstractController
                 $searchedNewsletterUser->getEmail(),
                 $searchedNewsletterUser->getName(),
             );
+            // TODO redirect to thank you message due to Turbo system
             $this->addFlash('success', $translator->trans('newsletter.flash.register'));
 
             return $this->redirectToRoute('front_app_homepage', ['_locale' => $request->getLocale()]);
@@ -92,7 +93,7 @@ final class NewsletterController extends AbstractController
 
         return $this->render('frontend/newsletter/form.html.twig',
             [
-                'newsletter_subscription_form' => $newsletterSubscriptionForm->createView(),
+                'newsletter_subscription_form' => $newsletterSubscriptionForm,
             ]
         );
     }

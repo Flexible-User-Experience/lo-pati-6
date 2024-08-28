@@ -10,7 +10,7 @@ class BaseControllerTest extends WebTestCase
     /**
      * @dataProvider provideUrls
      */
-    public static function testHomepage(string $url): void
+    public static function testSuccessfulPages(string $url): void
     {
         $client = static::createClient();
         $client->request('GET', $url);

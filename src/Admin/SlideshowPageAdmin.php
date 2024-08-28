@@ -7,7 +7,12 @@ use App\Entity\MenuLevel2;
 use App\Entity\Translation\SlideshowPageTranslation;
 use App\Enum\SortOrderTypeEnum;
 use App\Form\Type\GedmoTranslationsType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\BoldField;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\ItalicField;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\LinkField;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\UnderlineField;
+use Ehyiah\QuillJsBundle\DTO\QuillGroup;
+use Ehyiah\QuillJsBundle\Form\QuillType;
 use Sonata\AdminBundle\Datagrid\DatagridInterface;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -146,11 +151,20 @@ final class SlideshowPageAdmin extends AbstractBaseAdmin
             )
             ->add(
                 'description',
-                CKEditorType::class,
+                QuillType::class,
                 [
                     'required' => false,
-                    'attr' => [
-                        'rows' => 5,
+                    'quill_extra_options' => [
+                        'height' => '400px',
+                        'theme' => 'snow',
+                    ],
+                    'quill_options' => [
+                        QuillGroup::build(
+                            new BoldField(),
+                            new UnderlineField(),
+                            new ItalicField(),
+                            new LinkField(),
+                        ),
                     ],
                 ]
             )
@@ -195,10 +209,18 @@ final class SlideshowPageAdmin extends AbstractBaseAdmin
                         'description' => [
                             'label' => 'form.label_description',
                             'required' => false,
-                            'field_type' => CKEditorType::class,
-                            'attr' => [
-                                'rows' => 5,
-                                'style' => 'resize:vertical',
+                            'field_type' => QuillType::class,
+                            'quill_extra_options' => [
+                                'height' => '400px',
+                                'theme' => 'snow',
+                            ],
+                            'quill_options' => [
+                                QuillGroup::build(
+                                    new BoldField(),
+                                    new UnderlineField(),
+                                    new ItalicField(),
+                                    new LinkField(),
+                                ),
                             ],
                         ],
                         'realizationDateString' => [
