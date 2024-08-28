@@ -4,14 +4,14 @@
 {% block meta_tags %}
     {{ parent() }}
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('build/images/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('build/images/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('build/images/favicon-16x16.png') }}">
-    <link rel="mask-icon" href="{{ asset('build/vectors/safari-pinned-tab.svg') }}" color="#000000">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/images/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/images/favicon-16x16.png') }}">
+    <link rel="mask-icon" href="{{ asset('/vectors/safari-pinned-tab.svg') }}" color="#000000">
 {% endblock %}
 
-{# removes top search bar #}
-{% block sonata_sidebar_search %}{% endblock %}
+{# disable Turbo to avoid form redirect responses problem #}
+{% block html_attributes %}{{ parent() }} data-turbo=false{% endblock %}
 
 {# custom logo #}
 {% block logo %}
@@ -36,12 +36,6 @@
     </div>
 {% endblock %}
 
-{# override custom JS #}
-{% block javascripts %}
-    {{ parent() }}
-    {{ encore_entry_script_tags('backend') }}
-{% endblock %}
-
 {# custom top menu #}
 {% block sonata_top_nav_menu %}
     <div class="navbar-custom-menu">
@@ -49,25 +43,67 @@
     </div>
 {% endblock %}
 
+{# override css includes #}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/admin.scss') }}">
+{% endblock %}
+
+{# override javascript includes #}
+{% block javascripts %}
+    {{ parent() }}
+    {{ importmap('app') }}
+{% endblock %}
+
 {# custom main content #}
 {% block sonata_page_content %}
     <div class="modal fade" id="pdf-preview-modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div data-controller="pdf-preview" data-action="app-pdf-preview-button-clicked@window->pdf-preview#update" data-pdf-preview-hidden-class="hidden" class="modal-content">
+        <div class="modal-dialog modal-md" role="document">
+            <div
+                    class="modal-content"
+                    {{ stimulus_controller('pdf-viewer') }}
+                    data-action="app-pdf-viewer-button-clicked@window->pdf-viewer#update"
+                    data-pdf-viewer-hidden-class="hide"
+                    data-pdf-viewer-path-value=""
+                    data-pdf-viewer-mime-value="application/pdf"
+            >
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ 'back.action.close' | trans }}"><span aria-hidden="true">&times;</span></button>
-                    <div class="btn-group mr-3" role="group" aria-label="{{ 'back.action.pdf_preview' | trans }}">
-                        <a data-pdf-preview-target="downloader" style="margin-top:1px;" class="btn btn-warning" download><i class="fa fa-download"></i> {{ 'vich_uploader.link.download' | trans | capitalize }}</a>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ 'Close' | trans }}"><span aria-hidden="true">&times;</span></button>
+                    <div class="btn-group mr-3" role="group" aria-label="Modal">
+                        <a
+                                {{ stimulus_target('pdf-viewer', 'downloader') }}
+                                style="margin-right:3px;"
+                                class="btn btn-primary"
+                                download
+                        >
+                            <i class="fas fa-cloud-download-alt margin-r-5"></i> {{ 'vich_uploader.link.download' | trans | capitalize }}
+                        </a>
                     </div>
-                    <div class="btn-group" role="group" aria-label="{{ 'back.action.pdf_preview' | trans }}">
-                        <button data-action="pdf-preview#onPrevPage" type="button" class="btn btn-warning"><i class="fa fa-chevron-left"></i></button>
-                        <button type="button" class="btn btn-default">{{ 'back.action.page' | trans }}&nbsp;<span data-pdf-preview-target="current"></span>&nbsp;{{ 'back.action.of' | trans }}&nbsp;<span data-pdf-preview-target="total"></span></button>
-                        <button data-action="pdf-preview#onNextPage" type="button" class="btn btn-warning"><i class="fa fa-chevron-right"></i></button>
+                    <div
+                            {{ stimulus_target('pdf-viewer', 'pager') }}
+                            class="btn-group"
+                            role="group"
+                            aria-label="Modal"
+                    >
+                        <button {{ stimulus_action('pdf-viewer', 'onPrevPage') }} type="button" class="btn btn-primary"><i class="fas fa-chevron-left"></i></button>
+                        <button type="button" class="btn btn-default">{{ 'Page' | trans }}&nbsp;<span {{ stimulus_target('pdf-viewer', 'current') }}></span>&nbsp;{{ 'Of' | trans }}&nbsp;<span {{ stimulus_target('pdf-viewer', 'total') }}></span></button>
+                        <button {{ stimulus_action('pdf-viewer', 'onNextPage') }} type="button" class="btn btn-primary"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
                 <div class="modal-body">
-                    <p data-pdf-preview-target="loader" class="lead text-center mb-0"><i class="fa fa-5x fa-spin fa-circle-o-notch"></i></p>
-                    <canvas style="width:100%;border: solid 1px lightgrey" class="pdf-canvas hidden" data-pdf-preview-target="canvas"></canvas>
+                    <div class="row" {{ stimulus_target('pdf-viewer', 'loader') }}>
+                        <div class="col-xs-12">
+                            <p class="mt-5 mb-5 text-center text-muted">
+                                <i class="fas fa-5x fa-spin fa-sync" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div {{ stimulus_target('pdf-viewer', 'warning') }}></div>
+                    <div class="row mb-2">
+                        <div class="col-xs-12">
+                            <canvas class="viewer hide" {{ stimulus_target('pdf-viewer', 'canvas') }}></canvas>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

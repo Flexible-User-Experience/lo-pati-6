@@ -1,3 +1,236 @@
-body {
-    background-color: skyblue;
+// custom variables
+$lp-base-precent: 25%;
+$lp-color-white: #FFFFFF;
+$lp-color-ultra-black: #0E131C;
+$lp-color-black: #151920;
+$lp-color-light-grey: #78838C;
+$lp-color-ultra-light-grey: #CBCFD1;
+$lp-color-red: #FF004E;
+$lp-color-teal: #59F3C1;
+$lp-color-purple: #3B1493;
+$lp-color-yellow: #FFDF4A;
+
+// override Bootstrap v5 variables before import
+$primary: $lp-color-red;
+$dark: $lp-color-black;
+$light: $lp-color-light-grey;
+$navbar-nav-link-padding-x: .95rem;
+$navbar-light-color: $lp-color-light-grey;
+$navbar-light-hover-color: --bs-body-color;
+$navbar-light-active-color: --bs-body-color;
+$nav-link-color: $lp-color-light-grey;
+$nav-link-hover-color: lighten($lp-color-red, $lp-base-precent);
+$nav-link-active-color: $lp-color-red;
+$offcanvas-vertical-height: 50vh;
+$font-family-sans-serif:  'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E");
+
+// custom header navbar
+ul.navbar-nav {
+  &.menu {
+    li.nav-item {
+      padding: 0;
+      margin: 0;
+      &.active {
+        border-bottom: solid 5px $lp-color-red;
+      }
+      &:hover {
+        border-bottom: solid 5px lighten($lp-color-red, $lp-base-precent);
+      }
+      a.nav-link {
+        font-weight: 500 !important;
+        font-size: .80rem;
+        letter-spacing: .020rem;
+        padding-top: 36px;
+        height: 100%;
+      }
+    }
+  }
+  &.language {
+    li.nav-item {
+      padding: 0;
+      margin: 0;
+      font-size: .85rem;
+      a.nav-link {
+        padding-top: 36px;
+        height: 100%;
+        &.active {
+          font-weight: 600 !important;
+        }
+      }
+    }
+  }
 }
+
+// custom subheader navbar
+nav.submenu {
+  padding: 0;
+  ul.nav.nav-pills {
+    padding-top: 5px;
+    li.nav-item {
+      border-bottom: solid 5px $lp-color-white;
+      &.active {
+        font-weight: bolder;
+        border-bottom: solid 5px $lp-color-red;
+      }
+      &:hover {
+        border-bottom: solid 5px lighten($lp-color-red, $lp-base-precent);
+      }
+      a.nav-link {
+        padding: 20px;
+        height: 100%;
+        color: $lp-color-light-grey;
+        font-weight: 500!important;
+        font-size: .80rem;
+        letter-spacing: .020rem;
+        &.active {
+          color: $lp-color-black;
+          background-color: $lp-color-white;
+        }
+        &:hover {
+          color: $lp-color-black;
+        }
+      }
+    }
+  }
+}
+
+// custom navlink
+.nav-link.active {
+  color: $nav-link-active-color;
+}
+
+// custom paginator
+ul.pagination {
+  li.page-item {
+    &.active {
+      .page-link {
+        color: $lp-color-black !important;
+        background: none !important;
+        font-weight: bolder;
+      }
+    }
+    .page-link {
+      color: $lp-color-light-grey !important;
+      border: none;
+    }
+  }
+}
+
+// highlighted tumbnails
+.mini-colored-box-detail {
+  margin-left: -10px;
+  width: 30px;
+  height: 12px;
+}
+
+// buttons
+a.btn.btn-outline-dark.btn-sm.rounded-0.border-2.text-uppercase {
+  font-weight: 500;
+}
+
+// carousels
+.carousel-indicators [data-bs-target] {
+  height: 7px !important;
+  margin-left: 8px !important;
+  margin-right: 8px !important;
+}
+
+// forms
+.form-control {
+  font-size: .80rem !important;
+}
+
+// cards
+.card-subtitle {
+  margin-top: .1rem;
+  text-transform: uppercase;
+  font-size: .80rem;
+  letter-spacing: .050rem;
+}
+
+.card-subtitle, .card-text:last-child {
+  text-transform: uppercase;
+  font-size: .70rem;
+}
+
+// custom footer
+footer {
+  div.lp-bg-timetable-section {
+    background: $lp-color-black url('../images/timetable_section_background.png') no-repeat center;
+    background-size: cover;
+  }
+}
+
+// custom spacers
+.w-10 {
+  width: 10% !important;
+}
+.w-90 {
+  width: 90% !important;
+}
+.w-235-px {
+  width: 235px !important;
+}
+
+// custom color classes
+.lp-c-black {
+  color: $lp-color-black !important;
+}
+.lp-c-light-grey {
+  color: $lp-color-light-grey !important;
+}
+.lp-c-ultra-light-grey {
+  color: $lp-color-ultra-light-grey !important;
+}
+.lp-c-white {
+  color: $lp-color-white !important;
+}
+.lp-c-red {
+  color: $lp-color-red !important;
+}
+.lp-bg-white {
+  background-color: $lp-color-white !important;
+}
+.lp-bg-ultra-black {
+  background-color: $lp-color-ultra-black !important;
+}
+.lp-bg-black {
+  background-color: $lp-color-black !important;
+}
+.lp-bg-light-grey {
+  background-color: $lp-color-light-grey !important;
+}
+.lp-bg-red {
+  background-color: $lp-color-red !important;
+}
+.lp-bg-teal {
+  background-color: $lp-color-teal !important;
+}
+.lp-bg-purple {
+  background-color: $lp-color-purple !important;
+}
+.lp-bg-yellow {
+  background-color: $lp-color-yellow !important;
+}
+
+// calendar
+.table-calendar {
+  td {
+    background-clip: padding-box;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    &.round-background {
+      background-color: $lp-color-ultra-light-grey;
+    }
+  }
+}
+
+// TODO @import '~icheck-bootstrap/icheck-bootstrap.css';
+@import '@bootstrap/bootstrap';
+@import '@fortawesome/fontawesome';
+@import '@fortawesome/regular';
+@import '@fortawesome/solid';
+@import '@fortawesome/brands';

@@ -19,6 +19,36 @@ return [
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
     ],
+    '@hotwired/turbo' => [
+        'version' => '7.3.0',
+    ],
+    '@kurkle/color' => [
+        'version' => '0.3.2',
+    ],
+    '@popperjs/core' => [
+        'version' => '2.11.8',
+    ],
+    '@symfony/stimulus-bundle' => [
+        'path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js',
+    ],
+    '@symfony/ux-live-component' => [
+        'path' => './vendor/symfony/ux-live-component/assets/dist/live_controller.js',
+    ],
+    'bootstrap' => [
+        'version' => '5.3.3',
+    ],
+    'chart.js' => [
+        'version' => '4.4.3',
+    ],
+    'pdfjs-dist/build/pdf.min.mjs' => [
+        'version' => '4.5.136',
+    ],
+    'pdfjs-dist/build/pdf.worker.min.mjs' => [
+        'version' => '4.5.136',
+    ],
+    'stimulus-use' => [
+        'version' => '0.52.2',
+    ],
     'file-loader' => [
         'version' => '6.2.0',
     ],
@@ -99,17 +129,5 @@ return [
     ],
     'quill-resize-image' => [
         'version' => '1.0.5',
-    ],
-    '@symfony/stimulus-bundle' => [
-        'path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js',
-    ],
-    'chart.js' => [
-        'version' => '3.9.1',
-    ],
-    '@symfony/ux-live-component' => [
-        'path' => './vendor/symfony/ux-live-component/assets/dist/live_controller.js',
-    ],
-    '@hotwired/turbo' => [
-        'version' => '7.3.0',
     ],
 ];
