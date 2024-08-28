@@ -23,12 +23,11 @@ final class ArchiveController extends AbstractController
     ], name: 'front_app_archive_year_list')]
     public function archiveYearList(
         #[MapEntity(mapping: ['menu' => 'slug'])] MenuLevel1 $menu,
-        #[MapEntity(mapping: ['year' => 'slug'])] Archive $archive,
+        #[MapEntity(mapping: ['year' => 'year'])] Archive $archive,
         ArchiveRepository $ar,
         PageRepository $pr,
         KernelInterface $kernel
-    ): Response
-    {
+    ): Response {
         return $this->render(
             'frontend/archive/archive_year_list.html.twig',
             [
@@ -53,8 +52,7 @@ final class ArchiveController extends AbstractController
         MenuLevel1Repository $ml1r,
         KernelInterface $kernel,
         int $idMenuArchive
-    ): Response
-    {
+    ): Response {
         return $this->render(
             'frontend/archive/archive_year_page_detail.html.twig',
             [
