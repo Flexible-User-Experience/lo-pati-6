@@ -16,7 +16,8 @@ final readonly class MenuBuilder
         private FactoryInterface $factory,
         private RequestStack $requestStack,
         private TranslatorInterface $translator
-    ) {}
+    ) {
+    }
 
     public function createMainMenu(MenuLevel1Repository $ml1r): ItemInterface
     {
@@ -118,11 +119,6 @@ final readonly class MenuBuilder
     private function isMenuLevel1RouteCurrent(string $route): bool
     {
         return 'front_app_menu_level_1' === $route;
-    }
-
-    private function isMenuLevel2RouteCurrent(string $route): bool
-    {
-        return 'front_app_menu_level_2' === $route;
     }
 
     private function isPageDetailRouteCurrent(string $route): bool

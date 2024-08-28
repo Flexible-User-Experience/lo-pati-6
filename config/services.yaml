@@ -34,7 +34,7 @@ parameters:
 
 services:
     _defaults:
-        autowire:      true
+        autowire: true
         autoconfigure: true
         bind:
             $sendGridApiKey:    '%send_grid_api_key%'
@@ -55,25 +55,25 @@ services:
             - '../src/Kernel.php'
             - '../src/Tests/'
     # menus
-    app.frontend_main_menu:
-        class: 'Knp\Menu\MenuItem'
-        factory: [ '@App\Menu\Frontend\MenuBuilder', 'createMainMenu' ]
+    App\Menu\Frontend\MenuBuilder:
+        arguments:
+            - '@knp_menu.factory'
+            - '@request_stack'
+            - '@translator'
         tags:
-            - { name: 'knp_menu.menu', alias: 'frontend_main' }
-    app.frontend_language_menu:
-        class:   'Knp\Menu\MenuItem'
-        factory: [ '@App\Menu\Frontend\LanguageBuilder', 'createLanguageMenu' ]
+            - { name: 'knp_menu.menu', method: 'createMainMenu', alias: 'frontend_main' }
+    App\Menu\Frontend\LanguageBuilder:
+        arguments:
+            - '@knp_menu.factory'
+            - '@request_stack'
         tags:
-            - { name: 'knp_menu.menu', alias: 'frontend_language' }
-    app.backend_top_rigth_nav_menu:
-        class: 'Knp\Menu\MenuItem'
-        factory: [ '@App\Menu\Backend\TopRightNavMenuBuilder', 'createRightTopNavMenu' ]
-        tags:
-            - { name: 'knp_menu.menu', alias: 'backend_top_right_nav_menu' }
+            - { name: 'knp_menu.menu', method: 'createLanguageMenu', alias: 'frontend_language' }
     App\Menu\Backend\TopRightNavMenuBuilder:
         arguments:
             - '@knp_menu.factory'
             - '@security.helper'
+        tags:
+            - { name: 'knp_menu.menu', method: 'createRightTopNavMenu', alias: 'backend_top_right_nav_menu' }
     # event listeners
     App\Event\Listener\SitemapListener:
         arguments:
