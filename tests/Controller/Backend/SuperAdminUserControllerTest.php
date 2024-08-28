@@ -2,28 +2,24 @@
 
 namespace App\Tests\Controller\Backend;
 
-use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 class SuperAdminUserControllerTest extends WebTestCase
 {
-    private KernelBrowser $client;
-
-    public function setUp(): void
-    {
-        $this->client = $this->getSuperAdminAuthenticatedClient();
-    }
+    // TODO logged user
 
     /**
      * @dataProvider provideUrls
      */
-    public function testHomepage(string $url): void
+    public static function testHomepage(string $url): void
     {
-        $this->client->request('GET', $url);
+        $client = static::createClient();
+        $client->request('GET', $url);
         self::assertResponseIsSuccessful();
     }
 
-    public function provideUrls(): array
+    public static function provideUrls(): array
     {
         return [
             ['/admin/dashboard'],
@@ -76,13 +72,14 @@ class SuperAdminUserControllerTest extends WebTestCase
     /**
      * @dataProvider provideNotFoundUrls
      */
-    public function testNotFoundPages(string $url): void
+    public static function testNotFoundPages(string $url): void
     {
-        $this->client->request('GET', $url);
-        self::assertResponseStatusCodeSame(404);
+        $client = static::createClient();
+        $client->request('GET', $url);
+        self::assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
     }
 
-    public function provideNotFoundUrls(): array
+    public static function provideNotFoundUrls(): array
     {
         return [
             ['/admin/app/menulevel1/9/edit'],
@@ -120,13 +117,5 @@ class SuperAdminUserControllerTest extends WebTestCase
             ['/admin/app/user/1/show'],
             ['/admin/app/user/1/delete'],
         ];
-    }
-
-    private function getSuperAdminAuthenticatedClient(): KernelBrowser
-    {
-        return WebTestCase::createClient([], [
-            'PHP_AUTH_USER' => 'user2@user.com',
-            'PHP_AUTH_PW'   => 'password2',
-        ]);
     }
 }

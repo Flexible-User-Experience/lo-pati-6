@@ -2,28 +2,22 @@
 
 namespace App\Tests\Controller\Frontend;
 
-use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 class BaseControllerTest extends WebTestCase
 {
-    private KernelBrowser $client;
-
-    public function setUp(): void
-    {
-        $this->client = WebTestCase::createClient();
-    }
-
     /**
      * @dataProvider provideUrls
      */
-    public function testHomepage(string $url): void
+    public static function testHomepage(string $url): void
     {
-        $this->client->request('GET', $url);
+        $client = static::createClient();
+        $client->request('GET', $url);
         self::assertResponseIsSuccessful();
     }
 
-    public function provideUrls(): array
+    public static function provideUrls(): array
     {
         return [
             ['/sitemap/sitemap.default.xml'],
@@ -51,13 +45,14 @@ class BaseControllerTest extends WebTestCase
     /**
      * @dataProvider provideNotFoundUrls
      */
-    public function testNotFoundPages(string $url): void
+    public static function testNotFoundPages(string $url): void
     {
-        $this->client->request('GET', $url);
-        self::assertResponseStatusCodeSame(404);
+        $client = static::createClient();
+        $client->request('GET', $url);
+        self::assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
     }
 
-    public function provideNotFoundUrls(): array
+    public static function provideNotFoundUrls(): array
     {
         return [
             ['/not-found-page'],
@@ -68,15 +63,16 @@ class BaseControllerTest extends WebTestCase
     }
 
     /**
-     * @dataProvider provideReirectUrls
+     * @dataProvider provideRedirectUrls
      */
-    public function testRedirectPages(string $url): void
+    public static function testRedirectPages(string $url): void
     {
-        $this->client->request('GET', $url);
-        self::assertResponseStatusCodeSame(302);
+        $client = static::createClient();
+        $client->request('GET', $url);
+        self::assertResponseStatusCodeSame(Response::HTTP_FOUND);
     }
 
-    public function provideReirectUrls(): array
+    public static function provideRedirectUrls(): array
     {
         return [
             ['/menu-1'],

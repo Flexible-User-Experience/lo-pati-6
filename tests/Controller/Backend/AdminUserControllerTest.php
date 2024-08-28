@@ -2,29 +2,24 @@
 
 namespace App\Tests\Controller\Backend;
 
-use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 class AdminUserControllerTest extends WebTestCase
 {
-    private KernelBrowser $client;
-
-    public function setUp(): void
-    {
-        $this->client = $this->getAdminAuthenticatedClient();
-    }
+    // TODO logged user
 
     /**
      * @dataProvider provideUrls
      */
-    public function testHomepage(string $url): void
+    public static function testHomepage(string $url): void
     {
-
-        $this->client->request('GET', $url);
+        $client = static::createClient();
+        $client->request('GET', $url);
         self::assertResponseIsSuccessful();
     }
 
-    public function provideUrls(): array
+    public static function provideUrls(): array
     {
         return [
             ['/admin/dashboard'],
@@ -74,13 +69,14 @@ class AdminUserControllerTest extends WebTestCase
     /**
      * @dataProvider provideNotFoundUrls
      */
-    public function testNotFoundPages(string $url): void
+    public static function testNotFoundPages(string $url): void
     {
-        $this->client->request('GET', $url);
-        self::assertResponseStatusCodeSame(404);
+        $client = static::createClient();
+        $client->request('GET', $url);
+        self::assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
     }
 
-    public function provideNotFoundUrls(): array
+    public static function provideNotFoundUrls(): array
     {
         return [
             ['/admin/app/menulevel1/9/edit'],
@@ -123,26 +119,19 @@ class AdminUserControllerTest extends WebTestCase
     /**
      * @dataProvider provideForbiddenUrls
      */
-    public function testForbiddenPages(string $url): void
+    public static function testForbiddenPages(string $url): void
     {
-        $this->client->request('GET', $url);
-        self::assertResponseStatusCodeSame(403);
+        $client = static::createClient();
+        $client->request('GET', $url);
+        self::assertResponseStatusCodeSame(Response::HTTP_FORBIDDEN);
     }
 
-    public function provideForbiddenUrls(): array
+    public static function provideForbiddenUrls(): array
     {
         return [
             ['/admin/app/user/list'],
             ['/admin/app/user/create'],
             ['/admin/app/user/1/edit'],
         ];
-    }
-
-    private function getAdminAuthenticatedClient(): KernelBrowser
-    {
-        return WebTestCase::createClient([], [
-            'PHP_AUTH_USER' => 'user1@user.com',
-            'PHP_AUTH_PW'   => 'password1',
-        ]);
     }
 }
