@@ -14,8 +14,6 @@ use App\Enum\PageTemplateTypeEnum;
 use App\Enum\SortOrderTypeEnum;
 use App\Repository\PageRepository;
 use App\Validator\UrlVimeoConstraint;
-use DateTimeImmutable;
-use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -64,7 +62,7 @@ class Page extends AbstractBase
     private bool $isFrontCover = false;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private DateTimeInterface $publishDate;
+    private \DateTimeInterface $publishDate;
 
     #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
     private bool $showPublishDate = false;
@@ -76,7 +74,7 @@ class Page extends AbstractBase
     private bool $alwaysShowOnCalendar = false;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?DateTimeInterface $expirationDate;
+    private ?\DateTimeInterface $expirationDate;
 
     #[Gedmo\Translatable]
     #[ORM\Column(type: Types::STRING, length: 255, nullable: true)]
@@ -140,10 +138,10 @@ class Page extends AbstractBase
     private ?string $titleDocument2 = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?DateTimeInterface $startDate;
+    private ?\DateTimeInterface $startDate;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?DateTimeInterface $endDate;
+    private ?\DateTimeInterface $endDate;
 
     #[ORM\Column(type: Types::INTEGER, nullable: false, options: ['default' => self::DEFAULT_PAGE_TEMPLATE])]
     private int $templateType = self::DEFAULT_PAGE_TEMPLATE;
@@ -155,6 +153,7 @@ class Page extends AbstractBase
     #[ORM\ManyToOne(targetEntity: MenuLevel2::class, inversedBy: 'pages')]
     private ?MenuLevel2 $menuLevel2 = null;
 
+    #[ORM\JoinTable(name: 'page_previous_editions')]
     #[ORM\JoinColumn(name: 'page_id', referencedColumnName: 'id')]
     #[ORM\InverseJoinColumn(name: 'page_previous_edition_id', referencedColumnName: 'id')]
     #[ORM\ManyToMany(targetEntity: Page::class)]
@@ -241,7 +240,7 @@ class Page extends AbstractBase
         return $this;
     }
 
-    public function getPublishDate(): DateTimeInterface
+    public function getPublishDate(): \DateTimeInterface
     {
         return $this->publishDate;
     }
@@ -251,7 +250,7 @@ class Page extends AbstractBase
         return AbstractBase::transformDateAsString($this->getPublishDate());
     }
 
-    public function setPublishDate(DateTimeInterface $publishDate): self
+    public function setPublishDate(\DateTimeInterface $publishDate): self
     {
         $this->publishDate = $publishDate;
 
@@ -309,7 +308,7 @@ class Page extends AbstractBase
         return $this;
     }
 
-    public function getExpirationDate(): ?DateTimeInterface
+    public function getExpirationDate(): ?\DateTimeInterface
     {
         return $this->expirationDate;
     }
@@ -319,7 +318,7 @@ class Page extends AbstractBase
         return AbstractBase::transformDateAsString($this->getExpirationDate());
     }
 
-    public function setExpirationDate(?DateTimeInterface $expirationDate): self
+    public function setExpirationDate(?\DateTimeInterface $expirationDate): self
     {
         $this->expirationDate = $expirationDate;
 
@@ -439,7 +438,7 @@ class Page extends AbstractBase
     {
         $this->imageFile = $imageFile;
         if (null !== $imageFile) {
-            $this->updatedAt = new DateTimeImmutable();
+            $this->updatedAt = new \DateTimeImmutable();
         }
 
         return $this;
@@ -493,7 +492,7 @@ class Page extends AbstractBase
         return $this;
     }
 
-    public function getStartDate(): ?DateTimeInterface
+    public function getStartDate(): ?\DateTimeInterface
     {
         return $this->startDate;
     }
@@ -503,14 +502,14 @@ class Page extends AbstractBase
         return AbstractBase::transformDateAsString($this->getStartDate());
     }
 
-    public function setStartDate(?DateTimeInterface $startDate): self
+    public function setStartDate(?\DateTimeInterface $startDate): self
     {
         $this->startDate = $startDate;
 
         return $this;
     }
 
-    public function getEndDate(): ?DateTimeInterface
+    public function getEndDate(): ?\DateTimeInterface
     {
         return $this->endDate;
     }
@@ -520,7 +519,7 @@ class Page extends AbstractBase
         return AbstractBase::transformDateAsString($this->getEndDate());
     }
 
-    public function setEndDate(?DateTimeInterface $endDate): self
+    public function setEndDate(?\DateTimeInterface $endDate): self
     {
         $this->endDate = $endDate;
 
@@ -578,12 +577,12 @@ class Page extends AbstractBase
         return $this;
     }
 
-    public function getPreviousEditions(): ArrayCollection | Collection | null
+    public function getPreviousEditions(): ArrayCollection|Collection|null
     {
         return $this->previousEditions;
     }
 
-    public function setPreviousEditions(ArrayCollection | Collection | null $previousEditions): self
+    public function setPreviousEditions(ArrayCollection|Collection|null $previousEditions): self
     {
         $this->previousEditions = $previousEditions;
 
