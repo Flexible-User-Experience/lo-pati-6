@@ -66,7 +66,7 @@ final readonly class MenuBuilder
                 ]
             );
             $item->setChildrenAttribute('class', 'nav nav-pills');
-            if ($menuRoute && $menuRoute->getId() === $ml1Item->getId()) {
+            if ($menuRoute && $menuRoute === $ml1Item->getSlug()) {
                 if ($this->isMenuLevel1RouteCurrent($currentRoute) || $this->isPageDetailRouteCurrent($currentRoute)) {
                     $item->setCurrent(true);
                 }
@@ -93,7 +93,7 @@ final readonly class MenuBuilder
                             ],
                         ]
                     );
-                    if ($menuRoute && $submenuRoute && $menuRoute->getId() === $ml1Item->getId() && $submenuRoute->getId() === $ml2Item->getId()) {
+                    if ($menuRoute && $submenuRoute && $menuRoute === $ml1Item->getSlug() && $submenuRoute === $ml2Item->getSlug()) {
                         $submenu->setCurrent(true);
                         $submenu->setLinkAttribute('class', 'nav-link active');
                         $submenu->setLinkAttribute('aria-current', 'page');
