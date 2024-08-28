@@ -145,11 +145,11 @@ App\Entity\VisitingHours:
 App\Entity\User:
   user1:
     email: 'user1@user.com'
-    plainPassword: 'password1'
+    password: 'password1'
     roles:
       - 'ROLE_ADMIN'
   user2:
     email: 'user2@user.com'
-    plainPassword: 'password2'
+    password: 'password2'
     roles:
       - 'ROLE_SUPER_ADMIN'

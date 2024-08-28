@@ -7,7 +7,6 @@ use App\Enum\NewsletterStatusEnum;
 use App\Enum\NewsletterTypeEnum;
 use App\Enum\SortOrderTypeEnum;
 use App\Repository\NewsletterRepository;
-use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -23,7 +22,7 @@ class Newsletter extends AbstractBase
     private string $subject;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?DateTimeInterface $date = null;
+    private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(type: Types::INTEGER, nullable: false, options: ['default' => NewsletterStatusEnum::WAITING])]
     private int $status = NewsletterStatusEnum::WAITING;
@@ -35,16 +34,16 @@ class Newsletter extends AbstractBase
     private bool $tested = false;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?DateTimeInterface $beginSend = null;
+    private ?\DateTimeInterface $beginSend = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?DateTimeInterface $endSend = null;
+    private ?\DateTimeInterface $endSend = null;
 
     #[ORM\OneToMany(targetEntity: NewsletterPost::class, mappedBy: 'newsletter', cascade: ['persist', 'remove'], orphanRemoval: true)]
     #[ORM\OrderBy(['position' => SortOrderTypeEnum::ASC])]
     private Collection $posts;
 
-    #[ORM\JoinColumn(name: 'newsletter_group_id', referencedColumnName: 'id', nullable: false)]
+    #[ORM\JoinColumn(name: 'newsletter_group_id', referencedColumnName: 'id', nullable: true)]
     #[ORM\ManyToOne(targetEntity: NewsletterGroup::class)]
     private ?NewsletterGroup $group = null;
 
@@ -65,7 +64,7 @@ class Newsletter extends AbstractBase
         return $this;
     }
 
-    public function getDate(): ?DateTimeInterface
+    public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
     }
@@ -75,7 +74,7 @@ class Newsletter extends AbstractBase
         return AbstractBase::transformDateAsString($this->getDate());
     }
 
-    public function setDate(?DateTimeInterface $date): self
+    public function setDate(?\DateTimeInterface $date): self
     {
         $this->date = $date;
 
@@ -138,7 +137,7 @@ class Newsletter extends AbstractBase
         return $this;
     }
 
-    public function getBeginSend(): ?DateTimeInterface
+    public function getBeginSend(): ?\DateTimeInterface
     {
         return $this->beginSend;
     }
@@ -148,19 +147,19 @@ class Newsletter extends AbstractBase
         return AbstractBase::transformDateTimeAsString($this->getBeginSend());
     }
 
-    public function setBeginSend(?DateTimeInterface $beginSend): self
+    public function setBeginSend(?\DateTimeInterface $beginSend): self
     {
         $this->beginSend = $beginSend;
 
         return $this;
     }
 
-    public function getEndSend(): ?DateTimeInterface
+    public function getEndSend(): ?\DateTimeInterface
     {
         return $this->endSend;
     }
 
-    public function setEndSend(?DateTimeInterface $endSend): self
+    public function setEndSend(?\DateTimeInterface $endSend): self
     {
         $this->endSend = $endSend;
 
