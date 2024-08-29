@@ -5,12 +5,16 @@ sonata_admin:
     show_mosaic_button: false
     search: false
     options:
-        skin:                       'skin-black'
+        skin:                       'skin-red'
         default_icon:               'far fa-folder'
         logo_content:               'icon'
         list_action_button_content: 'icon'
-        pager_links:                10
+        html5_validate:             true
+        confirm_exit:               true
+        use_select2:                true
+        use_icheck:                 true
         lock_protection:            true
+        pager_links:                10
     templates:
         layout: 'backend/layout.html.twig'
     security:
@@ -77,3 +81,20 @@ sonata_admin:
                 settings:
                     content: >
                         <div><hr style="margin-top:40px;border-top:solid 1px #d2d6de"><p><i class="fas fa-info-circle"></i> Per rebre assistència tècnica envieu un missatge a <a href="mailto:suport@flux.cat?subject=Ajuda CMS %project_title%" style="color:#000">suport@flux.cat</a></p></div>
+
+when@dev:
+    sonata_admin:
+        dashboard:
+            groups:
+                Menu:
+                    keep_open: true
+                Page:
+                    keep_open: true
+                Newsletter:
+                    keep_open: true
+                Artist:
+                    keep_open: true
+                Archive:
+                    keep_open: true
+                Setting:
+                    keep_open: true

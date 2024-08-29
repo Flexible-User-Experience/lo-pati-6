@@ -1,18 +1,16 @@
 import { Controller } from '@hotwired/stimulus';
 import axios from 'axios';
-import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js';
 
-const routes = require('../../public/js/fos_js_routes.json');
-
+/* stimulusFetch: 'lazy' */
 export default class extends Controller {
     static targets = [ 'agenda' ]
     static values = {
         month: Number,
         year: Number,
+        url: String,
     }
 
     connect() {
-        Routing.setRoutingData(routes);
         this.postCalendar();
     }
 
@@ -38,7 +36,7 @@ export default class extends Controller {
 
     postCalendar() {
         let self = this;
-        axios.post(Routing.generate('front_app_calendar'), {month: this.monthValue, year: this.yearValue})
+        axios.post(this.urlValue, {month: this.monthValue, year: this.yearValue})
             .then(function (response) {
                 if (response.hasOwnProperty('data') && response.hasOwnProperty('status') && response.status === 200) {
                     self.agendaTarget.innerHTML = response.data;

@@ -12,7 +12,8 @@ final readonly class TopRightNavMenuBuilder
     public function __construct(
         private FactoryInterface $mf,
         private Security $ss
-    ) {}
+    ) {
+    }
 
     public function createRightTopNavMenu(): ItemInterface
     {
@@ -27,7 +28,7 @@ final readonly class TopRightNavMenuBuilder
             ->addChild(
                 'homepage',
                 [
-                    'label' => '<i class="fas fa-link"></i>',
+                    'label' => '<i class="fas fa-link fa-fw"></i>',
                     'route' => 'front_app_homepage',
                 ]
             )
@@ -43,7 +44,7 @@ final readonly class TopRightNavMenuBuilder
                 ->addChild(
                     'username',
                     [
-                        'label' => '<i class="fas fa-user" style="margin-right:5px"></i> '.$username,
+                        'label' => sprintf('<i class="far fa-user fa-fw margin-r-5"></i> %s', $username),
                         'uri' => '#',
                     ]
                 )
@@ -58,7 +59,7 @@ final readonly class TopRightNavMenuBuilder
             ->addChild(
                 'logout',
                 [
-                    'label' => '<i class="fa fa-power-off text-success"></i>',
+                    'label' => '<i class="fa fa-power-off fa-fw"></i>',
                     'route' => 'admin_app_logout',
                 ]
             )

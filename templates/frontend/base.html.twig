@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-3" data-controller="calendar" data-calendar-month-value="{{ 'now' | date('n') }}" data-calendar-year-value="{{ 'now' | date('Y') }}">
+                            <div class="col-12 col-sm-3" {{ stimulus_controller('calendar') }} data-calendar-url-value="{{ path('front_app_calendar') }}" data-calendar-month-value="{{ 'now' | date('n') }}" data-calendar-year-value="{{ 'now' | date('Y') }}">
                                 <div class="row">
                                     <div class="col-6">
                                         <h6 class="lp-bg-light-grey text-white text-uppercase p-2 mb-3">{{ 'front.layout.footer.agenda.dates' | trans }}</h6>
@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <div data-calendar-target="agenda">
+                                        <div {{ stimulus_target('calendar', 'agenda') }}>
                                             <i class="fas fa-spin fa-circle-notch fa-5x"></i>
                                         </div>
                                     </div>
