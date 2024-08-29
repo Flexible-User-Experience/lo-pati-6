@@ -109,18 +109,21 @@
                         </center>
                     </columns>
                 </row>
-                {% if show_bottom_bar %}
-                    <row>
-                        <columns small="12" large="12" class="black-background">
-                            <spacer size="15"></spacer>
-                            <p class="heading-date">
-                                {{ 'mail.click' | trans }} <a href="{{ url('front_app_newsletter_web_version', {id: newsletter.id}) }}">{{ 'mail.here' | trans }}</a> {{ 'mail.to_show_web_version' | trans }} | {{ 'mail.click' | trans }} <a href="%token%">{{ 'mail.here' | trans }}</a> {{ 'mail.to_unsubscribe' | trans }}
+            </container>
+        </wrapper>
+        {% if show_bottom_bar %}
+            <wrapper class="header grey-background">
+                <container>
+                    <row class="collapse">
+                        <columns small="6" large="6" class="grey-background vertical-padding">
+                            <p class="text-center black-color">
+                                {{ 'mail.click' | trans }} <a href="{{ url('front_app_newsletter_web_version', {id: newsletter.id}) }}" class="lopati-black-link">{{ 'mail.here' | trans }}</a> {{ 'mail.to_show_web_version' | trans }} · {{ 'mail.click' | trans }} <a href="%token%" class="lopati-black-link">{{ 'mail.here' | trans }}</a> {{ 'mail.to_unsubscribe' | trans }}
                             </p>
                         </columns>
                     </row>
-                {% endif %}
-            </container>
-        </wrapper>
+                </container>
+            </wrapper>
+        {% endif %}
     {% endblock %}
     <div style="display:none;white-space:nowrap;font:15px courier;line-height:0;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
     {% endapply %}
