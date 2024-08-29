@@ -4,9 +4,11 @@ namespace App\Twig;
 
 use App\Entity\AbstractBase;
 use App\Entity\Newsletter;
+use App\Entity\NewsletterPost;
 use App\Entity\Page;
 use App\Entity\User;
 use App\Enum\NewsletterStatusEnum;
+use App\Enum\NewsletterTypeEnum;
 use App\Enum\PageTemplateTypeEnum;
 use App\Enum\UserRolesEnum;
 use App\Kernel;
@@ -78,6 +80,20 @@ final class AppRuntime implements RuntimeExtensionInterface
         }
 
         return $this->lcm->getBrowserPath($imageFile, $filter);
+    }
+
+    public function getNewsletterPostHexColorString(NewsletterPost $post): string
+    {
+        $color = '#59F3C1';
+        if (NewsletterTypeEnum::EVENTS === $post->getType()) {
+            $color = '#25487D';
+        } elseif (NewsletterTypeEnum::EXPOSITIONS === $post->getType()) {
+            $color = '#FF004E';
+        } elseif (NewsletterTypeEnum::RECOMMENDATIONS === $post->getType()) {
+            $color = '#04E1FE';
+        }
+
+        return $color;
     }
 
     // Filters

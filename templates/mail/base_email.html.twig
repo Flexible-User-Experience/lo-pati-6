@@ -9,30 +9,34 @@
     <body>
     {% apply inky_to_html | inline_css(source('@styles/foundation-emails.css')) %}
     {% if show_top_bar %}
-        <wrapper class="header black-background">
+        <wrapper class="header grey-background">
             <container>
                 <row class="collapse">
-                    <columns small="6" large="6" class="black-background vertical-padding">
-                        <a href="{{ path('admin_app_newsletter_list') }}">&laquo; {{ 'mail.back_to_cms' | trans }}</a>
+                    <columns small="6" large="6" class="grey-background vertical-padding">
+                        <button class="secondary" href="{{ path('admin_app_newsletter_list') }}">&laquo; {{ 'mail.back_to_cms' | trans }}</button>
                     </columns>
-                    <columns small="6" large="6" class="black-background vertical-padding">
+                    <columns small="6" large="6" class="grey-background vertical-padding">
                         <p class="white-color text-right">[ {{ 'mail.preview_mode' | trans }} ]</p>
                     </columns>
                 </row>
             </container>
         </wrapper>
     {% endif %}
-    <wrapper class="light-grey-background">
+    <wrapper class="header black-background">
         <container>
             <row>
-                <columns small="8" large="8" valign="middle" class="normal-padding-top">
+                <columns small="10" large="10" valign="middle" class="black-background padding-top">
                     <a href="{{ absolute_url(path('front_app_homepage')) }}">
-                        <img class="float-left" src="{{ absolute_url(asset('/images/newsletter_logo_header.png')) }}" alt="{{ project_title }} logo">
+                        <img class="float-left" src="{{ absolute_url(asset('vectors/lo_pati_centre_art_logo.svg')) }}{# TODO use PNG #}" alt="{{ project_title }} logo">
                     </a>
                 </columns>
-                <columns small="4" large="4"></columns>
+                <columns small="2" large="2" class="black-background"></columns>
             </row>
-            {% include "mail/fragment/hr_row_divider.html.twig" %}
+        </container>
+    </wrapper>
+    <wrapper class="light-grey-background">
+        <container>
+{#            {% include "mail/fragment/hr_row_divider.html.twig" %}#}
             {% block content %}{% endblock %}
         </container>
     </wrapper>

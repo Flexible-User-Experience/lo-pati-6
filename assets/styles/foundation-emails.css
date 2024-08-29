@@ -1,6 +1,7 @@
 .black-background      { background-color: #000000; }
 .white-background      { background-color: #FFFFFF; }
 .light-grey-background { background-color: #EDEDED; }
+.grey-background       { background-color: #8B8B8B; }
 .black-color { color: #000000; }
 .white-color { color: #FFFFFF; }
 .grey-color  { color: #8B8B8B; }
@@ -23,7 +24,6 @@
    padding-top: 40px;
    padding-bottom: 40px;
 }
-
 
 a.lopati-footer-email {
    color: #8B8B8B;
@@ -102,11 +102,6 @@ body {
     background: #F3F3F3;
 }
 
-.body-border {
-    border-top: 6px solid #E02693;
-    border-bottom: 2px solid #E02693;
-}
-
 .wrapper {
     width: 100%;
 }
@@ -114,10 +109,6 @@ body {
 p.muted {
     color: #919191 !important;
     font-size: 14px;
-}
-
-th.flux.menu-item a, a.flux {
-    color: #E02693 !important;
 }
 
 #outlook a {

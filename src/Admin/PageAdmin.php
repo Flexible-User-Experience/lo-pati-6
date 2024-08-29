@@ -591,7 +591,7 @@ final class PageAdmin extends AbstractBaseAdmin
             ->end()
             ->with('admin.common.links', $this->getFormMdSuccessBoxArray(4))
             ->add(
-                'description',
+                'links',
                 QuillType::class,
                 [
                     'required' => false,
@@ -617,13 +617,6 @@ final class PageAdmin extends AbstractBaseAdmin
                     'help' => 'form.label_url_vimeo_help',
                 ]
             )
-//            ->add(
-//                'urlFlickr',
-//                TextType::class,
-//                [
-//                    'required' => false,
-//                ]
-//            )
             ->end()
             ->with('admin.common.calendar', $this->getFormMdSuccessBoxArray(4))
             ->add(
@@ -678,7 +671,6 @@ final class PageAdmin extends AbstractBaseAdmin
             'showSocialNetworksSharingButtons',
             'links',
             'urlVimeo',
-            //            'urlFlickr',
             'startDateString',
             'endDateString',
             'alwaysShowOnCalendarString',

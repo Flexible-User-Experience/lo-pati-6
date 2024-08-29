@@ -22,6 +22,7 @@ final class AppExtension extends AbstractExtension
             new TwigFunction('has_highlighted_image', [AppRuntime::class, 'hasHighlightedImage']),
             new TwigFunction('is_highlighted_image_squared', [AppRuntime::class, 'isHighlightedImageSquared']),
             new TwigFunction('get_highlighted_image_filter', [AppRuntime::class, 'getHighlightedImageFilter']),
+            new TwigFunction('get_newsletter_post_hex_color_string', [AppRuntime::class, 'getNewsletterPostHexColorString']),
         ];
     }
 

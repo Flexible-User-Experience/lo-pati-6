@@ -3,18 +3,21 @@
 {% block content %}
     {% for post in newsletter.posts %}
         <row>
-            <columns small="12" large="8" class="small-padding-bottom">
+            <columns small="12" large="12" class="padding-top small-padding-bottom">
                 {% if post.image1FileName is not null %}
                     {% if post.link %}
                         <a href="{{ post.link }}">
-                            <img src="{{ absolute_url(vich_uploader_asset(post, 'image1File')) }}" alt="{{ post.title }}">
+                            <img src="{{ absolute_url(vich_uploader_asset(post, 'image1File')) }}" alt="{{ post.title }}" style="border-bottom:solid {{ get_newsletter_post_hex_color_string(post) }} 20px;">
                         </a>
                     {% else %}
-                        <img src="{{ absolute_url(vich_uploader_asset(post, 'image1File')) }}" alt="{{ post.title }}">
+                        <img src="{{ absolute_url(vich_uploader_asset(post, 'image1File')) }}" alt="{{ post.title }}" style="border-bottom:solid {{ get_newsletter_post_hex_color_string(post) }} 20px;">
                     {% endif %}
                 {% endif %}
+{#                {{ post.type }}#}
             </columns>
-            <columns small="12" large="4" class="small-padding-bottom">
+        </row>
+        <row>
+            <columns small="12" large="12" class="small-padding-bottom">
                 {% if post.type is not null %}
                     <h6 class="h6-type">
                         {{ post.typeTransString | trans | upper }}{% if post.date and post.endDate is null and post.intervalDateText is null %} <span>{{ post.date | date('d | m | y') }}</span>{% endif %}
@@ -39,6 +42,7 @@
                     <a href="{{ post.link }}" class="show-for-large">
                         <img style="width:50px" class="float-left" src="{{ absolute_url(asset('/images/newsletter_info.png')) }}" alt="+Info button">
                     </a>
+                    <spacer size="32"></spacer>
                 {% endif %}
             </columns>
         </row>
