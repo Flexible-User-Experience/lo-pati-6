@@ -16,37 +16,30 @@
         <div class="login-box-body" style="padding:30px 20px">
             {% block sonata_user_login_form %}
                 {% block sonata_user_login_error %}
-                    {% set error = attribute(_context, constant('Symfony\\Component\\Security\\Core\\Security::AUTHENTICATION_ERROR')) %}
                     {% if error %}
-                        <div class="alert alert-danger">
-                            {{ error.messageKey | trans(error.messageData, 'security') }}
+                        <div class="alert alert-danger" role="alert">
+                            <i class="fa fa-exclamation-triangle fa-fw"></i> {{ error.messageKey | trans(error.messageData, 'security') }}
                         </div>
                     {% endif %}
                 {% endblock %}
-                {% for label, flashes in app.session.flashbag.all %}
-                    {% for flash in flashes %}
-                        <div class="alert alert-{{ label }}">{{ flash }}</div>
-                    {% endfor %}
-                {% endfor %}
                 <p class="login-box-msg" style="padding: 0 0 20px 0;text-align:left;"><strong>{{ 'back.login.welcome' | trans }}</strong></p>
-                {{ form_start(form) }}
+                <form action="{{ path('admin_app_login') }}" method="post">
                     <div class="form-group has-feedback">
-                        {{ form_widget(form.email) }}
-                        {{ form_errors(form.email) }}
-                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        <label class="control-label" for="email">{{ 'form.label_email' | trans }}*</label>
+                        <input id="email" type="email" class="form-control" name="email" value="{{ last_username }}" required="required">
                     </div>
                     <div class="form-group has-feedback">
-                        {{ form_widget(form.password) }}
-                        {{ form_errors(form.password) }}
-                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        <label class="control-label" for="password">{{ 'form.label_password' | trans }}*</label>
+                        <input id="password" type="password" class="form-control" name="password" required="required">
                     </div>
+                    <input type="hidden" name="_target_path" value="{{ path('sonata_admin_dashboard') }}">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                     <div class="row">
                         <div class="col-xs-12">
-                            <button type="submit" class="btn btn-primary btn-flat pull-right">{{ 'form.label_login' | trans }}</button>
+                            <button type="submit" class="btn btn-primary btn-flat pull-right mb-0">{{ 'form.label_login' | trans }}</button>
                         </div>
                     </div>
-                {{ form_rest(form) }}
-                {{ form_end(form) }}
+                </form>
             {% endblock %}
         </div>
         <div class="login-box-bottom" style="margin-top:5px">

@@ -1,0 +1,16 @@
+admins:
+    type: 'attribute'
+    resource:
+        path: '../src/Controller/Backend/'
+        namespace: 'App\Controller\Backend'
+    options:
+        - priority: 30
+
+controllers:
+    type: 'attribute'
+    resource:
+        path: '../src/Controller/Frontend/'
+        namespace: 'App\Controller\Frontend'
+    prefix:
+        ca: ''
+        es: 'es'
