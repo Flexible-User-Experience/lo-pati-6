@@ -26,7 +26,7 @@
             {% endif %}
             <tbody>
             {% apply spaceless %}
-                {% for week in 0..max_weeks %}
+                {% for week in 0..max_weeks - 1 %}
                     <tr>
                         {% for day in 0..6 %}
                             {% if days_matrix[(week * 7) + day] is defined %}
