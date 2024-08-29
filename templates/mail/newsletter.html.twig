@@ -13,7 +13,6 @@
                         <img src="{{ absolute_url(vich_uploader_asset(post, 'image1File')) }}" alt="{{ post.title }}" style="border-bottom:solid {{ get_newsletter_post_hex_color_string(post) }} 20px;">
                     {% endif %}
                 {% endif %}
-{#                {{ post.type }}#}
             </columns>
         </row>
         <row>
@@ -38,14 +37,13 @@
                     <p class="post-short-description">{{ post.shortDescription }}</p>
                 {% endif %}
                 {% if post.link %}
-                    <spacer size="25"></spacer>
+                    <spacer size="15"></spacer>
                     <a href="{{ post.link }}" class="show-for-large">
                         <img style="width:50px" class="float-left" src="{{ absolute_url(asset('/images/newsletter_info.png')) }}" alt="+Info button">
                     </a>
-                    <spacer size="32"></spacer>
+                    <spacer size="40"></spacer>
                 {% endif %}
             </columns>
         </row>
-        {% include "mail/fragment/hr_row_divider.html.twig" %}
     {% endfor %}
 {% endblock %}
