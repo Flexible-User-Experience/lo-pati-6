@@ -60,20 +60,21 @@ services:
             - '@knp_menu.factory'
             - '@request_stack'
             - '@translator'
+            - '@App\Repository\MenuLevel1Repository'
         tags:
-            - { name: 'knp_menu.menu', method: 'createMainMenu', alias: 'frontend_main' }
+            - { name: 'knp_menu.menu_builder', method: 'createMainMenu', alias: 'frontend_main' }
     App\Menu\Frontend\LanguageBuilder:
         arguments:
             - '@knp_menu.factory'
             - '@request_stack'
         tags:
-            - { name: 'knp_menu.menu', method: 'createLanguageMenu', alias: 'frontend_language' }
+            - { name: 'knp_menu.menu_builder', method: 'createLanguageMenu', alias: 'frontend_language' }
     App\Menu\Backend\TopRightNavMenuBuilder:
         arguments:
             - '@knp_menu.factory'
             - '@security.helper'
         tags:
-            - { name: 'knp_menu.menu', method: 'createRightTopNavMenu', alias: 'backend_top_right_nav_menu' }
+            - { name: 'knp_menu.menu_builder', method: 'createRightTopNavMenu', alias: 'backend_top_right_nav_menu' }
     # event listeners
     App\Event\Listener\SitemapListener:
         arguments:

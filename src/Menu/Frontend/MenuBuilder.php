@@ -15,11 +15,12 @@ final readonly class MenuBuilder
     public function __construct(
         private FactoryInterface $factory,
         private RequestStack $requestStack,
-        private TranslatorInterface $translator
+        private TranslatorInterface $translator,
+        private MenuLevel1Repository $ml1r
     ) {
     }
 
-    public function createMainMenu(MenuLevel1Repository $ml1r): ItemInterface
+    public function createMainMenu(): ItemInterface
     {
         $currentRoute = '';
         $menuRoute = null;
@@ -52,7 +53,7 @@ final readonly class MenuBuilder
             $homepage->setLinkAttribute('class', 'nav-link');
         }
         $homepage->setAttribute('class', 'nav-item');
-        $ml1Items = $ml1r->getEnabledSortedByPositionAndName()->getQuery()->getResult();
+        $ml1Items = $this->ml1r->getEnabledSortedByPositionAndName()->getQuery()->getResult();
         /** @var MenuLevel1 $ml1Item */
         foreach ($ml1Items as $ml1Item) {
             $item = $menu->addChild(
