@@ -130,4 +130,8 @@ return [
     'quill-resize-image' => [
         'version' => '1.0.5',
     ],
+    'icheck-bootstrap/icheck-bootstrap.min.css' => [
+        'version' => '3.0.1',
+        'type' => 'css',
+    ],
 ];

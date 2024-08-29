@@ -228,9 +228,9 @@ footer {
   }
 }
 
-// TODO @import '~icheck-bootstrap/icheck-bootstrap.css';
 @import '@bootstrap/bootstrap';
 @import '@fortawesome/fontawesome';
 @import '@fortawesome/regular';
 @import '@fortawesome/solid';
 @import '@fortawesome/brands';
+@import 'icheck-bootstrap/icheck-bootstrap.min.css';
