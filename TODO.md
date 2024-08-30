@@ -1,6 +1,7 @@
 To Do
 =====
 
+ * replace custom Annotation in UrlVimeoConstraint
  * add legal terms page
  * manage Sendgrid unsubscriptions callback hooks
  * check newsletter email sendings
