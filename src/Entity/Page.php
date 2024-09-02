@@ -93,11 +93,9 @@ class Page extends AbstractBase
     #[ORM\Column(type: Types::STRING, length: 255, nullable: true)]
     private ?string $video = null;
 
-    /**
-     * @UrlVimeoConstraint() // TODO
-     */
     #[Assert\Url]
     #[ORM\Column(type: Types::STRING, length: 255, nullable: true)]
+    #[UrlVimeoConstraint]
     private ?string $urlVimeo = null;
 
     #[Assert\Url]
