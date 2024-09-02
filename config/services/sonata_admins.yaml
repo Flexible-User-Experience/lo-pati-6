@@ -10,7 +10,7 @@ services:
             - '@security.helper'
             - '@twig'
         tags:
-            - { name: sonata.admin, manager_type: orm, label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Menu', label: 'sidebarmenu.menu.level1' }
+            - { name: 'sonata.admin', manager_type: 'orm', model_class: 'App\Entity\MenuLevel1', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Menu', label: 'sidebarmenu.menu.level1' }
     admin.menu_level2:
         class: 'App\Admin\MenuLevel2Admin'
         arguments:
@@ -21,7 +21,7 @@ services:
             - '@security.helper'
             - '@twig'
         tags:
-            - { name: sonata.admin, manager_type: orm, label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Menu', label: 'sidebarmenu.menu.level2' }
+            - { name: 'sonata.admin', manager_type: 'orm', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Menu', label: 'sidebarmenu.menu.level2' }
     # Pages
     admin.slideshow_page:
         class: 'App\Admin\SlideshowPageAdmin'
@@ -33,7 +33,7 @@ services:
             - '@security.helper'
             - '@twig'
         tags:
-            - { name: sonata.admin, manager_type: orm, label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Page', label: 'sidebarmenu.page.slideshow' }
+            - { name: 'sonata.admin', manager_type: 'orm', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Page', label: 'sidebarmenu.page.slideshow' }
     admin.page:
         class: 'App\Admin\PageAdmin'
         arguments:
@@ -44,7 +44,7 @@ services:
             - '@security.helper'
             - '@twig'
         tags:
-            - { name: sonata.admin, manager_type: orm, label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Page', label: 'sidebarmenu.page.page' }
+            - { name: 'sonata.admin', manager_type: 'orm', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Page', label: 'sidebarmenu.page.page' }
     admin.page_image:
         class: 'App\Admin\PageImageAdmin'
         arguments:
@@ -55,7 +55,7 @@ services:
             - '@security.helper'
             - '@twig'
         tags:
-            - { name: sonata.admin, manager_type: orm, label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Page', label: 'sidebarmenu.page.page_image', show_in_dashboard: true }
+            - { name: 'sonata.admin', manager_type: 'orm', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Page', label: 'sidebarmenu.page.page_image', show_in_dashboard: true }
     # Newsletters
     admin.newsletter_group:
         class: 'App\Admin\NewsletterGroupAdmin'
@@ -67,7 +67,7 @@ services:
             - '@security.helper'
             - '@twig'
         tags:
-            - { name: sonata.admin, manager_type: orm, label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Newsletter', label: 'sidebarmenu.newsletter.group' }
+            - { name: 'sonata.admin', manager_type: 'orm', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Newsletter', label: 'sidebarmenu.newsletter.group' }
     admin.newsletter_user:
         class: 'App\Admin\NewsletterUserAdmin'
         arguments:
@@ -78,7 +78,7 @@ services:
             - '@security.helper'
             - '@twig'
         tags:
-            - { name: sonata.admin, manager_type: orm, label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Newsletter', label: 'sidebarmenu.newsletter.user' }
+            - { name: 'sonata.admin', manager_type: 'orm', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Newsletter', label: 'sidebarmenu.newsletter.user' }
     admin.newsletter:
         class: 'App\Admin\NewsletterAdmin'
         arguments:
@@ -89,7 +89,7 @@ services:
             - '@security.helper'
             - '@twig'
         tags:
-            - { name: sonata.admin, manager_type: orm, label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Newsletter', label: 'sidebarmenu.newsletter.newsletter' }
+            - { name: 'sonata.admin', manager_type: 'orm', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Newsletter', label: 'sidebarmenu.newsletter.newsletter' }
     admin.newsletter_post:
         class: 'App\Admin\NewsletterPostAdmin'
         arguments:
@@ -100,7 +100,7 @@ services:
             - '@security.helper'
             - '@twig'
         tags:
-            - { name: sonata.admin, manager_type: orm, label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Newsletter', label: 'sidebarmenu.newsletter.newsletter_post', show_in_dashboard: false }
+            - { name: 'sonata.admin', manager_type: 'orm', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Newsletter', label: 'sidebarmenu.newsletter.newsletter_post', show_in_dashboard: false }
     # Artists
     admin.artist:
         class: 'App\Admin\ArtistAdmin'
@@ -112,7 +112,7 @@ services:
             - '@security.helper'
             - '@twig'
         tags:
-            - { name: sonata.admin, manager_type: orm, label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Artist', label: 'sidebarmenu.artist.artist' }
+            - { name: 'sonata.admin', manager_type: 'orm', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Artist', label: 'sidebarmenu.artist.artist' }
     # Archives
     admin.archive:
         class: 'App\Admin\ArchiveAdmin'
@@ -124,7 +124,7 @@ services:
             - '@security.helper'
             - '@twig'
         tags:
-            - { name: sonata.admin, manager_type: orm, label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Archive', label: 'sidebarmenu.archive.archive' }
+            - { name: 'sonata.admin', manager_type: 'orm', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Archive', label: 'sidebarmenu.archive.archive' }
     # Settings
     admin.visiting_hours:
         class: 'App\Admin\VisitingHoursAdmin'
@@ -136,7 +136,7 @@ services:
             - '@security.helper'
             - '@twig'
         tags:
-            - { name: sonata.admin, manager_type: orm, label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Setting', label: 'sidebarmenu.settings.visiting_hours' }
+            - { name: 'sonata.admin', manager_type: 'orm', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Setting', label: 'sidebarmenu.settings.visiting_hours' }
     admin.config_calendar_working_day:
         class: 'App\Admin\ConfigCalendarWorkingDayAdmin'
         arguments:
@@ -147,7 +147,7 @@ services:
             - '@security.helper'
             - '@twig'
         tags:
-            - { name: sonata.admin, manager_type: orm, label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Setting', label: 'sidebarmenu.settings.config_calendar_working_day' }
+            - { name: 'sonata.admin', manager_type: 'orm', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Setting', label: 'sidebarmenu.settings.config_calendar_working_day' }
     admin.user:
         class: 'App\Admin\UserAdmin'
         arguments:
@@ -158,4 +158,4 @@ services:
             - '@security.helper'
             - '@twig'
         tags:
-            - { name: sonata.admin, manager_type: orm, label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Setting', label: 'sidebarmenu.settings.user' }
+            - { name: 'sonata.admin', manager_type: 'orm', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Setting', label: 'sidebarmenu.settings.user' }

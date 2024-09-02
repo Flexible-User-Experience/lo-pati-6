@@ -11,8 +11,6 @@ use Twig\Environment;
 
 abstract class AbstractBaseAdmin extends AbstractAdmin
 {
-    protected array $perPageOptions = [25, 50, 100, 200];
-    protected int $maxPerPage = 25;
     protected EntityManagerInterface $em;
     protected Security $ss;
     protected Environment $twig;
