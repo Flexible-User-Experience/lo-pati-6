@@ -34,6 +34,8 @@
         "league/csv": "^9.16",
         "league/html-to-markdown": "^5.1",
         "liip/imagine-bundle": "^2.13",
+        "meilisearch/search-bundle": "^0.15.4",
+        "nyholm/psr7": "^1.8",
         "phpdocumentor/reflection-docblock": "^5.4",
         "phpstan/phpdoc-parser": "^1.29",
         "presta/sitemap-bundle": "^4.1",
