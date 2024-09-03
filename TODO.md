@@ -2,8 +2,8 @@ To Do
 =====
 
  * add legal terms page
- * manage Sendgrid unsubscriptions callback hooks
- * check newsletter email sendings
+ * manage Sendgrid un-subscriptions callback hooks
+ * check newsletter email sends
  * implement newsletter redesign
  * add Cookies Consent `connectholland/cookie-consent-bundle` dependency
  * improve Google Lighthouse scoring (landing desktop = X X X X · mobile = X X X X)
