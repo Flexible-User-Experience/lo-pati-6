@@ -11,8 +11,9 @@ use App\Repository\ArchiveRepository;
 use App\Repository\ArtistRepository;
 use App\Repository\PageRepository;
 use App\Repository\SlideshowPageRepository;
-use FOS\ElasticaBundle\Manager\RepositoryManagerInterface;
+use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use Meilisearch\Bundle\SearchService;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,12 +48,12 @@ final class DefaultController extends AbstractController
     }
 
     #[Route('/search', name: 'front_app_search')]
-    public function search(Request $request, RepositoryManagerInterface $finder): Response
+    public function search(Request $request, EntityManagerInterface $entityManager, SearchService $searchService): Response
     {
         return $this->render(
             'frontend/partials/full_text_search_results.html.twig',
             [
-                'pages' => $finder->getRepository(Page::class)->getFulltextSearchByQueryFilteredByActive($request->query->get('q')),
+                'pages' => $searchService->search($entityManager, Page::class, $request->query->get('q')),
             ]
         );
     }
@@ -73,8 +74,7 @@ final class DefaultController extends AbstractController
         #[MapEntity(mapping: ['menu' => 'slug'])] MenuLevel1 $menu,
         ArchiveRepository $ar,
         KernelInterface $kernel
-    ): Response
-    {
+    ): Response {
         if (!$menu->getPage() && $menu->getMenuLevel2items() && !$menu->getMenuLevel2items()->isEmpty()) {
             $firstSubmenu = $menu->getMenuLevel2items()[0];
 
@@ -122,8 +122,7 @@ final class DefaultController extends AbstractController
         PageRepository $pr,
         KernelInterface $kernel,
         int $idPageIrradiador
-    ): Response
-    {
+    ): Response {
         if ($submenu->getPage() && $idPageIrradiador === $submenu->getPage()->getId()) {
             $artists = $ar->getEnabledSortedByName()->getQuery()->getResult();
 
@@ -171,8 +170,7 @@ final class DefaultController extends AbstractController
         #[MapEntity(expr: 'repository.getByMenuAndSubmenuSlugs(menu, submenu)')] MenuLevel2 $submenu,
         #[MapEntity(expr: 'repository.getByDateAndSlug(date, page)')] Page $page,
         KernelInterface $kernel
-    ): Response
-    {
+    ): Response {
         return $this->render(
             'frontend/page_detail.html.twig',
             [
