@@ -16,6 +16,7 @@ use Knp\Component\Pager\PaginatorInterface;
 use Meilisearch\Bundle\SearchService;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -56,6 +57,37 @@ final class DefaultController extends AbstractController
                 'pages' => $searchService->search($entityManager, Page::class, $request->query->get('q')),
             ]
         );
+    }
+
+    #[Route('/json-search-results/', name: 'front_app_json_search_results')]
+    public function jsonSearchResults(Request $request, EntityManagerInterface $entityManager, SearchService $searchService): JsonResponse
+    {
+        $result = [];
+        $result['results'] = [
+            /*[
+                'value' => '1',
+                'text' => 'Pizza',
+            ],
+            [
+                'value' => '2',
+                'text' => $request->query->get('query') ?: '---',
+            ],
+            [
+                'value' => '3',
+                'text' => 'Banana',
+            ],*/
+        ];
+        if (strlen((string) $request->query->get('query')) > 3) {
+            $pagesObtained = $searchService->search($entityManager, Page::class, $request->query->get('query'));
+            foreach ($pagesObtained as $index => $pageObtained) {
+                $result['results'][] = [
+                    'value' => $index + 1,
+                    'text' => $pageObtained->getName(),
+                ];
+            }
+        }
+
+        return JsonResponse::fromJsonString(json_encode($result));
     }
 
     #[Route(path: [

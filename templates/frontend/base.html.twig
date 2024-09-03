@@ -35,10 +35,15 @@
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="{{ 'back.action.close' | trans }}"></button>
             </div>
             <div class="offcanvas-body">
-                <div {{ stimulus_controller('autocomplete', {'url': path('front_app_search'), 'min-length': 3}) }}>
-                    <input id="inputOffcanvasSearchField" class="form-control ms-auto me-2" type="search" aria-label="Search" data-autocomplete-target="input">
-                    <div data-autocomplete-target="results"></div>
-                </div>
+                <input
+                    id="inputOffcanvasSearchField"
+                    class="form-control ms-auto me-2"
+                    type="search"
+                    aria-label="Search"
+                    {{ stimulus_controller('symfony/ux-autocomplete/autocomplete', {
+                        url: path('front_app_json_search_results')
+                    }) }}
+                >
             </div>
         </div>
         {# top menu section #}
