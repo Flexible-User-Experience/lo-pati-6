@@ -6,5 +6,6 @@ meilisearch:
         - name: 'pages'
           class: 'App\Entity\Page'
           enable_serializer_groups: true
+          index_if: 'isActive'
         # Define entities or documents that should be indexed to Meilisearch.
         # See https://github.com/meilisearch/meilisearch-symfony/wiki/configure-searchable-data
