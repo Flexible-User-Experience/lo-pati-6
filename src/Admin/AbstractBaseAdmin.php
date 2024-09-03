@@ -7,20 +7,34 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Route\RouteCollectionInterface;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
-use Twig\Environment;
 
 abstract class AbstractBaseAdmin extends AbstractAdmin
 {
     protected EntityManagerInterface $em;
     protected Security $ss;
-    protected Environment $twig;
 
-    public function __construct($code, $class, $baseControllerName, EntityManagerInterface $em, Security $ss, Environment $twig)
+    public function getEntityManager(): EntityManagerInterface
     {
-        parent::__construct($code, $class, $baseControllerName);
+        return $this->em;
+    }
+
+    public function setEntityManager(EntityManagerInterface $em): self
+    {
         $this->em = $em;
+
+        return $this;
+    }
+
+    public function getSecurityHelper(): Security
+    {
+        return $this->ss;
+    }
+
+    public function setSecurityHelper(Security $ss): self
+    {
         $this->ss = $ss;
-        $this->twig = $twig;
+
+        return $this;
     }
 
     protected function configureRoutes(RouteCollectionInterface $collection): void
