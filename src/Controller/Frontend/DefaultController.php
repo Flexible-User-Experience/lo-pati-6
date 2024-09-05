@@ -16,7 +16,6 @@ use Knp\Component\Pager\PaginatorInterface;
 use Meilisearch\Bundle\SearchService;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -32,7 +31,7 @@ final class DefaultController extends AbstractController
         $slides = $spr->getEnabledSortedByPositionAndName()->getQuery()->getResult();
         $highlightedPages = $pi->paginate(
             $pr->getHomepageHighlighted()->getQuery(),
-            $request->query->getInt('page', 1),
+            $request->query->getInt('pagina', 1),
             self::HIGHLIGHTED_HOMEPAGE_ITEMS,
             [
                 'align' => 'center',
