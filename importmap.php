@@ -134,13 +134,6 @@ return [
         'version' => '3.0.1',
         'type' => 'css',
     ],
-    'tom-select' => [
-        'version' => '2.3.1',
-    ],
-    'tom-select/dist/css/tom-select.default.css' => [
-        'version' => '2.3.1',
-        'type' => 'css',
-    ],
     'stimulus-autocomplete' => [
         'version' => '3.1.0',
     ],
