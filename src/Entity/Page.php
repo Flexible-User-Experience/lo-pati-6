@@ -21,6 +21,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -185,6 +186,7 @@ class Page extends AbstractBase
         ;
     }
 
+    #[Groups(['searchable'])]
     public function getName(): ?string
     {
         return $this->name;
@@ -197,6 +199,7 @@ class Page extends AbstractBase
         return $this;
     }
 
+    #[Groups(['searchable'])]
     public function getSummary(): ?string
     {
         return $this->summary;
@@ -209,6 +212,7 @@ class Page extends AbstractBase
         return $this;
     }
 
+    #[Groups(['searchable'])]
     public function getDescription(): ?string
     {
         return $this->description;
@@ -323,6 +327,7 @@ class Page extends AbstractBase
         return $this;
     }
 
+    #[Groups(['searchable'])]
     public function getRealizationDateString(): ?string
     {
         return $this->realizationDateString;
@@ -335,6 +340,7 @@ class Page extends AbstractBase
         return $this;
     }
 
+    #[Groups(['searchable'])]
     public function getPlace(): ?string
     {
         return $this->place;
