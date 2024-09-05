@@ -141,4 +141,7 @@ return [
         'version' => '2.3.1',
         'type' => 'css',
     ],
+    'stimulus-autocomplete' => [
+        'version' => '3.1.0',
+    ],
 ];
