@@ -677,3 +677,4 @@ enum:
 validator:
   vimeo:
     error: 'Error Vimeo'
+on_newsletter_form_submit_success: 'Enhorabona! Ja estàs registrat al butlletí de Lo Pati. Rebràs un correu a la pròxima edició amb totes les notícies.'

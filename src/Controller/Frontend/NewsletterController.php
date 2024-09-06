@@ -44,6 +44,7 @@ final class NewsletterController extends AbstractController
     #[Route('/newsletter/subscribe', name: 'front_app_newsletter_subscribe_form', priority: 10)]
     public function form(Request $request, ManagerRegistry $mr, NewsletterUserRepository $nur, MailManager $mm, TranslatorInterface $translator): Response
     {
+        $template = 'frontend/newsletter/form.html.twig';
         $newsletterUser = new NewsletterUser();
         $newsletterSubscriptionForm = $this->createForm(NewsletterSubscriptionFormType::class, $newsletterUser, [
             'action' => $this->generateUrl('front_app_newsletter_subscribe_form'),
@@ -85,13 +86,12 @@ final class NewsletterController extends AbstractController
                 $searchedNewsletterUser->getEmail(),
                 $searchedNewsletterUser->getName(),
             );
-            // TODO redirect to thank you message due to Turbo system
             $this->addFlash('success', $translator->trans('newsletter.flash.register'));
-
-            return $this->redirectToRoute('front_app_homepage', ['_locale' => $request->getLocale()]);
+            $template = 'frontend/newsletter/success.html.twig';
         }
 
-        return $this->render('frontend/newsletter/form.html.twig',
+        return $this->render(
+            $template,
             [
                 'newsletter_subscription_form' => $newsletterSubscriptionForm,
             ]
