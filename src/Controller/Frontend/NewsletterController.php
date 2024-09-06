@@ -86,7 +86,6 @@ final class NewsletterController extends AbstractController
                 $searchedNewsletterUser->getEmail(),
                 $searchedNewsletterUser->getName(),
             );
-            $this->addFlash('success', $translator->trans('newsletter.flash.register'));
             $template = 'frontend/newsletter/success.html.twig';
         }
 

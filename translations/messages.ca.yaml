@@ -604,7 +604,7 @@ newsletter:
     accept_legal_terms: 'ACCEPTO ELS'
     submit: 'Enviar'
   flash:
-    register: 'S''ha registrat correctament. Ara rebrà un correu electrònic de confirmació per activar el seu usuari.'
+    register: 'Ara rebrà un correu electrònic de confirmació per activar el seu usuari.'
     error: 'Ja existeix un usuari amb aquest email.'
     subscribe_success: 'La teva subscripció al butlletí ha estat registrada correctament.'
     unsubscribe_success: 'La teva subscripció al butlletí ha estat eliminada correctament.'
@@ -677,4 +677,4 @@ enum:
 validator:
   vimeo:
     error: 'Error Vimeo'
-on_newsletter_form_submit_success: 'Enhorabona! Ja estàs registrat al butlletí de Lo Pati. Rebràs un correu a la pròxima edició amb totes les notícies.'
+on_newsletter_form_submit_success: 'Enhorabona! Ja estàs registrat al butlletí.'
