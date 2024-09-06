@@ -108,6 +108,7 @@ App\Entity\Page:
     showPublishDate: '<boolean()>'
     expirationDate: '<dateTime()>'
     menuLevel1: '@menulevel1'
+    imageFileName: 'imagefile1.png'
   page2:
     name: 'Page 2'
     description: '<sentence()>'
@@ -118,6 +119,18 @@ App\Entity\Page:
     expirationDate: '<dateTime()>'
     menuLevel1: '@menulevel1'
     menuLevel2: '@submenulevel1'
+    imageFileName: 'imagefile1.png'
+  page3:
+    name: 'Page 3'
+    description: '<sentence()>'
+    summary: '<sentence()>'
+    isFrontCover: '<boolean()>'
+    publishDate: '<(new \DateTime("2021-08-01"))>'
+    showPublishDate: '<boolean()>'
+    expirationDate: '<dateTime()>'
+    menuLevel1: '@menulevel1'
+    menuLevel2: '@submenulevel1'
+    imageFileName: 'imagefile1.png'
 
 # SlideshowPage
 App\Entity\SlideshowPage:
