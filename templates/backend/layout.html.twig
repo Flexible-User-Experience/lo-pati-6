@@ -60,30 +60,30 @@
     <div class="modal fade" id="pdf-preview-modal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-md" role="document">
             <div
-                    class="modal-content"
-                    {{ stimulus_controller('pdf-viewer') }}
-                    data-action="app-pdf-viewer-button-clicked@window->pdf-viewer#update"
-                    data-pdf-viewer-hidden-class="hide"
-                    data-pdf-viewer-path-value=""
-                    data-pdf-viewer-mime-value="application/pdf"
+                class="modal-content"
+                {{ stimulus_controller('pdf-viewer') }}
+                data-action="app-pdf-viewer-button-clicked@window->pdf-viewer#update"
+                data-pdf-viewer-hidden-class="hide"
+                data-pdf-viewer-path-value=""
+                data-pdf-viewer-mime-value="application/pdf"
             >
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="{{ 'back.action.close' | trans }}"><span aria-hidden="true">&times;</span></button>
                     <div class="btn-group mr-3" role="group" aria-label="Modal">
                         <a
-                                {{ stimulus_target('pdf-viewer', 'downloader') }}
-                                style="margin-right:3px;"
-                                class="btn btn-primary"
-                                download
+                            {{ stimulus_target('pdf-viewer', 'downloader') }}
+                            style="margin-right:3px;"
+                            class="btn btn-primary"
+                            download
                         >
                             <i class="fas fa-cloud-download-alt margin-r-5"></i> {{ 'vich_uploader.link.download' | trans | capitalize }}
                         </a>
                     </div>
                     <div
-                            {{ stimulus_target('pdf-viewer', 'pager') }}
-                            class="btn-group"
-                            role="group"
-                            aria-label="Modal"
+                        {{ stimulus_target('pdf-viewer', 'pager') }}
+                        class="btn-group"
+                        role="group"
+                        aria-label="Modal"
                     >
                         <button {{ stimulus_action('pdf-viewer', 'onPrevPage') }} type="button" class="btn btn-primary"><i class="fas fa-chevron-left"></i></button>
                         <button type="button" class="btn btn-default">{{ 'form.label_page' | trans }}&nbsp;<span {{ stimulus_target('pdf-viewer', 'current') }}></span>&nbsp;de&nbsp;<span {{ stimulus_target('pdf-viewer', 'total') }}></span></button>
