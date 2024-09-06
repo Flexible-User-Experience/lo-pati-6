@@ -194,7 +194,11 @@
                             <p class="card-text text-uppercase lp-c-white">
                                 {{ 'front.layout.footer_2.right.subscribe' | trans }}
                             </p>
-                            {{ render(controller('App\\Controller\\Frontend\\NewsletterController::form')) }}
+                            <turbo-frame id="newsletter_turbo_frame_id" src="{{ path('front_app_newsletter_subscribe_form') }}" data-turbo-permanent>
+                                <p class="card-text lp-c-white mb-0">
+                                    <i class="fa-solid fa-5x fa-circle-notch fa-spin"></i>
+                                </p>
+                            </turbo-frame>
                         </div>
                     </div>
                 </div>
