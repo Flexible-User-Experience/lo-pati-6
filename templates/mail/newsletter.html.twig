@@ -1,0 +1,47 @@
+{% extends "mail/base_email.html.twig" %}
+
+{% block content %}
+    {% for post in newsletter.posts %}
+        <row>
+            {% if post.image1FileName is not null %}
+                {% if post.link %}
+                    <a href="{{ post.link }}">
+                        <img src="{{ absolute_url(vich_uploader_asset(post, 'image1File')) }}" alt="{{ post.title }}" style="border-bottom:solid {{ get_newsletter_post_hex_color_string(post) }} 20px;">
+                    </a>
+                {% else %}
+                    <img src="{{ absolute_url(vich_uploader_asset(post, 'image1File')) }}" alt="{{ post.title }}" style="border-bottom:solid {{ get_newsletter_post_hex_color_string(post) }} 20px;">
+                {% endif %}
+            {% endif %}
+        </row>
+        <row>
+            <columns small="12" large="12" class="small-padding-bottom">
+                {% if post.type is not null %}
+                    <h6 class="h6-type padding-top">
+                        {{ post.typeTransString | trans | upper }}{% if post.date and post.endDate is null and post.intervalDateText is null %} <span>{{ post.date | date('d | m | y') }}</span>{% endif %}
+                    </h6>
+                {% endif %}
+                {% if post.intervalDateText is not null %}
+                    <h6 class="h6-type"><span>{{ post.intervalDateText }}</span></h6>
+                    <spacer size="25"></spacer>
+                {% endif %}
+                {% if post.date and post.intervalDateText is null %}
+                    <h6 class="h6-type">
+                        <span>{{ post.date | date('d | m | y') }}{% if post.endDate is not null %} &#8212; {{ post.endDate | date('d | m | y') }}{% endif %}</span>
+                    </h6>
+                    <spacer size="25"></spacer>
+                {% endif %}
+                <h4 style="font-weight:bolder;line-height:1">{{ post.title }}</h4>
+                {% if post.shortDescription %}
+                    <p class="post-short-description">{{ post.shortDescription }}</p>
+                {% endif %}
+                {% if post.link %}
+                    <spacer size="15"></spacer>
+                    <a href="{{ post.link }}" class="show-for-large">
+                        <img style="width:142px" class="float-left" src="{{ absolute_url(asset('images/newsletter_info.png')) }}" alt="+Info button">
+                    </a>
+                    <spacer size="40"></spacer>
+                {% endif %}
+            </columns>
+        </row>
+    {% endfor %}
+{% endblock %}

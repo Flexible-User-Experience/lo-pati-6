@@ -1,0 +1,112 @@
+{% extends "@SonataAdmin/standard_layout.html.twig" %}
+
+{# custom favicon #}
+{% block meta_tags %}
+    {{ parent() }}
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
+    <link rel="mask-icon" href="{{ asset('vectors/safari-pinned-tab.svg') }}" color="#000000">
+{% endblock %}
+
+{# disable Turbo to avoid form redirect responses problem #}
+{% block html_attributes %}{{ parent() }} data-turbo=false{% endblock %}
+
+{# custom logo #}
+{% block logo %}
+    <a class="logo" href="{{ path('sonata_admin_dashboard') }}" style="background-color:#F92178;border-right: solid 1px #F92178;">
+        <img src="{{ asset(sonata_config.logo) }}" alt="{{ sonata_config.title }} logo" class="img-responsive" style="margin-top:-2px;padding:0;max-width:100px;">
+        <span>{{ project_title }}</span>
+    </a>
+{% endblock %}
+
+{# custom sidebar footer #}
+{% block side_bar_after_nav %}
+    <div style="color:#EEE;margin-top:60px;padding:20px">
+        <p class="text-white">
+            {{ admin_tag_version }}
+        </p>
+        <p class="text-left small">
+            <i class="fas fa-code"></i> {{ 'back.layout.developed_by' | trans }} <a href="{{ developer_url }}" target="_blank">{{ developer_name }}</a>
+        </p>
+        <p class="text-left small">
+            <i class="far fa-copyright"></i> {{ 'now' | date('Y') }} <a href="{{ customer_url }}" target="_blank">{{ customer_name }}</a>
+        </p>
+    </div>
+{% endblock %}
+
+{# custom top menu #}
+{% block sonata_top_nav_menu %}
+    <div class="navbar-custom-menu">
+        {{ knp_menu_render('backend_top_right_nav_menu', {'currentClass': 'active', 'allow_safe_labels': true}) }}
+    </div>
+{% endblock %}
+
+{# override css includes #}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/admin.scss') }}">
+{% endblock %}
+
+{# override javascript includes #}
+{% block javascripts %}
+    {{ parent() }}
+    {{ importmap('app') }}
+{% endblock %}
+
+{# custom main content #}
+{% block sonata_page_content %}
+    <div class="modal fade" id="pdf-preview-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-md" role="document">
+            <div
+                class="modal-content"
+                {{ stimulus_controller('pdf-viewer') }}
+                data-action="app-pdf-viewer-button-clicked@window->pdf-viewer#update"
+                data-pdf-viewer-hidden-class="hide"
+                data-pdf-viewer-path-value=""
+                data-pdf-viewer-mime-value="application/pdf"
+            >
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ 'back.action.close' | trans }}"><span aria-hidden="true">&times;</span></button>
+                    <div class="btn-group mr-3" role="group" aria-label="Modal">
+                        <a
+                            {{ stimulus_target('pdf-viewer', 'downloader') }}
+                            style="margin-right:3px;"
+                            class="btn btn-primary"
+                            download
+                        >
+                            <i class="fas fa-cloud-download-alt margin-r-5"></i> {{ 'vich_uploader.link.download' | trans | capitalize }}
+                        </a>
+                    </div>
+                    <div
+                        {{ stimulus_target('pdf-viewer', 'pager') }}
+                        class="btn-group"
+                        role="group"
+                        aria-label="Modal"
+                    >
+                        <button {{ stimulus_action('pdf-viewer', 'onPrevPage') }} type="button" class="btn btn-primary"><i class="fas fa-chevron-left"></i></button>
+                        <button type="button" class="btn btn-default">{{ 'form.label_page' | trans }}&nbsp;<span {{ stimulus_target('pdf-viewer', 'current') }}></span>&nbsp;de&nbsp;<span {{ stimulus_target('pdf-viewer', 'total') }}></span></button>
+                        <button {{ stimulus_action('pdf-viewer', 'onNextPage') }} type="button" class="btn btn-primary"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row" {{ stimulus_target('pdf-viewer', 'loader') }}>
+                        <div class="col-xs-12">
+                            <p class="mt-5 mb-5 text-center text-muted">
+                                <i class="fas fa-5x fa-spin fa-sync" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div {{ stimulus_target('pdf-viewer', 'warning') }}></div>
+                    <div class="row mb-2">
+                        <div class="col-xs-12">
+                            <canvas class="viewer hide" {{ stimulus_target('pdf-viewer', 'canvas') }}></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ parent() }}
+{% endblock %}

@@ -1,6 +1,39 @@
 twig:
+    default_path: '%kernel.project_dir%/templates'
     file_name_pattern: '*.twig'
+    paths:
+        '%kernel.project_dir%/assets/styles': 'styles'
+    form_themes:
+        - 'bootstrap_5_layout.html.twig'
+        - '@EWZRecaptcha/Form/v3/ewz_recaptcha_widget.html.twig'
+        - '@SonataForm/Form/datepicker.html.twig'
+        - 'form/type/edit_newsletter_post_action_button.html.twig'
+        - 'form/type/custom_a2lix_translations_field.html.twig'
+    globals:
+        google_tag_v4_enabled: false
+        admin_tag_version: 'v6.00.000' # -> remember to change asset version in config/packages/liip_imagine.yaml too
+        add_this_api_key: '%add_this_api_key%'
+        google_tag_v4: '%google_tag_v4%'
+        developer_name: '%developer_name%'
+        developer_url: '%developer_url%'
+        customer_name: '%customer_name%'
+        customer_email: '%customer_email%'
+        customer_url: '%customer_url%'
+        project_title: '%project_title%'
+        pp_id: '%pp_id%'
+        pp_cif: '%pp_cif%'
+        pp_address: '%pp_address%'
+        pp_zip: '%pp_zip%'
+        pp_city: '%pp_city%'
+        pp_phone: '%pp_phone%'
+        pp_email: '%pp_email%'
+        pp_communication_email: '%pp_communication_email%'
 
 when@test:
     twig:
         strict_variables: true
+
+when@prod:
+    twig:
+        globals:
+            google_tag_v4_enabled: true

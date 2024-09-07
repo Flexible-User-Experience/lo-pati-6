@@ -1,5 +1,10 @@
 framework:
     asset_mapper:
-        # The paths to make available to the asset mapper.
+        importmap_polyfill: false
+        importmap_script_attributes:
+            crossorigin: 'anonymous'
         paths:
-            - assets/
+            - 'assets/'
+        excluded_patterns:
+            - '*/assets/styles/_*.scss'
+            - '*/assets/styles/**/_*.scss'

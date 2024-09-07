@@ -1,0 +1,133 @@
+{% apply inline_css %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ app.request.locale }}" xml:lang="{{ app.request.locale }}">
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>{{ project_title }}</title>
+    </head>
+    <body>
+    {% apply inky_to_html | inline_css(source('@styles/foundation-emails.css')) %}
+    {% if show_top_bar %}
+        <wrapper class="header grey-background">
+            <container>
+                <row class="collapse">
+                    <columns small="6" large="6" class="grey-background vertical-padding">
+                        <button class="secondary" href="{{ path('admin_app_newsletter_list') }}">&laquo; {{ 'mail.back_to_cms' | trans }}</button>
+                    </columns>
+                    <columns small="6" large="6" class="grey-background vertical-padding">
+                        <p class="white-color text-right">[ {{ 'mail.preview_mode' | trans }} ]</p>
+                    </columns>
+                </row>
+            </container>
+        </wrapper>
+    {% endif %}
+    <wrapper class="header black-background">
+        <container>
+            <row>
+                <columns small="10" large="10" valign="middle" class="black-background padding-top">
+                    <a href="{{ absolute_url(path('front_app_homepage')) }}">
+                        <img class="float-left" src="{{ absolute_url(asset('images/logo_lopati_black.png')) }}" alt="{{ project_title }} logo">
+                    </a>
+                </columns>
+                <columns small="2" large="2" class="black-background"></columns>
+            </row>
+        </container>
+    </wrapper>
+    <wrapper class="light-grey-background">
+        <spacer size="15"></spacer>
+        <container>
+            {% block content %}{% endblock %}
+        </container>
+        <spacer size="15"></spacer>
+    </wrapper>
+    {% block footer %}
+        <wrapper class="black-background">
+            <container>
+                <row>
+                    <columns small="12" large="12" class="black-background vertical-padding">
+                        <center>
+                            <p class="text-center white-color">
+                                {{ project_title | upper }} · {{ pp_address }} · {{ pp_zip }} {{ pp_city }} · <a class="lopati-footer-email" href="mailto:{{ customer_email }}">{{ customer_email }}</a>
+                            </p>
+                        </center>
+                    </columns>
+                </row>
+                <row>
+                    <columns class="black-background">
+                        <center>
+                            <menu>
+                                <item>
+                                    <a href="https://www.facebook.com/centreartlopati/" class="footer-bottom-icon">
+                                        <img class="float-right" src="{{ absolute_url(asset('images/newsletter_icon_fb.png')) }}" alt="Facebook">
+                                    </a>
+                                </item>
+                                <item>
+                                    <a href="https://twitter.com/centreartlopati" class="footer-bottom-icon">
+                                        <img class="float-right" src="{{ absolute_url(asset('images/newsletter_icon_tw.png')) }}" alt="Twitter">
+                                    </a>
+                                </item>
+                                <item>
+                                    <a href="https://www.instagram.com/centreartlopati/" class="footer-bottom-icon">
+                                        <img class="float-right" src="{{ absolute_url(asset('images/newsletter_icon_it.png')) }}" alt="Instagram">
+                                    </a>
+                                </item>
+                                <item>
+                                    <a href="https://vimeo.com/lopati" class="footer-bottom-icon">
+                                        <img class="float-right" src="{{ absolute_url(asset('images/newsletter_icon_vm.png')) }}" alt="Vimeo">
+                                    </a>
+                                </item>
+                                <item>
+                                    <a href="https://www.flickr.com/photos/lopati" class="footer-bottom-icon">
+                                        <img class="float-right" src="{{ absolute_url(asset('images/newsletter_icon_fl.png')) }}" alt="Flickr">
+                                    </a>
+                                </item>
+                            </menu>
+                        </center>
+                    </columns>
+                </row>
+                {% include "mail/fragment/hr_row_divider.html.twig" %}
+                <row>
+                    <columns small="12" large="12" class="black-background">
+                        <center>
+                            <menu>
+                                <item>
+                                    <a href="https://www.amposta.cat" class="footer-pre-bottom-icon">
+                                        <img class="float-right" src="{{ absolute_url(asset('images/logo_ajuntament_amposta.png')) }}" alt="Ajuntament Amposta logo">
+                                    </a>
+                                </item>
+                                <item>
+                                    <a href="https://www.diputaciodetarragona.cat" class="footer-pre-bottom-icon">
+                                        <img class="float-right" src="{{ absolute_url(asset('images/logo_dipta.png')) }}" alt="Diputació Tarragona logo">
+                                    </a>
+                                </item>
+                                <item>
+                                    <a href="https://cultura.gencat.cat/ca/inici/" class="footer-pre-bottom-icon">
+                                        <img class="float-right" src="{{ absolute_url(asset('images/logo_gencat.png')) }}" alt="Generalitat Catalunya logo">
+                                    </a>
+                                </item>
+                            </menu>
+                            <spacer size="13"></spacer>
+                        </center>
+                    </columns>
+                </row>
+            </container>
+        </wrapper>
+        {% if show_bottom_bar %}
+            <wrapper class="header grey-background">
+                <container>
+                    <row class="collapse">
+                        <columns small="6" large="6" class="grey-background vertical-padding">
+                            <p class="text-center black-color">
+                                {{ 'mail.click' | trans }} <a href="{{ url('front_app_newsletter_web_version', {id: newsletter.id}) }}" class="lopati-black-link">{{ 'mail.here' | trans }}</a> {{ 'mail.to_show_web_version' | trans }} · {{ 'mail.click' | trans }} <a href="%token%" class="lopati-black-link">{{ 'mail.here' | trans }}</a> {{ 'mail.to_unsubscribe' | trans }}
+                            </p>
+                        </columns>
+                    </row>
+                </container>
+            </wrapper>
+        {% endif %}
+    {% endblock %}
+    <div style="display:none;white-space:nowrap;font:15px courier;line-height:0;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
+    {% endapply %}
+    </body>
+{% endapply %}

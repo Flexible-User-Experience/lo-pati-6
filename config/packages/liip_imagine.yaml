@@ -1,4 +1,90 @@
-# Documentation on how to configure the bundle can be found at: https://symfony.com/doc/current/bundles/LiipImagineBundle/basic-usage.html
 liip_imagine:
-    # valid drivers options include "gd" or "gmagick" or "imagick"
-    driver: "gd"
+    driver: 'gd'
+    cache: 'format_extension'
+    loaders:
+        default:
+            filesystem:
+                locator: 'filesystem_insecure'
+    resolvers:
+        default:
+            web_path: ~
+    twig:
+        mode: 'lazy'
+        assets_version: 'v600000'
+    default_filter_set_settings:
+        format: 'webp'
+    filter_sets:
+        cache: ~
+        Xx60:
+            quality: 95
+            filters:
+                thumbnail: { size: [ null, 60 ], mode: outbound }
+        60x60:
+            quality: 95
+            filters:
+                thumbnail: { size: [ 60, 60 ], mode: outbound }
+        100x100:
+            quality: 95
+            filters:
+                thumbnail: { size: [ 100, 100 ], mode: outbound }
+        300x300:
+            quality: 95
+            filters:
+                thumbnail: { size: [ 300, 300 ], mode: outbound }
+        379x379_fixed:
+            quality: 90
+            filters:
+                fixed: { width: 379, height: 379 }
+        379x214:
+            quality: 90
+            filters:
+                thumbnail: { size: [ 379, 214 ], mode: outbound }
+        465x246:
+            quality: 95
+            filters:
+                thumbnail: { size: [465, 246], mode: outbound }
+        600x400:
+            quality: 90
+            filters:
+                thumbnail: { size: [ 600, 400 ], mode: inset }
+        600x600:
+            quality: 90
+            filters:
+                thumbnail: { size: [ 600, 600 ], mode: outbound }
+        728x214:
+            quality: 90
+            filters:
+                thumbnail: { size: [ 728, 214 ], mode: outbound }
+        758x758_fixed:
+            quality: 90
+            filters:
+                fixed: { width: 758, height: 758 }
+        758x428:
+            quality: 90
+            filters:
+                thumbnail: { size: [ 758, 428 ], mode: outbound }
+        758x428_fixed:
+            quality: 90
+            filters:
+                thumbnail: { size: [ 758, null ], mode: outbound }
+                fixed: { width: 758, height: 428 }
+        800x450:
+            quality: 90
+            filters:
+                thumbnail: { size: [ 800, 450 ], mode: outbound }
+        800x600:
+            quality: 90
+            filters:
+                thumbnail: { size: [ 800, 600 ], mode: outbound }
+        800xY:
+            quality: 85
+            filters:
+                thumbnail: { size: [ 800, null ], mode: outbound }
+        920x600:
+            quality: 85
+            filters:
+                thumbnail: { size: [ 920, 600 ], mode: outbound }
+        1200xY:
+            quality: 80
+            filters:
+                thumbnail: { size: [ 1200, null ], mode: outbound }

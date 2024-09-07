@@ -1,0 +1,10 @@
+symfonycasts_sass:
+    root_sass:
+        - '%kernel.project_dir%/assets/styles/app.scss'
+        - '%kernel.project_dir%/assets/styles/admin.scss'
+
+when@prod:
+    symfonycasts_sass:
+        embed_sourcemap: true
+        sass_options:
+            style: 'compressed'

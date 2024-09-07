@@ -1,0 +1,105 @@
+services:
+    # Menus
+    admin.menu_level1:
+        class: 'App\Admin\MenuLevel1Admin'
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', model_class: 'App\Entity\MenuLevel1', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Menu', label: 'sidebarmenu.menu.level1' }
+        calls:
+            - [ 'setEntityManager', [ '@doctrine.orm.entity_manager' ] ]
+            - [ 'setSecurityHelper', [ '@security.helper' ] ]
+    admin.menu_level2:
+        class: 'App\Admin\MenuLevel2Admin'
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', model_class: 'App\Entity\MenuLevel2', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Menu', label: 'sidebarmenu.menu.level2' }
+        calls:
+            - [ 'setEntityManager', [ '@doctrine.orm.entity_manager' ] ]
+            - [ 'setSecurityHelper', [ '@security.helper' ] ]
+    # Pages
+    admin.slideshow_page:
+        class: 'App\Admin\SlideshowPageAdmin'
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', model_class: 'App\Entity\SlideshowPage', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Page', label: 'sidebarmenu.page.slideshow' }
+        calls:
+            - [ 'setEntityManager', [ '@doctrine.orm.entity_manager' ] ]
+            - [ 'setSecurityHelper', [ '@security.helper' ] ]
+    admin.page:
+        class: 'App\Admin\PageAdmin'
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', model_class: 'App\Entity\Page', controller: 'App\Controller\Backend\PageAdminController', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Page', label: 'sidebarmenu.page.page' }
+        calls:
+            - [ 'setEntityManager', [ '@doctrine.orm.entity_manager' ] ]
+            - [ 'setSecurityHelper', [ '@security.helper' ] ]
+    admin.page_image:
+        class: 'App\Admin\PageImageAdmin'
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', model_class: 'App\Entity\PageImage', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Page', label: 'sidebarmenu.page.page_image', show_in_dashboard: true }
+        calls:
+            - [ 'setEntityManager', [ '@doctrine.orm.entity_manager' ] ]
+            - [ 'setSecurityHelper', [ '@security.helper' ] ]
+    # Newsletters
+    admin.newsletter_group:
+        class: 'App\Admin\NewsletterGroupAdmin'
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', model_class: 'App\Entity\NewsletterGroup', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Newsletter', label: 'sidebarmenu.newsletter.group' }
+        calls:
+            - [ 'setEntityManager', [ '@doctrine.orm.entity_manager' ] ]
+            - [ 'setSecurityHelper', [ '@security.helper' ] ]
+    admin.newsletter_user:
+        class: 'App\Admin\NewsletterUserAdmin'
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', model_class: 'App\Entity\NewsletterUser', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Newsletter', label: 'sidebarmenu.newsletter.user' }
+        calls:
+            - [ 'setEntityManager', [ '@doctrine.orm.entity_manager' ] ]
+            - [ 'setSecurityHelper', [ '@security.helper' ] ]
+    admin.newsletter:
+        class: 'App\Admin\NewsletterAdmin'
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', model_class: 'App\Entity\Newsletter', controller: 'App\Controller\Backend\NewsletterAdminController', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Newsletter', label: 'sidebarmenu.newsletter.newsletter' }
+        calls:
+            - [ 'setEntityManager', [ '@doctrine.orm.entity_manager' ] ]
+            - [ 'setSecurityHelper', [ '@security.helper' ] ]
+    admin.newsletter_post:
+        class: 'App\Admin\NewsletterPostAdmin'
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', model_class: 'App\Entity\NewsletterPost', controller: 'App\Controller\Backend\NewsletterPostAdminController', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Newsletter', label: 'sidebarmenu.newsletter.newsletter_post', show_in_dashboard: false }
+        calls:
+            - [ 'setEntityManager', [ '@doctrine.orm.entity_manager' ] ]
+            - [ 'setSecurityHelper', [ '@security.helper' ] ]
+    # Artists
+    admin.artist:
+        class: 'App\Admin\ArtistAdmin'
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', model_class: 'App\Entity\Artist', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Artist', label: 'sidebarmenu.artist.artist' }
+        calls:
+            - [ 'setEntityManager', [ '@doctrine.orm.entity_manager' ] ]
+            - [ 'setSecurityHelper', [ '@security.helper' ] ]
+    # Archives
+    admin.archive:
+        class: 'App\Admin\ArchiveAdmin'
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', model_class: 'App\Entity\Archive', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Archive', label: 'sidebarmenu.archive.archive' }
+        calls:
+            - [ 'setEntityManager', [ '@doctrine.orm.entity_manager' ] ]
+            - [ 'setSecurityHelper', [ '@security.helper' ] ]
+    # Settings
+    admin.visiting_hours:
+        class: 'App\Admin\VisitingHoursAdmin'
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', model_class: 'App\Entity\VisitingHours', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Setting', label: 'sidebarmenu.settings.visiting_hours' }
+        calls:
+            - [ 'setEntityManager', [ '@doctrine.orm.entity_manager' ] ]
+            - [ 'setSecurityHelper', [ '@security.helper' ] ]
+    admin.config_calendar_working_day:
+        class: 'App\Admin\ConfigCalendarWorkingDayAdmin'
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', model_class: 'App\Entity\ConfigCalendarWorkingDay', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Setting', label: 'sidebarmenu.settings.config_calendar_working_day' }
+        calls:
+            - [ 'setEntityManager', [ '@doctrine.orm.entity_manager' ] ]
+            - [ 'setSecurityHelper', [ '@security.helper' ] ]
+    admin.user:
+        class: 'App\Admin\UserAdmin'
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', model_class: 'App\Entity\User', label_translator_strategy: 'sonata.admin.label.strategy.underscore', group: 'Setting', label: 'sidebarmenu.settings.user' }
+        calls:
+            - [ 'setEntityManager', [ '@doctrine.orm.entity_manager' ] ]
+            - [ 'setSecurityHelper', [ '@security.helper' ] ]
