@@ -3,6 +3,7 @@ Changelog
 
 ##### Version 6.00.002 (WIP)
  * keep working
+ * fix admin navbar background brand color
 
 ##### Version 6.00.001 (2024-09-07)
  * add search placeholder in modal
