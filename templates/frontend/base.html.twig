@@ -36,7 +36,7 @@
             </div>
             <div class="offcanvas-body">
                 <div {{ stimulus_controller('autocomplete', {'url': path('front_app_search'), 'min-length': 3, 'submit-on-enter-value': false}) }} role="combobox">
-                    <input {{ stimulus_target('autocomplete', 'input') }} id="inputOffcanvasSearchField" class="form-control ms-auto me-2" type="text" aria-label="{{ 'front.layout.search.engine' | trans }}">
+                    <input {{ stimulus_target('autocomplete', 'input') }} id="inputOffcanvasSearchField" class="form-control ms-auto me-2" type="text" aria-label="{{ 'front.layout.search.engine' | trans }}" placeholder="{{ 'front.layout.search.placeholder' | trans }}">
                     <div {{ stimulus_target('autocomplete', 'results') }}></div>
                 </div>
             </div>

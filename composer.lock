@@ -3352,16 +3352,16 @@
         },
         {
             "name": "meilisearch/search-bundle",
-            "version": "v0.15.4",
+            "version": "v0.15.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/meilisearch/meilisearch-symfony.git",
-                "reference": "4bd0b3991b0bd154fef8e2ab6b981b923f5cd6c2"
+                "reference": "d510d8706d23c6454b6f9e3c14e4a1cef9e9cb6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/meilisearch/meilisearch-symfony/zipball/4bd0b3991b0bd154fef8e2ab6b981b923f5cd6c2",
-                "reference": "4bd0b3991b0bd154fef8e2ab6b981b923f5cd6c2",
+                "url": "https://api.github.com/repos/meilisearch/meilisearch-symfony/zipball/d510d8706d23c6454b6f9e3c14e4a1cef9e9cb6e",
+                "reference": "d510d8706d23c6454b6f9e3c14e4a1cef9e9cb6e",
                 "shasum": ""
             },
             "require": {
@@ -3424,9 +3424,9 @@
             ],
             "support": {
                 "issues": "https://github.com/meilisearch/meilisearch-symfony/issues",
-                "source": "https://github.com/meilisearch/meilisearch-symfony/tree/v0.15.4"
+                "source": "https://github.com/meilisearch/meilisearch-symfony/tree/v0.15.5"
             },
-            "time": "2024-08-02T03:55:36+00:00"
+            "time": "2024-09-06T21:07:12+00:00"
         },
         {
             "name": "monolog/monolog",
