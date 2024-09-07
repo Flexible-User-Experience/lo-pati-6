@@ -465,6 +465,7 @@ front:
     previous_editions: 'Altres edicions'
     search:
       engine: 'Buscador'
+      placeholder: 'escriu una paraula de cerca aquí'
       no_results_found: 'Ho sentim, no s''ha trobat cap resultat.'
     footer:
       visit: 'Visita el centre'
