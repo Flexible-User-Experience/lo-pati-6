@@ -2,6 +2,7 @@ To Do
 =====
 
  * add legal terms page
+ * add search placeholder in modal
  * manage Sendgrid un-subscriptions callback hooks
  * check newsletter email sends
  * implement newsletter redesign
