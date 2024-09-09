@@ -142,8 +142,9 @@
 }
 
 .ch-cookie-consent__btn {
-    background: linear-gradient(349.19deg, $magenta-dark 0%, $magenta 100%);
-    color: $lp-color-ultra-light-grey;
+    background: transparent;
+    color: $lp-color-black;
+    border: 2px solid $lp-color-black;
     font-weight: bold;
     padding: 10px 20px;
     display: -ms-flexbox;
@@ -161,9 +162,9 @@
 }
 
 .ch-cookie-consent__btn--secondary {
-    background: transparent;
-    color: $lp-color-black;
-    border: 2px solid $lp-color-black;
+    border: 2px solid $magenta-dark;
+    background: $magenta;
+    color: $lp-color-ultra-light-grey;
 }
 
 .ch-cookie-consent--dark-theme {
