@@ -1,5 +1,6 @@
 framework:
     secret: '%env(APP_SECRET)%'
+    esi: true
     annotations: false
     http_method_override: false
     handle_all_throwables: true
