@@ -512,6 +512,10 @@ front:
     slide: 'Imagen'
     previous: 'Anterior'
     next: 'Siguiente'
+  cookies_policy:
+    title_1: 'Política de cookies'
+    title_2: 'Normativa'
+    text_section_2_line_1: 'Identitat'
   privacy_policy:
     title_1: 'Política de privacidad'
     title_2: 'Responsable del tratamiento de datos'
