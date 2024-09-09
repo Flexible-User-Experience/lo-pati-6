@@ -679,3 +679,5 @@ validator:
   vimeo:
     error: 'Error Vimeo'
 on_newsletter_form_submit_success: 'Enhorabona! Ja estàs registrat al butlletí.'
+ch_cookie_consent_intro_1: 'Utilitzem galetes per millorar la teva experiència de navegació i analitzar el trànsit del web. Pots acceptar-les totes o acceptar només les galetes funcionals que són indispensables per al correcte funcionament d''aquesta pàgina web.'
+ch_cookie_consent_intro_2: 'Les nostres galetes recullen informació anònima sobre l''ús del web, les pàgines que visites, els elements amb els quals interactues i com has arribat al web. Aquesta informació es fa servir per analitzar el comportament dels usuaris al web i millorar-ne l''experiència.'
