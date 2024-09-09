@@ -10,6 +10,15 @@ use Symfony\Component\Routing\Attribute\Route;
 final class ConditionsController extends AbstractController
 {
     #[Route(path: [
+        LocalesEnum::CA => '/politica-de-galetes',
+        LocalesEnum::ES => '/politica-de-cookies',
+    ], name: 'front_app_cookies_policy')]
+    public function cookiesPolicy(): Response
+    {
+        return $this->render('frontend/terms/privacy_policy.html.twig');
+    }
+
+    #[Route(path: [
         LocalesEnum::CA => '/politica-de-privacitat',
         LocalesEnum::ES => '/politica-de-privacidad',
     ], name: 'front_app_privacy_policy')]
