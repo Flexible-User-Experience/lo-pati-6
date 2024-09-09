@@ -1,11 +1,10 @@
 Changelog
 =========
 
-##### Version 6.00.002 (WIP)
+##### Version 6.00.003 (WIP)
  * keep working
 
-##### Version 6.00.002 (WIP)
- * keep working
+##### Version 6.00.002 (2024-09-09)
  * fix admin navbar background brand color
  * add Cookies Consent `connectholland/cookie-consent-bundle` dependency
 
