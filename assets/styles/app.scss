@@ -1,14 +1,5 @@
-// custom variables
-$lp-base-precent: 25%;
-$lp-color-white: #FFFFFF;
-$lp-color-ultra-black: #0E131C;
-$lp-color-black: #151920;
-$lp-color-light-grey: #78838C;
-$lp-color-ultra-light-grey: #CBCFD1;
-$lp-color-red: #FF004E;
-$lp-color-teal: #59F3C1;
-$lp-color-purple: #3B1493;
-$lp-color-yellow: #FFDF4A;
+// colors
+@import 'colors';
 
 // override Bootstrap v5 variables before import
 $primary: $lp-color-red;
@@ -19,11 +10,14 @@ $navbar-light-color: $lp-color-light-grey;
 $navbar-light-hover-color: --bs-body-color;
 $navbar-light-active-color: --bs-body-color;
 $nav-link-color: $lp-color-light-grey;
-$nav-link-hover-color: lighten($lp-color-red, $lp-base-precent);
+$nav-link-hover-color: lighten($lp-color-red, $lp-base-percent);
 $nav-link-active-color: $lp-color-red;
 $offcanvas-vertical-height: 50vh;
 $font-family-sans-serif:  'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
 $breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E");
+
+// cookies
+@import 'cookie_consent';
 
 // custom header navbar
 ul.navbar-nav {
@@ -35,7 +29,7 @@ ul.navbar-nav {
         border-bottom: solid 5px $lp-color-red;
       }
       &:hover {
-        border-bottom: solid 5px lighten($lp-color-red, $lp-base-precent);
+        border-bottom: solid 5px lighten($lp-color-red, $lp-base-percent);
       }
       a.nav-link {
         font-weight: 500 !important;
@@ -74,7 +68,7 @@ nav.submenu {
         border-bottom: solid 5px $lp-color-red;
       }
       &:hover {
-        border-bottom: solid 5px lighten($lp-color-red, $lp-base-precent);
+        border-bottom: solid 5px lighten($lp-color-red, $lp-base-percent);
       }
       a.nav-link {
         padding: 20px;
@@ -95,7 +89,7 @@ nav.submenu {
   }
 }
 
-// custom navlink
+// custom nav link
 .nav-link.active {
   color: $nav-link-active-color;
 }
@@ -117,7 +111,7 @@ ul.pagination {
   }
 }
 
-// highlighted tumbnails
+// highlighted thumbnails
 .mini-colored-box-detail {
   margin-left: -10px;
   width: 30px;

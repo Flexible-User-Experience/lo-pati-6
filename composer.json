@@ -19,6 +19,7 @@
         "ext-zlib": "*",
         "beberlei/doctrineextensions": "^1.5",
         "cocur/slugify": "^4.5",
+        "connectholland/cookie-consent-bundle": "dev-master",
         "doctrine/dbal": "^3.8",
         "doctrine/doctrine-bundle": "^2.12",
         "doctrine/doctrine-migrations-bundle": "^3.3",
@@ -113,6 +114,12 @@
         "symfony/polyfill-php81": "*",
         "symfony/polyfill-php82": "*"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:davidromani/harborn-cookie-consent-bundle.git"
+        }
+    ],
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
