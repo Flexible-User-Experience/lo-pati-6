@@ -15,7 +15,7 @@ final class ConditionsController extends AbstractController
     ], name: 'front_app_cookies_policy')]
     public function cookiesPolicy(): Response
     {
-        return $this->render('frontend/terms/privacy_policy.html.twig');
+        return $this->render('frontend/terms/cookies_policy.html.twig');
     }
 
     #[Route(path: [

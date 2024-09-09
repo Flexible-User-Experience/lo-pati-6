@@ -1,0 +1,23 @@
+{% extends "frontend/base.html.twig" %}
+
+{% block title %}{{ 'front.layout.footer_3.left.cookies_policy' | trans }} · {{ parent() }}{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <main>
+            <div class="row my-5">
+                <div class="col-12">
+                    <h2>{{ 'front.cookies_policy.title_1' | trans }}</h2>
+                </div>
+            </div>
+            <div class="row my-5">
+                <div class="col-12">
+                    <h4 class="mb-4">{{ 'front.cookies_policy.title_2' | trans }}</h4>
+                    <p>{{ 'front.cookies_policy.text_section_2_line_1' | trans }}: {{ pp_id }}</p>
+                </div>
+            </div>
+        </main>
+    </div>
+{% endblock %}
+
+{% block footer_background_color_style_attribute %}{% endblock %}
