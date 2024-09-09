@@ -278,12 +278,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidromani/harborn-cookie-consent-bundle.git",
-                "reference": "e7c373c0f5b0b768414f410c8c2f04229bb67d17"
+                "reference": "a1b4e935404e1ec6ad1c26b616657fd5a0b655d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidromani/harborn-cookie-consent-bundle/zipball/e7c373c0f5b0b768414f410c8c2f04229bb67d17",
-                "reference": "e7c373c0f5b0b768414f410c8c2f04229bb67d17",
+                "url": "https://api.github.com/repos/davidromani/harborn-cookie-consent-bundle/zipball/a1b4e935404e1ec6ad1c26b616657fd5a0b655d0",
+                "reference": "a1b4e935404e1ec6ad1c26b616657fd5a0b655d0",
                 "shasum": ""
             },
             "require": {
@@ -330,7 +330,7 @@
             "support": {
                 "source": "https://github.com/davidromani/harborn-cookie-consent-bundle/tree/master"
             },
-            "time": "2024-09-09T08:54:53+00:00"
+            "time": "2024-09-09T09:18:26+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
