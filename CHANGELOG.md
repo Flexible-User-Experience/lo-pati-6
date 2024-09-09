@@ -3,7 +3,11 @@ Changelog
 
 ##### Version 6.00.002 (WIP)
  * keep working
+
+##### Version 6.00.002 (WIP)
+ * keep working
  * fix admin navbar background brand color
+ * add Cookies Consent `connectholland/cookie-consent-bundle` dependency
 
 ##### Version 6.00.001 (2024-09-07)
  * add search placeholder in modal
