@@ -1,5 +1,14 @@
 {% extends '@!CHCookieConsent/cookie_consent.html.twig' %}
 
+{% block intro %}
+    <p class="ch-cookie-consent__intro">
+        {{ 'ch_cookie_consent_intro_1' | trans }}
+    </p>
+    <p class="ch-cookie-consent__intro">
+        {{ 'ch_cookie_consent_intro_2' | trans }}
+    </p>
+{% endblock %}
+
 {% block read_more_link %}{{ path('front_app_privacy_policy', {'_locale': app.request.locale}) }}{% endblock %}
 
 {% block toggle_details %}{% endblock %}
