@@ -38,6 +38,7 @@ $ ./scripts/developer-tools/run-test.sh
 #### Developer important notes
 
  * Read about how to start a local web server instance [here](https://symfony.com/doc/current/setup/symfony_server.html)
+ * Meilisearch service needs to be installed and working in the localhost environment. Read [these](https://www.meilisearch.com/docs/learn/self_hosted/getting_started_with_self_hosted_meilisearch) instructions about it.
 
 #### Messenger queues
 
