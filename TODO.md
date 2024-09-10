@@ -1,7 +1,6 @@
 To Do
 =====
 
- * add legal terms page
  * manage Sendgrid un-subscriptions callback hooks
  * check newsletter email sends
  * implement newsletter redesign
