@@ -531,7 +531,35 @@ front:
     text_section_3_line_3: 'Las cookies persistentes son las que se guardan en tu ordenador y no se eliminan automáticamente cuando sales del navegador (a diferencia de las cookies de sesión, que sí se eliminan al salir del navegador).'
     text_section_3_line_4: 'Cada vez que visites la web, se te pedirá que aceptes o rechaces las cookies. La finalidad es recordar tus preferencias durante un período de tiempo determinado. Así, no tendrás que volver a indicarlas cuando navegues por nuestras páginas durante una misma visita. Las cookies también pueden utilizarse para realizar estadísticas anonimizadas sobre la experiencia de navegación en nuestros sitios web.'
     title_4: 'Cookies necesarias'
-    text_section_4_line_1: ''
+    text_section_4_line_1: 'Hay cookies que son necesarias para que funcionen determinadas páginas web. De ahí que no requieran el consentimiento del usuario. En concreto, estas cookies almacenan las preferencias de los visitantes de si ha aceptado (o rechazado) la política de cookies del sitio (para no volver a pedirle que lo haga). Y cookies técnicas exigidas por determinados sistemas informáticos.'
+    text_section_4_line_2: 'A continuación te mostramos las cookies funcionales que utilizamos:'
+    table:
+      head:
+        column1: 'Categoría'
+        column2: 'Tipo'
+        column3: 'Cookie'
+        column4: 'Duración'
+        column5: 'Uso'
+        column6: 'Donde se envían los datos'
+        column7: 'Política'
+      body:
+        row1:
+          column1: 'Esenciales'
+          column2: 'Rendimiento'
+          column3: 'PHPSESSID'
+          column4: 'Sessión'
+          column5: 'Conserva el estado de la sesión del usuario en las solicitudes de página.'
+          column6: 'España'
+          column7: 'Lo Pati'
+        row2:
+          column2: 'Personalización'
+          column3: 'Cookie_Consent'
+          column4: 'Un año'
+          column5: 'Almacena el estado de consentimiento del usuario frente al banner de cookies.'
+        row3:
+          column3: 'Cookie_Consent_Key'
+        row4:
+          column3: 'Cookie_Category_analytics'
   privacy_policy:
     title_1: 'Política de privacidad'
     title_2: 'Responsable del tratamiento de datos'

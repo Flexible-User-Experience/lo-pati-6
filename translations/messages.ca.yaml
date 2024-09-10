@@ -542,6 +542,24 @@ front:
         column5: 'Ús'
         column6: 'On s''envien les dades'
         column7: 'Política'
+      body:
+        row1:
+          column1: 'Essencials'
+          column2: 'Rendiment'
+          column3: 'PHPSESSID'
+          column4: 'Sessió'
+          column5: 'Conserva l''estat de la sessió de l''usuari a les sol·licituds de pàgina.'
+          column6: 'Espanya'
+          column7: 'Lo Pati'
+        row2:
+          column2: 'Personalització'
+          column3: 'Cookie_Consent'
+          column4: 'Un any'
+          column5: 'Emmagatzema l''estat de consentiment de l''usuari davant del baner de galetes.'
+        row3:
+          column3: 'Cookie_Consent_Key'
+        row4:
+          column3: 'Cookie_Category_analytics'
   privacy_policy:
     title_1: 'Política de privacitat'
     title_2: 'Responsable del tractament de dades'
