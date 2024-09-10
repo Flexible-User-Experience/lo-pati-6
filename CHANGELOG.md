@@ -1,8 +1,13 @@
 Changelog
 =========
 
-##### Version 6.00.003 (WIP)
+##### Version 6.00.004 (WIP)
  * keep working
+
+##### Version 6.00.003 (2024-09-10)
+ * add cookies policy template
+ * composer dependencies update
+ * fix path to front_app_cookies_policy
 
 ##### Version 6.00.002 (2024-09-09)
  * fix admin navbar background brand color
