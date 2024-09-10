@@ -137,4 +137,19 @@ abstract class AbstractBaseAdmin extends AbstractAdmin
             ),
         ];
     }
+
+    protected function getReducedQuillOptions(): array
+    {
+        return [
+            QuillGroup::build(
+                new BoldField(),
+                new ItalicField(),
+                new UnderlineField(),
+                new StrikeField(),
+            ),
+            QuillGroup::build(
+                new LinkField(),
+            ),
+        ];
+    }
 }
