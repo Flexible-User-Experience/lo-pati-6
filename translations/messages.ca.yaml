@@ -515,8 +515,8 @@ front:
   cookies_policy:
     title_1: 'Política de galetes'
     title_2: 'Normativa'
-    text_section_2_line_1: 'Aquesta pàgina web utilitza galetes per funcionar. Navegar per aquesta web amb les galetes activades al navegador comporta de manera imprescindible l’acceptació de l''ús, com a mínim, de les galetes necessàries d’acord amb la normativa actual.'
-    text_section_2_line_2: 'Segons la normativa europea, s''ha d’informar l''usuari de les galetes necessàries, i demanar-li que accepti o rebutgi les de preferències o estadístiques.'
+    text_section_2_line_1: 'Aquesta pàgina web utilitza galetes per funcionar. Navegar per aquesta web amb les galetes activades al navegador comporta de manera imprescindible l''acceptació de l''ús, com a mínim, de les galetes necessàries d''acord amb la normativa actual.'
+    text_section_2_line_2: 'Segons la normativa europea, s''ha d''informar l''usuari de les galetes necessàries, i demanar-li que accepti o rebutgi les de preferències o estadístiques.'
     text_section_2_line_3: 'En aquest web hi ha tres tipus de galetes, estructurades en funció de si són:'
     text_section_2_line_4: 'necessàries'
     text_section_2_line_5: 'estadístiques o d''optimització'
