@@ -536,6 +536,14 @@ front:
     title_5: 'Galetes estadístiques'
     text_section_5_line_1: 'Les utilitzem exclusivament amb finalitats de recerca interna per millorar el servei que oferim a tots els usuaris. Es limiten a avaluar com interactuen els usuaris amb els nostres llocs web de manera anònima: les dades recollides no permeten identificar personalment l''usuari. Aquestes dades no es comparteixen amb tercers ni s''utilitzen per a cap altra finalitat. Ara bé, com a usuari ets lliure de rebutjar-les mitjançant el baner de galetes que apareix en la primera pàgina visitada.'
     text_section_5_line_2: 'En el quadre següent et mostrem les galetes estadístiques que utilitzem:'
+    title_6: 'Com gestionar les galetes?'
+    text_section_6_line_1: 'Eliminar les galetes del teu dispositiu'
+    text_section_6_line_2: 'Pots eliminar les galetes que tinguis en el dispositiu esborrant l''historial del navegador. D''aquesta manera, se suprimiran les galetes de tots els llocs web que hagis visitat. No obstant això, també pots perdre part de la informació que tinguis desada (per exemple, les teves preferències per als llocs web).'
+    text_section_6_line_3: 'Bloquejar les galetes'
+    text_section_6_line_4: 'La majoria dels navegadors moderns es poden configurar perquè no acceptin galetes en el dispositiu en ús, però és possible que hagis de configurar manualment una sèrie de preferències cada vegada que visitis un lloc o pàgina. A més, alguns serveis i característiques poden no funcionar correctament (per exemple, els inicis de sessió amb perfil).'
+    text_section_6_line_5: 'Activar la protecció contra el rastreig'
+    text_section_6_line_6: 'La funció de protecció contra el rastreig és una tecnologia que permet als visitants optar perquè els llocs web no segueixin el seu rastre en cap cas, tant si es tracta de serveis d''anàlisis com de xarxes publicitàries o plataformes socials. Per activar la protecció contra el rastreig en el teu navegador, segueix l''enllaç corresponent dels que figuren a continuació:'
+    text_section_6_line_7: 'Si el teu navegador no figura en la llista anterior, visita el lloc web del proveïdor per obtenir més informació sobre aquest tema.'
     table:
       head:
         column1: 'Categoria'

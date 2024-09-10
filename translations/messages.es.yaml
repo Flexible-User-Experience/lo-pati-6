@@ -536,6 +536,14 @@ front:
     title_5: 'Cookies estadísticas'
     text_section_5_line_1: 'Las utilizamos exclusivamente con fines de investigación interna para mejorar el servicio que ofrecemos a todos los usuarios. Se limitan a evaluar cómo interactúan los usuarios con nuestros sitios web de forma anónima: los datos recogidos no permiten identificar personalmente al usuario. Estos datos no se comparten con terceros ni se utilizan para ninguna otra finalidad. Ahora bien, como usuario eres libre de rechazarlas mediante el banner de galletas que aparece en la primera página visitada.'
     text_section_5_line_2: 'En el siguiente cuadro te mostramos las cookies estadísticas que utilizamos:'
+    title_6: '¿Cómo gestionar las cookies?'
+    text_section_6_line_1: 'Eliminar las cookies de tu dispositivo'
+    text_section_6_line_2: 'Puedes eliminar las cookies que tengas en el dispositivo borrando el historial del navegador. De esta forma, se suprimirán las cookies de todos los sitios web que hayas visitado. Sin embargo, también puedes perder parte de la información que tengas guardada (por ejemplo, tus preferencias para los sitios web).'
+    text_section_6_line_3: 'Bloquear les cookies'
+    text_section_6_line_4: 'La mayoría de los navegadores modernos se pueden configurar para que no acepten cookies en su dispositivo en uso, pero es posible que tengas que configurar manualmente una serie de preferencias cada vez que visites un sitio o página. Algunos servicios y características pueden no funcionar correctamente (por ejemplo, los inicios de sesión con perfil).'
+    text_section_6_line_5: 'Activar la protección contra el rastreo'
+    text_section_6_line_6: 'La función de protección contra el rastreo es una tecnología que permite a los visitantes optar por que los sitios web no sigan su rastro en ningún caso, tanto si se trata de servicios de análisis como de redes publicitarias o plataformas sociales. Para activar la protección contra el rastreo en tu navegador, sigue el enlace correspondiente de los que figuran a continuación:'
+    text_section_6_line_7: 'Si su navegador no figura en la lista anterior, visita el sitio web del proveedor para obtener más información al respecto.'
     table:
       head:
         column1: 'Categoría'
