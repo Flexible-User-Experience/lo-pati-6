@@ -533,6 +533,9 @@ front:
     title_4: 'Cookies necesarias'
     text_section_4_line_1: 'Hay cookies que son necesarias para que funcionen determinadas páginas web. De ahí que no requieran el consentimiento del usuario. En concreto, estas cookies almacenan las preferencias de los visitantes de si ha aceptado (o rechazado) la política de cookies del sitio (para no volver a pedirle que lo haga). Y cookies técnicas exigidas por determinados sistemas informáticos.'
     text_section_4_line_2: 'A continuación te mostramos las cookies funcionales que utilizamos:'
+    title_5: 'Cookies estadísticas'
+    text_section_5_line_1: 'Las utilizamos exclusivamente con fines de investigación interna para mejorar el servicio que ofrecemos a todos los usuarios. Se limitan a evaluar cómo interactúan los usuarios con nuestros sitios web de forma anónima: los datos recogidos no permiten identificar personalmente al usuario. Estos datos no se comparten con terceros ni se utilizan para ninguna otra finalidad. Ahora bien, como usuario eres libre de rechazarlas mediante el banner de galletas que aparece en la primera página visitada.'
+    text_section_5_line_2: 'En el siguiente cuadro te mostramos las cookies estadísticas que utilizamos:'
     table:
       head:
         column1: 'Categoría'
@@ -549,7 +552,7 @@ front:
           column3: 'PHPSESSID'
           column4: 'Sessión'
           column5: 'Conserva el estado de la sesión del usuario en las solicitudes de página.'
-          column6: 'España'
+          column6: 'Francia'
           column7: 'Lo Pati'
         row2:
           column2: 'Personalización'
@@ -560,6 +563,14 @@ front:
           column3: 'Cookie_Consent_Key'
         row4:
           column3: 'Cookie_Category_analytics'
+        row5:
+          column1: 'Estadísticas'
+          column2: 'Analítica'
+          column3: '_ga'
+          column5: 'Recoge información sobre los usuarios y su actividad en el sitio web con fines de análisis e informes.'
+          column6: 'Desconocido'
+        row6:
+          column3: '_ga_ZG02CXL2W9'
   privacy_policy:
     title_1: 'Política de privacidad'
     title_2: 'Responsable del tratamiento de datos'

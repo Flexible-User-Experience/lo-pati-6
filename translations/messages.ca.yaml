@@ -533,6 +533,9 @@ front:
     title_4: 'Galetes necessàries'
     text_section_4_line_1: 'Hi ha galetes que són necessàries perquè funcionin determinades pàgines web. D''aquí ve que no requereixin el consentiment de l''usuari. En concret aquestes galetes emmagatzemen les preferències dels visitants de si ha acceptat (o rebutjat) la política de galetes del lloc (per no tornar a demanar-li que ho faci). I galetes tècniques exigides per determinats sistemes informàtics.'
     text_section_4_line_2: 'A continuació et mostrem les galetes funcionals que utilitzem:'
+    title_5: 'Galetes estadístiques'
+    text_section_5_line_1: 'Les utilitzem exclusivament amb finalitats de recerca interna per millorar el servei que oferim a tots els usuaris. Es limiten a avaluar com interactuen els usuaris amb els nostres llocs web de manera anònima: les dades recollides no permeten identificar personalment l''usuari. Aquestes dades no es comparteixen amb tercers ni s''utilitzen per a cap altra finalitat. Ara bé, com a usuari ets lliure de rebutjar-les mitjançant el baner de galetes que apareix en la primera pàgina visitada.'
+    text_section_5_line_2: 'En el quadre següent et mostrem les galetes estadístiques que utilitzem:'
     table:
       head:
         column1: 'Categoria'
@@ -549,7 +552,7 @@ front:
           column3: 'PHPSESSID'
           column4: 'Sessió'
           column5: 'Conserva l''estat de la sessió de l''usuari a les sol·licituds de pàgina.'
-          column6: 'Espanya'
+          column6: 'França'
           column7: 'Lo Pati'
         row2:
           column2: 'Personalització'
@@ -560,6 +563,14 @@ front:
           column3: 'Cookie_Consent_Key'
         row4:
           column3: 'Cookie_Category_analytics'
+        row5:
+          column1: 'Estadístiques'
+          column2: 'Analítica'
+          column3: '_ga'
+          column5: 'Recull informació sobre els usuaris i la seva activitat al lloc web amb finalitats d''anàlisi i informes.'
+          column6: 'Desconegut'
+        row6:
+          column3: '_ga_ZG02CXL2W9'
   privacy_policy:
     title_1: 'Política de privacitat'
     title_2: 'Responsable del tractament de dades'
