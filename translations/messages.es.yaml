@@ -671,6 +671,11 @@ newsletter:
     phone: 'TELÉFONO'
     accept_legal_terms: 'ACEPTO LOS'
     submit: 'Enviar'
+    tos_1: 'Informació bàsica sobre protecció de dades i tractament'
+    tos_2: 'Responsable del tractament:'
+    tos_3: 'Finalitat:'
+    tos_4: 'Drets de les persones interessades:'
+    back_to_form: 'Volver al formulario'
   flash:
     register: 'Ahora recibirá un email de confirmación para activar su usuario.'
     error:  'Ya existe un usuario con ese email.'
