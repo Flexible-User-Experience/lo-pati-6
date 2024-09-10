@@ -312,14 +312,7 @@ final class PageAdmin extends AbstractBaseAdmin
                         'height' => '400px',
                         'theme' => 'snow',
                     ],
-                    'quill_options' => [
-                        QuillGroup::build(
-                            new BoldField(),
-                            new UnderlineField(),
-                            new ItalicField(),
-                            new LinkField(),
-                        ),
-                    ],
+                    'quill_options' => $this->getQuillOptions(),
                 ]
             )
             ->add(

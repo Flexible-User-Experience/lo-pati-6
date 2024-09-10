@@ -3,6 +3,16 @@
 namespace App\Admin;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Ehyiah\QuillJsBundle\DTO\Fields\BlockField\AlignField;
+use Ehyiah\QuillJsBundle\DTO\Fields\BlockField\IndentField;
+use Ehyiah\QuillJsBundle\DTO\Fields\BlockField\ListField;
+use Ehyiah\QuillJsBundle\DTO\Fields\BlockField\ScriptField;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\BoldField;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\ItalicField;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\LinkField;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\StrikeField;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\UnderlineField;
+use Ehyiah\QuillJsBundle\DTO\QuillGroup;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Route\RouteCollectionInterface;
 use Symfony\Bundle\SecurityBundle\Security;
@@ -98,5 +108,33 @@ abstract class AbstractBaseAdmin extends AbstractAdmin
     protected function isChildForm(): bool
     {
         return $this->hasParentFieldDescription();
+    }
+
+    protected function getQuillOptions(): array
+    {
+        return [
+            QuillGroup::build(
+                new BoldField(),
+                new ItalicField(),
+                new UnderlineField(),
+                new StrikeField(),
+            ),
+            QuillGroup::build(
+                new AlignField(),
+            ),
+            QuillGroup::build(
+                new ScriptField(ScriptField::SCRIPT_FIELD_OPTION_SUB),
+                new ScriptField(ScriptField::SCRIPT_FIELD_OPTION_SUPER),
+            ),
+            QuillGroup::build(
+                new ListField(ListField::LIST_FIELD_OPTION_BULLET),
+                new ListField(ListField::LIST_FIELD_OPTION_ORDERED),
+                new IndentField(IndentField::INDENT_FIELD_OPTION_MINUS),
+                new IndentField(IndentField::INDENT_FIELD_OPTION_PLUS),
+            ),
+            QuillGroup::build(
+                new LinkField(),
+            ),
+        ];
     }
 }
