@@ -7,11 +7,6 @@ use App\Entity\MenuLevel2;
 use App\Entity\Translation\SlideshowPageTranslation;
 use App\Enum\SortOrderTypeEnum;
 use App\Form\Type\GedmoTranslationsType;
-use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\BoldField;
-use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\ItalicField;
-use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\LinkField;
-use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\UnderlineField;
-use Ehyiah\QuillJsBundle\DTO\QuillGroup;
 use Ehyiah\QuillJsBundle\Form\QuillType;
 use Sonata\AdminBundle\Datagrid\DatagridInterface;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -158,14 +153,7 @@ final class SlideshowPageAdmin extends AbstractBaseAdmin
                         'height' => '400px',
                         'theme' => 'snow',
                     ],
-                    'quill_options' => [
-                        QuillGroup::build(
-                            new BoldField(),
-                            new UnderlineField(),
-                            new ItalicField(),
-                            new LinkField(),
-                        ),
-                    ],
+                    'quill_options' => $this->getQuillOptions(),
                 ]
             )
             ->add(
@@ -214,14 +202,7 @@ final class SlideshowPageAdmin extends AbstractBaseAdmin
                                 'height' => '400px',
                                 'theme' => 'snow',
                             ],
-                            'quill_options' => [
-                                QuillGroup::build(
-                                    new BoldField(),
-                                    new UnderlineField(),
-                                    new ItalicField(),
-                                    new LinkField(),
-                                ),
-                            ],
+                            'quill_options' => $this->getQuillOptions(),
                         ],
                         'realizationDateString' => [
                             'label' => 'form.label_realization_date_string',
