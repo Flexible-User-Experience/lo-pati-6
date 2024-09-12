@@ -585,7 +585,8 @@ front:
         row8:
           column3: '_cfuvid'
         row9:
-          column3: '_cfuvid'
+          column3: '__cf_bm'
+          column4: '1 hora'
   privacy_policy:
     title_1: 'Política de privacitat'
     title_2: 'Responsable del tractament de dades'

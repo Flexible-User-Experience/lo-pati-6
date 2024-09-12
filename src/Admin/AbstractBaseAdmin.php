@@ -119,9 +119,14 @@ abstract class AbstractBaseAdmin extends AbstractAdmin
                 new UnderlineField(),
                 new StrikeField(),
             ),
-            /*QuillGroup::build(
-                TODO new AlignField(),
-            ),*/
+            QuillGroup::build(
+                new AlignField(
+                    AlignField::ALIGN_FIELD_OPTION_LEFT,
+                    AlignField::ALIGN_FIELD_OPTION_CENTER,
+                    AlignField::ALIGN_FIELD_OPTION_RIGHT,
+                    AlignField::ALIGN_FIELD_OPTION_JUSTIFY,
+                ),
+            ),
             QuillGroup::build(
                 new ScriptField(ScriptField::SCRIPT_FIELD_OPTION_SUB),
                 new ScriptField(ScriptField::SCRIPT_FIELD_OPTION_SUPER),
