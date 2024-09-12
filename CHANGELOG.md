@@ -1,10 +1,13 @@
 Changelog
 =========
 
-##### Version 6.00.004 (WIP)
+##### Version 6.00.005 (WIP)
  * keep working
+
+##### Version 6.00.004 (2024-09-12)
  * add more QuillJS fields
  * add newsletter/terms_of_service template
+ * revert newsletter template design
 
 ##### Version 6.00.003 (2024-09-10)
  * add cookies policy template

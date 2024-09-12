@@ -1,4 +1,4 @@
-CMS Lo Pati v5.0
+CMS Lo Pati v6.0
 ================
 
 A fresh new Symfony 6.4 CMS webapp project to manage a Lo Pati content resources.
