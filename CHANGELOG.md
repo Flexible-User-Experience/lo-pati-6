@@ -3,6 +3,7 @@ Changelog
 
 ##### Version 6.00.007 (WIP)
  * keep working
+ * add OG meta content for better ShareThis buttons behaviour
 
 ##### Version 6.00.006 (2024-09-12))
  * show share this buttons in page detail views

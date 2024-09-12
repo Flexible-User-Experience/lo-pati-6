@@ -4,6 +4,17 @@
 
 {% block title %}{{ submenu }} · {{ menu }} · {{ parent() }}{% endblock %}
 
+{% block meta_description %}
+    {{ parent() }}
+    <meta property="og:title" content="{{ page.name }}"/>
+    <meta property="og:url" content="{{ app.request.uri }}"/>
+    {% if page.imageFileName %}
+        <meta property="og:image" content="{{ absolute_url(asset('images/page_detail_header_backgroung.jpg')) }}"/>
+    {% endif %}
+    <meta property="og:description" content="{{ page.summary }}"/>
+    <meta property="og:site_name" content="{{ pp_id }}"/>
+{% endblock %}
+
 {% block submenu_header %}
     <header class="d-flex border-bottom">
         <nav class="submenu navbar navbar-light bg-white text-uppercase mx-auto">

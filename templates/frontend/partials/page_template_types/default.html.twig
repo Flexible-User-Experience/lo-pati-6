@@ -149,5 +149,5 @@
         </div>
     {% endif %}
 </div>
-{{ render(controller('App\\Controller\\Frontend\\RelatedActivitiesController::previousEditionsByPage', {id: page.id})) }}
-{{ render(controller('App\\Controller\\Frontend\\RelatedActivitiesController::relatedActivitiesByPage', {id: page.id})) }}
+{{ render(controller('App\\Controller\\Frontend\\RelatedActivitiesController::previousEditionsByPage', {'id': page.id})) }}
+{{ render(controller('App\\Controller\\Frontend\\RelatedActivitiesController::relatedActivitiesByPage', {'id': page.id})) }}
