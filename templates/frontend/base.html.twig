@@ -26,6 +26,7 @@
         {% endblock %}
         {% block javascripts %}
             {{ importmap('app') }}
+            <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property={{ share_this_api_key }}&product=inline-share-buttons&source=platform" async="async"></script>
         {% endblock %}
     </head>
     <body>

@@ -3,6 +3,7 @@ Changelog
 
 ##### Version 6.00.006 (WIP)
  * keep working
+ * show share this buttons in page detail views
 
 ##### Version 6.00.005 (2024-09-12)
  * fix missing newsletter footer logos
