@@ -4,8 +4,9 @@ Changelog
 ##### Version 6.00.006 (WIP)
  * keep working
 
-##### Version 6.00.005 (WIP)
+##### Version 6.00.005 (2024-09-12)
  * fix missing newsletter footer logos
+ * revert old newsletter font sizes
 
 ##### Version 6.00.004 (2024-09-12)
  * add more QuillJS fields
