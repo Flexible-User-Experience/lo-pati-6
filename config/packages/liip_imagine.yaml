@@ -10,7 +10,7 @@ liip_imagine:
             web_path: ~
     twig:
         mode: 'lazy'
-        assets_version: 'v600006'
+        assets_version: 'v600007'
     default_filter_set_settings:
         format: 'webp'
     filter_sets:

@@ -1,10 +1,15 @@
 Changelog
 =========
 
-##### Version 6.00.007 (WIP)
+##### Version 6.00.008 (WIP)
  * keep working
 
-##### Version 6.00.006 (2024-09-12))
+##### Version 6.00.007 (2024-09-12)
+ * add OG meta content for better ShareThis buttons behaviour
+ * add Vimeo cookies info
+ * fix frontend broken offcanvas search modal
+
+##### Version 6.00.006 (2024-09-12)
  * show share this buttons in page detail views
 
 ##### Version 6.00.005 (2024-09-12)
