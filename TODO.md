@@ -1,7 +1,6 @@
 To Do
 =====
 
- * add Vimeo cookies info
  * manage Sendgrid un-subscriptions callback hooks
  * check newsletter email sends
  * implement newsletter redesign

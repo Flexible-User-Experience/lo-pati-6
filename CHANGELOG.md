@@ -1,9 +1,12 @@
 Changelog
 =========
 
-##### Version 6.00.007 (WIP)
+##### Version 6.00.008 (WIP)
  * keep working
+
+##### Version 6.00.007 (WIP)
  * add OG meta content for better ShareThis buttons behaviour
+ * add Vimeo cookies info
 
 ##### Version 6.00.006 (2024-09-12))
  * show share this buttons in page detail views
