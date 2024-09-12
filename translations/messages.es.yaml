@@ -671,6 +671,13 @@ newsletter:
     phone: 'TELÉFONO'
     accept_legal_terms: 'ACEPTO LOS'
     submit: 'Enviar'
+    tos_1: 'Información básica sobre protección de datos y tratamiento'
+    tos_2: 'Responsable del tratamiento:'
+    tos_3: 'Finalidad:'
+    tos_33: 'Recibir un correo electrónico periódico con las novedades del centro de arte.'
+    tos_4: 'Derechos de las personas interesadas:'
+    tos_44: 'Sus datos no se cederán ni compartirán con empresas o entidades externas al centro de arte. Puede solicitar la cancelación del boletín en el enlace que encontrará al pie del boletín recibido. También puede solicitar el acceso y la rectificación de sus datos enviando un correo a comunicacio@lopati.cat.'
+    back_to_form: 'Volver al formulario'
   flash:
     register: 'Ahora recibirá un email de confirmación para activar su usuario.'
     error:  'Ya existe un usuario con ese email.'

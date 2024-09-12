@@ -97,6 +97,12 @@ final class NewsletterController extends AbstractController
         );
     }
 
+    #[Route('/newsletter/terms-of-service', name: 'front_app_newsletter_terms_of_service', priority: 10)]
+    public function termsOfService(): Response
+    {
+        return $this->render('frontend/newsletter/terms_of_service.html.twig');
+    }
+
     #[Route('/newsletter/{id}', name: 'front_app_newsletter_web_version', priority: 10)]
     public function showNewsletterWebVersion(#[MapEntity(mapping: ['id' => 'id'])] Newsletter $newsletter): Response
     {

@@ -5,11 +5,6 @@ namespace App\Admin;
 use App\Entity\Translation\ArtistTranslation;
 use App\Enum\SortOrderTypeEnum;
 use App\Form\Type\GedmoTranslationsType;
-use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\BoldField;
-use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\ItalicField;
-use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\LinkField;
-use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\UnderlineField;
-use Ehyiah\QuillJsBundle\DTO\QuillGroup;
 use Ehyiah\QuillJsBundle\Form\QuillType;
 use Sonata\AdminBundle\Datagrid\DatagridInterface;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -171,14 +166,7 @@ final class ArtistAdmin extends AbstractBaseAdmin
                         'height' => '400px',
                         'theme' => 'snow',
                     ],
-                    'quill_options' => [
-                        QuillGroup::build(
-                            new BoldField(),
-                            new UnderlineField(),
-                            new ItalicField(),
-                            new LinkField(),
-                        ),
-                    ],
+                    'quill_options' => $this->getQuillOptions(),
                 ]
             )
             ->end()
@@ -245,14 +233,7 @@ final class ArtistAdmin extends AbstractBaseAdmin
                                 'height' => '400px',
                                 'theme' => 'snow',
                             ],
-                            'quill_options' => [
-                                QuillGroup::build(
-                                    new BoldField(),
-                                    new UnderlineField(),
-                                    new ItalicField(),
-                                    new LinkField(),
-                                ),
-                            ],
+                            'quill_options' => $this->getQuillOptions(),
                         ],
                     ],
                 ]

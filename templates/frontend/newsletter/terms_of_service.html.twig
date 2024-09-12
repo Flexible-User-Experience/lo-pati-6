@@ -1,0 +1,13 @@
+<turbo-frame id="newsletter_turbo_frame_id">
+    <div class="card text-bg-dark">
+        <div class="card-body">
+            <h5 class="card-title lp-c-light-grey">{{ 'newsletter.form.tos_1' | trans }}</h5>
+            <p><strong>{{ 'newsletter.form.tos_2' | trans }}</strong> {{ pp_id }}</p>
+            <p><strong>{{ 'newsletter.form.tos_3' | trans }}</strong> {{ 'newsletter.form.tos_33' | trans }}</p>
+            <p><strong>{{ 'newsletter.form.tos_4' | trans }}</strong> {{ 'newsletter.form.tos_44' | trans }}</p>
+            <a href="{{ path('front_app_newsletter_subscribe_form') }}" class="text-white btn btn-outline-light btn-sm rounded-0 border-2 text-uppercase">
+                <i class="fas fa-chevron-left me-1"></i> {{ 'newsletter.form.back_to_form' | trans }}
+            </a>
+        </div>
+    </div>
+</turbo-frame>
