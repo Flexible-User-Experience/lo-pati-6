@@ -1,8 +1,10 @@
 Changelog
 =========
 
-##### Version 6.00.006 (WIP)
+##### Version 6.00.007 (WIP)
  * keep working
+
+##### Version 6.00.006 (2024-09-12))
  * show share this buttons in page detail views
 
 ##### Version 6.00.005 (2024-09-12)
