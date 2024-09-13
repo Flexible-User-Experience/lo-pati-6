@@ -566,7 +566,7 @@ final class PageAdmin extends AbstractBaseAdmin
                 TrixFormType::class,
                 [
                     'required' => false,
-                    // TODO reduced options
+                    'trix_height' => '50px',
                 ]
             )
             ->add(

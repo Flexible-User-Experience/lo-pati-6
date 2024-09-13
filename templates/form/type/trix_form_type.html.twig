@@ -1,4 +1,4 @@
 {% block trix_form_type_widget %}
-    <input id="{{ trix_id }}" value="{{ trix_value }}" type="hidden" name="{{ trix_name }}">
-    <trix-editor input="{{ trix_id }}" style="min-height:400px"></trix-editor>
+    <input id="{{ form.vars.id }}" value="{{ form.vars.value }}" type="hidden" name="{{ form.vars.full_name }}">
+    <trix-editor input="{{ form.vars.id }}" style="min-height:{{ trix_height }}"></trix-editor>
 {% endblock %}
