@@ -5,7 +5,7 @@ namespace App\Admin;
 use App\Entity\Translation\ArtistTranslation;
 use App\Enum\SortOrderTypeEnum;
 use App\Form\Type\GedmoTranslationsType;
-use Ehyiah\QuillJsBundle\Form\QuillType;
+use App\Form\Type\TrixFormType;
 use Sonata\AdminBundle\Datagrid\DatagridInterface;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -159,14 +159,9 @@ final class ArtistAdmin extends AbstractBaseAdmin
             )
             ->add(
                 'description',
-                QuillType::class,
+                TrixFormType::class,
                 [
                     'required' => false,
-                    'quill_extra_options' => [
-                        'height' => '400px',
-                        'theme' => 'snow',
-                    ],
-                    'quill_options' => $this->getQuillOptions(),
                 ]
             )
             ->end()
@@ -228,12 +223,7 @@ final class ArtistAdmin extends AbstractBaseAdmin
                         'description' => [
                             'label' => 'form.label_description',
                             'required' => false,
-                            'field_type' => QuillType::class,
-                            'quill_extra_options' => [
-                                'height' => '400px',
-                                'theme' => 'snow',
-                            ],
-                            'quill_options' => $this->getQuillOptions(),
+                            'field_type' => TrixFormType::class,
                         ],
                     ],
                 ]

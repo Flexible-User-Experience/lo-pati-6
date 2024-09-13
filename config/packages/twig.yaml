@@ -4,12 +4,12 @@ twig:
     paths:
         '%kernel.project_dir%/assets/styles': 'styles'
     form_themes:
-        - 'bootstrap_5_layout.html.twig'
         - '@EWZRecaptcha/Form/v3/ewz_recaptcha_widget.html.twig'
         - '@SonataForm/Form/datepicker.html.twig'
-        - '@LeaptFroalaEditor/Form/froala_widget.html.twig'
-        - 'form/type/edit_newsletter_post_action_button.html.twig'
+        - 'bootstrap_5_layout.html.twig'
         - 'form/type/custom_a2lix_translations_field.html.twig'
+        - 'form/type/edit_newsletter_post_action_button.html.twig'
+        - 'form/type/trix_form_type.html.twig'
     globals:
         google_tag_v4_enabled: false
         admin_tag_version: 'v6.00.008' # -> remember to change asset version in config/packages/liip_imagine.yaml too

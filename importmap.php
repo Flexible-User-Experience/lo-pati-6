@@ -37,8 +37,16 @@ return [
     'bootstrap' => [
         'version' => '5.3.3',
     ],
+    'bootstrap/dist/css/bootstrap.min.css' => [
+        'version' => '5.3.3',
+        'type' => 'css',
+    ],
     'chart.js' => [
         'version' => '4.4.4',
+    ],
+    'icheck-bootstrap/icheck-bootstrap.min.css' => [
+        'version' => '3.0.1',
+        'type' => 'css',
     ],
     'pdfjs-dist/build/pdf.min.mjs' => [
         'version' => '4.6.82',
@@ -46,18 +54,17 @@ return [
     'pdfjs-dist/build/pdf.worker.min.mjs' => [
         'version' => '4.6.82',
     ],
-    'stimulus-use' => [
-        'version' => '0.52.2',
-    ],
-    'icheck-bootstrap/icheck-bootstrap.min.css' => [
-        'version' => '3.0.1',
-        'type' => 'css',
-    ],
     'stimulus-autocomplete' => [
         'version' => '3.1.0',
     ],
-    'bootstrap/dist/css/bootstrap.min.css' => [
-        'version' => '5.3.3',
+    'stimulus-use' => [
+        'version' => '0.52.2',
+    ],
+    'trix' => [
+        'version' => '2.1.5',
+    ],
+    'trix/dist/trix.min.css' => [
+        'version' => '2.1.5',
         'type' => 'css',
     ],
 ];

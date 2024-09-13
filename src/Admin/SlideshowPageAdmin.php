@@ -7,7 +7,7 @@ use App\Entity\MenuLevel2;
 use App\Entity\Translation\SlideshowPageTranslation;
 use App\Enum\SortOrderTypeEnum;
 use App\Form\Type\GedmoTranslationsType;
-use Ehyiah\QuillJsBundle\Form\QuillType;
+use App\Form\Type\TrixFormType;
 use Sonata\AdminBundle\Datagrid\DatagridInterface;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -146,14 +146,9 @@ final class SlideshowPageAdmin extends AbstractBaseAdmin
             )
             ->add(
                 'description',
-                QuillType::class,
+                TrixFormType::class,
                 [
                     'required' => false,
-                    'quill_extra_options' => [
-                        'height' => '400px',
-                        'theme' => 'snow',
-                    ],
-                    'quill_options' => $this->getQuillOptions(),
                 ]
             )
             ->add(
@@ -197,12 +192,7 @@ final class SlideshowPageAdmin extends AbstractBaseAdmin
                         'description' => [
                             'label' => 'form.label_description',
                             'required' => false,
-                            'field_type' => QuillType::class,
-                            'quill_extra_options' => [
-                                'height' => '400px',
-                                'theme' => 'snow',
-                            ],
-                            'quill_options' => $this->getQuillOptions(),
+                            'field_type' => TrixFormType::class,
                         ],
                         'realizationDateString' => [
                             'label' => 'form.label_realization_date_string',

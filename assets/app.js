@@ -1,9 +1,10 @@
 import './bootstrap.js';
 import { Tooltip } from 'bootstrap';
+import Trix from 'trix';
 
 // required CSSs
 import('icheck-bootstrap/icheck-bootstrap.min.css');
-import('quill/dist/quill.snow.css');
+import('trix/dist/trix.min.css');
 
 // enable Bootstrap CSS behaviours
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle-second="tooltip"]');
@@ -21,4 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
             inputNode.value = '';
         });
     }
+});
+
+// Trix WYSIWYG editor
+document.addEventListener('trix-before-initialize', () => {
+    // Change Trix.config if you need
 });

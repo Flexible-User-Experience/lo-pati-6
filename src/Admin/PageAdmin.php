@@ -10,8 +10,7 @@ use App\Entity\Translation\PageTranslation;
 use App\Enum\PageTemplateTypeEnum;
 use App\Enum\SortOrderTypeEnum;
 use App\Form\Type\GedmoTranslationsType;
-use Ehyiah\QuillJsBundle\Form\QuillType;
-use Leapt\FroalaEditorBundle\Form\Type\FroalaEditorType;
+use App\Form\Type\TrixFormType;
 use Sonata\AdminBundle\Datagrid\DatagridInterface;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -301,10 +300,9 @@ final class PageAdmin extends AbstractBaseAdmin
             )
             ->add(
                 'description',
-                FroalaEditorType::class,
+                TrixFormType::class,
                 [
                     'required' => false,
-                    'froala_profile' => 'full',
                 ]
             )
             ->add(
@@ -382,12 +380,7 @@ final class PageAdmin extends AbstractBaseAdmin
                         'description' => [
                             'label' => 'form.label_description',
                             'required' => false,
-                            'field_type' => QuillType::class,
-                            'quill_extra_options' => [
-                                'height' => '400px',
-                                'theme' => 'snow',
-                            ],
-                            'quill_options' => $this->getQuillOptions(),
+                            'field_type' => TrixFormType::class,
                         ],
                         'realizationDateString' => [
                             'label' => 'form.label_realization_date_string',
@@ -570,14 +563,10 @@ final class PageAdmin extends AbstractBaseAdmin
             ->with('admin.common.links', $this->getFormMdSuccessBoxArray(4))
             ->add(
                 'links',
-                QuillType::class,
+                TrixFormType::class,
                 [
                     'required' => false,
-                    'quill_extra_options' => [
-                        'height' => '200px',
-                        'theme' => 'snow',
-                    ],
-                    'quill_options' => $this->getReducedQuillOptions(),
+                    // TODO reduced options
                 ]
             )
             ->add(
