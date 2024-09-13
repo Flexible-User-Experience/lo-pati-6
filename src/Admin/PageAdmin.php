@@ -11,6 +11,7 @@ use App\Enum\PageTemplateTypeEnum;
 use App\Enum\SortOrderTypeEnum;
 use App\Form\Type\GedmoTranslationsType;
 use Ehyiah\QuillJsBundle\Form\QuillType;
+use Leapt\FroalaEditorBundle\Form\Type\FroalaEditorType;
 use Sonata\AdminBundle\Datagrid\DatagridInterface;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -300,14 +301,10 @@ final class PageAdmin extends AbstractBaseAdmin
             )
             ->add(
                 'description',
-                QuillType::class,
+                FroalaEditorType::class,
                 [
                     'required' => false,
-                    'quill_extra_options' => [
-                        'height' => '400px',
-                        'theme' => 'snow',
-                    ],
-                    'quill_options' => $this->getQuillOptions(),
+                    'froala_profile' => 'full',
                 ]
             )
             ->add(
