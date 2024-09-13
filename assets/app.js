@@ -26,5 +26,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Trix WYSIWYG editor
 document.addEventListener('trix-before-initialize', () => {
-    // Change Trix.config if you need
+    console.log('trix-before-initialize fired');
 });
