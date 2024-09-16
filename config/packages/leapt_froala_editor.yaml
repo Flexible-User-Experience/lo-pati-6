@@ -3,8 +3,8 @@ leapt_froala_editor:
     includeFontAwesome: false
     attribution: false
     language: 'es'
-    pluginsEnabled: [ 'align' ]
-    pluginsDisabled: [ 'image', 'file', 'save', 'fullscreen' ]
+    pluginsEnabled: [ 'align', 'link', 'lists', 'quote' ]
+    pluginsDisabled: [ 'charCounter', 'codeBeautifier', 'codeView', 'colors', 'draggable', 'embedly', 'emoticons', 'entities', 'filesManager', 'file', 'fontAwesome', 'fontFamily', 'fontSize', 'fullscreen', 'help', 'image', 'imageManager', 'imageTui', 'inlineClass', 'inlineStyle', 'lineBreaker', 'lineHeight', 'markdownSupport', 'paragraphFormat', 'paragraphStyle', 'print', 'quickInsert', 'save', 'specialCharacters', 'spellChecker', 'trackChanges', 'table', 'url', 'video', 'wordCounter', 'wordPaste' ]
     profiles:
         full:
             heightMax: 450
