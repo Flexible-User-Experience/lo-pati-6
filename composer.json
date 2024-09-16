@@ -32,6 +32,7 @@
         "league/commonmark": "^2.5",
         "league/csv": "^9.16",
         "league/html-to-markdown": "^5.1",
+        "leapt/froala-editor-bundle": "^1.7",
         "liip/imagine-bundle": "^2.13",
         "meilisearch/search-bundle": "^0.15.4",
         "nyholm/psr7": "^1.8",
@@ -122,6 +123,7 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
+            "froala:install": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
             "importmap:install": "symfony-cmd",
             "sass:build": "symfony-cmd",

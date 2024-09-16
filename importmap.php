@@ -60,11 +60,7 @@ return [
     'stimulus-use' => [
         'version' => '0.52.2',
     ],
-    'trix' => [
-        'version' => '2.1.5',
-    ],
-    'trix/dist/trix.min.css' => [
-        'version' => '2.1.5',
-        'type' => 'css',
+    'autobind-decorator' => [
+        'version' => '2.4.0',
     ],
 ];

@@ -1,0 +1,12 @@
+leapt_froala_editor:
+    includeCodeMirror: false
+    includeFontAwesome: false
+    attribution: false
+    language: 'es'
+    pluginsEnabled: [ 'align' ]
+    pluginsDisabled: [ 'image', 'file', 'save', 'fullscreen' ]
+    profiles:
+        full:
+            heightMax: 450
+        compact:
+            heightMax: 200

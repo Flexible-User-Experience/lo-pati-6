@@ -5,7 +5,7 @@ namespace App\Admin;
 use App\Entity\Translation\ArtistTranslation;
 use App\Enum\SortOrderTypeEnum;
 use App\Form\Type\GedmoTranslationsType;
-use App\Form\Type\TrixFormType;
+use Leapt\FroalaEditorBundle\Form\Type\FroalaEditorType;
 use Sonata\AdminBundle\Datagrid\DatagridInterface;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -159,9 +159,10 @@ final class ArtistAdmin extends AbstractBaseAdmin
             )
             ->add(
                 'description',
-                TrixFormType::class,
+                FroalaEditorType::class,
                 [
                     'required' => false,
+                    'froala_profile' => 'full',
                 ]
             )
             ->end()
@@ -223,7 +224,8 @@ final class ArtistAdmin extends AbstractBaseAdmin
                         'description' => [
                             'label' => 'form.label_description',
                             'required' => false,
-                            'field_type' => TrixFormType::class,
+                            'field_type' => FroalaEditorType::class,
+                            'froala_profile' => 'full',
                         ],
                     ],
                 ]

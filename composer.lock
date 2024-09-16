@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "59dadb63e153b67fcd670eca1456955a",
+    "content-hash": "5b04528a24e95b21d212f77af1b2022d",
     "packages": [
         {
             "name": "beberlei/doctrineextensions",
@@ -2866,6 +2866,77 @@
             "time": "2023-07-12T21:21:09+00:00"
         },
         {
+            "name": "leapt/froala-editor-bundle",
+            "version": "v1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leapt/froala-editor-bundle.git",
+                "reference": "e2a5a1100c2a26e167b590d11562eb3bedede20d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leapt/froala-editor-bundle/zipball/e2a5a1100c2a26e167b590d11562eb3bedede20d",
+                "reference": "e2a5a1100c2a26e167b590d11562eb3bedede20d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-zip": "*",
+                "php": "^8.2",
+                "symfony/asset": "^6.4 || ^7.0",
+                "symfony/console": "^6.4 || ^7.0",
+                "symfony/form": "^6.4 || ^7.0",
+                "symfony/framework-bundle": "^6.4 || ^7.0",
+                "symfony/http-client": "^6.4 || ^7.0",
+                "symfony/string": "^6.4 || ^7.0",
+                "symfony/twig-bundle": "^6.4 || ^7.0",
+                "twig/twig": "^3.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.49.0",
+                "phpstan/phpstan": "^1.10.57",
+                "phpstan/phpstan-deprecation-rules": "^1.1.4",
+                "phpunit/phpunit": "^9.6.16",
+                "symfony/css-selector": "^6.4 || ^7.0",
+                "symfony/dom-crawler": "^6.4 || ^7.0",
+                "symfony/yaml": "^6.4 || ^7.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Leapt\\FroalaEditorBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Guionniere",
+                    "email": "simon.guionniere@gmail.com"
+                },
+                {
+                    "name": "Stefan Neculai",
+                    "email": "stefan.neculai@gmail.com"
+                },
+                {
+                    "name": "Jonathan Scheiber",
+                    "homepage": "https://github.com/jmsche"
+                }
+            ],
+            "description": "Provides a Froala editor integration for Symfony 6 & 7.",
+            "keywords": [
+                "editor",
+                "froala",
+                "wysiwyg"
+            ],
+            "support": {
+                "issues": "https://github.com/leapt/froala-editor-bundle/issues",
+                "source": "https://github.com/leapt/froala-editor-bundle/tree/v1.7.0"
+            },
+            "time": "2024-05-28T20:29:28+00:00"
+        },
+        {
             "name": "liip/imagine-bundle",
             "version": "2.13.2",
             "source": {
@@ -3026,16 +3097,16 @@
         },
         {
             "name": "meilisearch/meilisearch-php",
-            "version": "v1.10.0",
+            "version": "v1.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/meilisearch/meilisearch-php.git",
-                "reference": "110be455194fda42ae3a3b8b6a9243479c3a6d19"
+                "reference": "e3d8a74fdb0c65ecdef6ef9e89c110810c5c1aa0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/meilisearch/meilisearch-php/zipball/110be455194fda42ae3a3b8b6a9243479c3a6d19",
-                "reference": "110be455194fda42ae3a3b8b6a9243479c3a6d19",
+                "url": "https://api.github.com/repos/meilisearch/meilisearch-php/zipball/e3d8a74fdb0c65ecdef6ef9e89c110810c5c1aa0",
+                "reference": "e3d8a74fdb0c65ecdef6ef9e89c110810c5c1aa0",
                 "shasum": ""
             },
             "require": {
@@ -3087,9 +3158,9 @@
             ],
             "support": {
                 "issues": "https://github.com/meilisearch/meilisearch-php/issues",
-                "source": "https://github.com/meilisearch/meilisearch-php/tree/v1.10.0"
+                "source": "https://github.com/meilisearch/meilisearch-php/tree/v1.10.1"
             },
-            "time": "2024-08-26T23:09:54+00:00"
+            "time": "2024-09-15T22:50:45+00:00"
         },
         {
             "name": "meilisearch/search-bundle",
@@ -12384,16 +12455,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.1.0",
+            "version": "v5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "683130c2ff8c2739f4822ff7ac5c873ec529abd1"
+                "reference": "23c79fbbfb725fb92af9bcf41065c8e9a0d49ddb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/683130c2ff8c2739f4822ff7ac5c873ec529abd1",
-                "reference": "683130c2ff8c2739f4822ff7ac5c873ec529abd1",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/23c79fbbfb725fb92af9bcf41065c8e9a0d49ddb",
+                "reference": "23c79fbbfb725fb92af9bcf41065c8e9a0d49ddb",
                 "shasum": ""
             },
             "require": {
@@ -12436,9 +12507,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.1.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.2.0"
             },
-            "time": "2024-07-01T20:03:41+00:00"
+            "time": "2024-09-15T16:40:33+00:00"
         },
         {
             "name": "phar-io/manifest",

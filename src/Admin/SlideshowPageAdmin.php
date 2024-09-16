@@ -7,7 +7,7 @@ use App\Entity\MenuLevel2;
 use App\Entity\Translation\SlideshowPageTranslation;
 use App\Enum\SortOrderTypeEnum;
 use App\Form\Type\GedmoTranslationsType;
-use App\Form\Type\TrixFormType;
+use Leapt\FroalaEditorBundle\Form\Type\FroalaEditorType;
 use Sonata\AdminBundle\Datagrid\DatagridInterface;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -146,9 +146,10 @@ final class SlideshowPageAdmin extends AbstractBaseAdmin
             )
             ->add(
                 'description',
-                TrixFormType::class,
+                FroalaEditorType::class,
                 [
                     'required' => false,
+                    'froala_profile' => 'full',
                 ]
             )
             ->add(
@@ -192,7 +193,8 @@ final class SlideshowPageAdmin extends AbstractBaseAdmin
                         'description' => [
                             'label' => 'form.label_description',
                             'required' => false,
-                            'field_type' => TrixFormType::class,
+                            'field_type' => FroalaEditorType::class,
+                            'froala_profile' => 'full',
                         ],
                         'realizationDateString' => [
                             'label' => 'form.label_realization_date_string',
