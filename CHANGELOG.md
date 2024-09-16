@@ -1,8 +1,13 @@
 Changelog
 =========
 
-##### Version 6.00.008 (WIP)
+##### Version 6.00.009 (WIP)
  * keep working
+
+##### Version 6.00.008 (2024-09-16)
+ * fix missing Axios requirement
+ * add Froala WYSIWYG editor
+ * remove unnecessary backend.js
 
 ##### Version 6.00.007 (2024-09-12)
  * add OG meta content for better ShareThis buttons behaviour

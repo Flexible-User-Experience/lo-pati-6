@@ -10,7 +10,7 @@ use App\Entity\Translation\PageTranslation;
 use App\Enum\PageTemplateTypeEnum;
 use App\Enum\SortOrderTypeEnum;
 use App\Form\Type\GedmoTranslationsType;
-use Ehyiah\QuillJsBundle\Form\QuillType;
+use Leapt\FroalaEditorBundle\Form\Type\FroalaEditorType;
 use Sonata\AdminBundle\Datagrid\DatagridInterface;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -300,14 +300,10 @@ final class PageAdmin extends AbstractBaseAdmin
             )
             ->add(
                 'description',
-                QuillType::class,
+                FroalaEditorType::class,
                 [
                     'required' => false,
-                    'quill_extra_options' => [
-                        'height' => '400px',
-                        'theme' => 'snow',
-                    ],
-                    'quill_options' => $this->getQuillOptions(),
+                    'froala_profile' => 'full',
                 ]
             )
             ->add(
@@ -385,12 +381,8 @@ final class PageAdmin extends AbstractBaseAdmin
                         'description' => [
                             'label' => 'form.label_description',
                             'required' => false,
-                            'field_type' => QuillType::class,
-                            'quill_extra_options' => [
-                                'height' => '400px',
-                                'theme' => 'snow',
-                            ],
-                            'quill_options' => $this->getQuillOptions(),
+                            'field_type' => FroalaEditorType::class,
+                            'froala_profile' => 'full',
                         ],
                         'realizationDateString' => [
                             'label' => 'form.label_realization_date_string',
@@ -573,14 +565,10 @@ final class PageAdmin extends AbstractBaseAdmin
             ->with('admin.common.links', $this->getFormMdSuccessBoxArray(4))
             ->add(
                 'links',
-                QuillType::class,
+                FroalaEditorType::class,
                 [
                     'required' => false,
-                    'quill_extra_options' => [
-                        'height' => '200px',
-                        'theme' => 'snow',
-                    ],
-                    'quill_options' => $this->getReducedQuillOptions(),
+                    'froala_profile' => 'compact',
                 ]
             )
             ->add(
