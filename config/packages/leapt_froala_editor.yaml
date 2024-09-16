@@ -4,9 +4,21 @@ leapt_froala_editor:
     attribution: false
     language: 'es'
     pluginsEnabled: [ 'align', 'link', 'lists', 'quote' ]
-    pluginsDisabled: [ 'charCounter', 'codeBeautifier', 'codeView', 'colors', 'draggable', 'embedly', 'emoticons', 'entities', 'filesManager', 'file', 'fontAwesome', 'fontFamily', 'fontSize', 'fullscreen', 'help', 'image', 'imageManager', 'imageTui', 'inlineClass', 'inlineStyle', 'lineBreaker', 'lineHeight', 'markdownSupport', 'paragraphFormat', 'paragraphStyle', 'print', 'quickInsert', 'save', 'specialCharacters', 'spellChecker', 'trackChanges', 'table', 'url', 'video', 'wordCounter', 'wordPaste' ]
+    pluginsDisabled: [ 'charCounter', 'codeBeautifier', 'codeView', 'colors', 'draggable', 'embedly', 'emoticons', 'entities', 'filesManager', 'file', 'fontAwesome', 'fontFamily', 'fontSize', 'fullscreen', 'help', 'image', 'imageManager', 'imageTUI', 'inlineClass', 'inlineStyle', 'lineBreaker', 'lineHeight', 'markdownSupport', 'paragraphFormat', 'paragraphStyle', 'print', 'quickInsert', 'save', 'specialCharacters', 'spellChecker', 'trackChanges', 'table', 'url', 'video', 'wordCounter', 'wordPaste' ]
     profiles:
         full:
             heightMax: 450
+            toolbarButtons: [
+                ['undo', 'redo'],
+                ['cut', 'copy', 'paste'],
+                ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript'],
+                ['alignLeft', 'alignCenter', 'alignRight'],
+                ['formatUL', 'formatOL', 'indent', 'outdent', 'quote'],
+                ['insertLink']
+            ]
         compact:
             heightMax: 200
+            toolbarButtons: [
+                ['bold', 'italic', 'underline'],
+                ['insertLink'],
+            ]

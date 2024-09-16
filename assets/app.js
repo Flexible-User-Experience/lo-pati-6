@@ -3,7 +3,6 @@ import { Tooltip } from 'bootstrap';
 
 // required CSSs
 import('icheck-bootstrap/icheck-bootstrap.min.css');
-import('jodit/es2021/jodit.min.css');
 
 // enable Bootstrap CSS behaviours
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle-second="tooltip"]');
