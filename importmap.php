@@ -34,6 +34,9 @@ return [
     '@popperjs/core' => [
         'version' => '2.11.8',
     ],
+    'axios' => [
+        'version' => '1.7.7',
+    ],
     'bootstrap' => [
         'version' => '5.3.3',
     ],
