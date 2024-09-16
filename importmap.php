@@ -60,7 +60,4 @@ return [
     'stimulus-use' => [
         'version' => '0.52.2',
     ],
-    'autobind-decorator' => [
-        'version' => '2.4.0',
-    ],
 ];
