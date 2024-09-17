@@ -160,7 +160,7 @@ class Page extends AbstractBase
     private ?Collection $previousEditions;
 
     #[Assert\Valid]
-    #[ORM\OneToMany(targetEntity: PageImage::class, mappedBy: 'page', cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(targetEntity: PageImage::class, mappedBy: 'page', cascade: ['persist', 'remove'], orphanRemoval: true)]
     #[ORM\OrderBy(['position' => SortOrderTypeEnum::ASC])]
     private ?Collection $images;
 

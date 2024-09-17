@@ -1,8 +1,12 @@
 Changelog
 =========
 
-##### Version 6.00.009 (WIP)
+##### Version 6.00.010 (WIP)
  * keep working
+
+##### Version 6.00.009 (2024-09-17)
+ * composer dependencies update
+ * fix problem removing Page images admin
 
 ##### Version 6.00.008 (2024-09-16)
  * fix missing Axios requirement
