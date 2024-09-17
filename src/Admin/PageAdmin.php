@@ -446,7 +446,6 @@ final class PageAdmin extends AbstractBaseAdmin
                     [
                         'required' => false,
                         'error_bubbling' => true,
-                        'by_reference' => false,
                     ],
                     [
                         'edit' => 'inline',
