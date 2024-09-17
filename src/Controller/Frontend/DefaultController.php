@@ -9,6 +9,7 @@ use App\Entity\Page;
 use App\Enum\LocalesEnum;
 use App\Repository\ArchiveRepository;
 use App\Repository\ArtistRepository;
+use App\Repository\PageImageRepository;
 use App\Repository\PageRepository;
 use App\Repository\SlideshowPageRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -73,7 +74,7 @@ final class DefaultController extends AbstractController
     public function menuLevel1(
         #[MapEntity(mapping: ['menu' => 'slug'])] MenuLevel1 $menu,
         ArchiveRepository $ar,
-        KernelInterface $kernel
+        KernelInterface $kernel,
     ): Response {
         if (!$menu->getPage() && $menu->getMenuLevel2items() && !$menu->getMenuLevel2items()->isEmpty()) {
             $firstSubmenu = $menu->getMenuLevel2items()[0];
@@ -121,7 +122,7 @@ final class DefaultController extends AbstractController
         ArtistRepository $ar,
         PageRepository $pr,
         KernelInterface $kernel,
-        int $idPageIrradiador
+        int $idPageIrradiador,
     ): Response {
         if ($submenu->getPage() && $idPageIrradiador === $submenu->getPage()->getId()) {
             $artists = $ar->getEnabledSortedByName()->getQuery()->getResult();
@@ -169,7 +170,8 @@ final class DefaultController extends AbstractController
         #[MapEntity(mapping: ['menu' => 'slug'])] MenuLevel1 $menu,
         #[MapEntity(expr: 'repository.getByMenuAndSubmenuSlugs(menu, submenu)')] MenuLevel2 $submenu,
         #[MapEntity(expr: 'repository.getByDateAndSlug(date, page)')] Page $page,
-        KernelInterface $kernel
+        PageImageRepository $pageImageRepository,
+        KernelInterface $kernel,
     ): Response {
         return $this->render(
             'frontend/page_detail.html.twig',
@@ -177,6 +179,7 @@ final class DefaultController extends AbstractController
                 'menu' => $menu,
                 'submenu' => $submenu,
                 'page' => $page,
+                'images' => $pageImageRepository->getValidImagesSortedByPositionForPage($page),
                 'show_debug_page_info' => $kernel->isDebug(),
             ]
         );
