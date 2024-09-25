@@ -26,7 +26,7 @@ return [
         'version' => '3.2.2',
     ],
     '@hotwired/turbo' => [
-        'version' => '8.0.6',
+        'version' => '8.0.10',
     ],
     '@kurkle/color' => [
         'version' => '0.3.2',

@@ -7,7 +7,7 @@ use App\Entity\MenuLevel2;
 use App\Entity\Translation\SlideshowPageTranslation;
 use App\Enum\SortOrderTypeEnum;
 use App\Form\Type\GedmoTranslationsType;
-use Leapt\FroalaEditorBundle\Form\Type\FroalaEditorType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Datagrid\DatagridInterface;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -146,10 +146,12 @@ final class SlideshowPageAdmin extends AbstractBaseAdmin
             )
             ->add(
                 'description',
-                FroalaEditorType::class,
+                CKEditorType::class,
                 [
                     'required' => false,
-                    'froala_profile' => 'full',
+                    'attr' => [
+                        'rows' => 5,
+                    ],
                 ]
             )
             ->add(
@@ -193,8 +195,10 @@ final class SlideshowPageAdmin extends AbstractBaseAdmin
                         'description' => [
                             'label' => 'form.label_description',
                             'required' => false,
-                            'field_type' => FroalaEditorType::class,
-                            'froala_profile' => 'full',
+                            'field_type' => CKEditorType::class,
+                            'attr' => [
+                                'rows' => 5,
+                            ],
                         ],
                         'realizationDateString' => [
                             'label' => 'form.label_realization_date_string',

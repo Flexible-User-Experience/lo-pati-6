@@ -5,14 +5,14 @@ twig:
         '%kernel.project_dir%/assets/styles': 'styles'
     form_themes:
         - '@EWZRecaptcha/Form/v3/ewz_recaptcha_widget.html.twig'
-        - '@LeaptFroalaEditor/Form/froala_widget.html.twig'
+        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
         - '@SonataForm/Form/datepicker.html.twig'
         - 'bootstrap_5_layout.html.twig'
         - 'form/type/custom_a2lix_translations_field.html.twig'
         - 'form/type/edit_newsletter_post_action_button.html.twig'
     globals:
         google_tag_v4_enabled: false
-        admin_tag_version: 'v6.00.010' # -> remember to change asset version in config/packages/liip_imagine.yaml too
+        admin_tag_version: 'v6.00.011' # -> remember to change asset version in config/packages/liip_imagine.yaml too
         share_this_api_key: '%share_this_api_key%'
         google_tag_v4: '%google_tag_v4%'
         developer_name: '%developer_name%'
