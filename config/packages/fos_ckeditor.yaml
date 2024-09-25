@@ -1,6 +1,8 @@
 fos_ck_editor:
     default_config: 'app_custom_config'
     configs:
+        default:
+            versionCheck: false
         app_custom_config:
             height: '450px'
             toolbar:
