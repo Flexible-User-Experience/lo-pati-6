@@ -27,6 +27,7 @@
         "egulias/email-validator": "^4.0",
         "excelwebzone/recaptcha-bundle": "^1.5",
         "fortawesome/font-awesome": "^6.6",
+        "friendsofsymfony/ckeditor-bundle": "^2.5",
         "knplabs/knp-menu-bundle": "^3.4",
         "knplabs/knp-paginator-bundle": "^6.4",
         "league/commonmark": "^2.5",
@@ -127,7 +128,8 @@
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
             "importmap:install": "symfony-cmd",
             "sass:build": "symfony-cmd",
-            "asset-map:compile": "symfony-cmd"
+            "asset-map:compile": "symfony-cmd",
+            "ckeditor:install": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"
