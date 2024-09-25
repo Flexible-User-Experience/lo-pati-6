@@ -4,7 +4,7 @@ Changelog
 ##### Version 6.00.012 (WIP)
  * keep working
 
-##### Version 6.00.011 (WIP)
+##### Version 6.00.011 (2024-09-25)
  * fix broken testing suite
  * composer require friendsofsymfony/ckeditor-bundle
  * Symfony 6.4.11 update
