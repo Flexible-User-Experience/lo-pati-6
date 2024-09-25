@@ -5,7 +5,7 @@ namespace App\Admin;
 use App\Entity\Translation\ArtistTranslation;
 use App\Enum\SortOrderTypeEnum;
 use App\Form\Type\GedmoTranslationsType;
-use Leapt\FroalaEditorBundle\Form\Type\FroalaEditorType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Datagrid\DatagridInterface;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -159,10 +159,12 @@ final class ArtistAdmin extends AbstractBaseAdmin
             )
             ->add(
                 'description',
-                FroalaEditorType::class,
+                CKEditorType::class,
                 [
                     'required' => false,
-                    'froala_profile' => 'full',
+                    'attr' => [
+                        'rows' => 5,
+                    ],
                 ]
             )
             ->end()
@@ -224,8 +226,11 @@ final class ArtistAdmin extends AbstractBaseAdmin
                         'description' => [
                             'label' => 'form.label_description',
                             'required' => false,
-                            'field_type' => FroalaEditorType::class,
-                            'froala_profile' => 'full',
+                            'field_type' => CKEditorType::class,
+                            'attr' => [
+                                'rows' => 5,
+                                'style' => 'resize:vertical',
+                            ],
                         ],
                     ],
                 ]

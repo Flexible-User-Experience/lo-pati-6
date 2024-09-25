@@ -10,7 +10,7 @@ use App\Entity\Translation\PageTranslation;
 use App\Enum\PageTemplateTypeEnum;
 use App\Enum\SortOrderTypeEnum;
 use App\Form\Type\GedmoTranslationsType;
-use Leapt\FroalaEditorBundle\Form\Type\FroalaEditorType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Datagrid\DatagridInterface;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -138,7 +138,6 @@ final class PageAdmin extends AbstractBaseAdmin
             ->add('showSocialNetworksSharingButtons')
             ->add('links')
             ->add('urlVimeo')
-//            ->add('urlFlickr')
             ->add(
                 'startDate',
                 DateFilter::class,
@@ -300,10 +299,12 @@ final class PageAdmin extends AbstractBaseAdmin
             )
             ->add(
                 'description',
-                FroalaEditorType::class,
+                CKEditorType::class,
                 [
                     'required' => false,
-                    'froala_profile' => 'full',
+                    'attr' => [
+                        'rows' => 5,
+                    ],
                 ]
             )
             ->add(
@@ -381,8 +382,11 @@ final class PageAdmin extends AbstractBaseAdmin
                         'description' => [
                             'label' => 'form.label_description',
                             'required' => false,
-                            'field_type' => FroalaEditorType::class,
-                            'froala_profile' => 'full',
+                            'field_type' => CKEditorType::class,
+                            'attr' => [
+                                'rows' => 5,
+                                'style' => 'resize:vertical',
+                            ],
                         ],
                         'realizationDateString' => [
                             'label' => 'form.label_realization_date_string',
@@ -564,10 +568,13 @@ final class PageAdmin extends AbstractBaseAdmin
             ->with('admin.common.links', $this->getFormMdSuccessBoxArray(4))
             ->add(
                 'links',
-                FroalaEditorType::class,
+                CKEditorType::class,
                 [
                     'required' => false,
-                    'froala_profile' => 'compact',
+                    'config_name' => 'app_custom_half_height_config',
+                    'attr' => [
+                        'rows' => 5,
+                    ],
                 ]
             )
             ->add(
