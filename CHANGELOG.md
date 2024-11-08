@@ -4,7 +4,7 @@ Changelog
 ##### Version 6.00.012 (WIP)
  * keep working
 
-##### Version 6.00.012 (WIP)
+##### Version 6.00.012 (2024-11-08)
  * add meta property og:image
  * importmap dependencies update
  * Symfony 6.4.14 update
