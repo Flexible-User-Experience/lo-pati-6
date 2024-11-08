@@ -8,11 +8,18 @@
     {{ parent() }}
     <meta property="og:title" content="{{ page.name }}"/>
     <meta property="og:url" content="{{ app.request.uri }}"/>
-    {% if page.imageFileName %}
-        <meta property="og:image" content="{{ absolute_url(asset('images/page_detail_header_backgroung.jpg')) }}"/>
-    {% endif %}
     <meta property="og:description" content="{{ page.summary }}"/>
     <meta property="og:site_name" content="{{ pp_id }}"/>
+    <meta property="og:type" content="website">
+    {% if page.imageFileName %}
+        <meta property="og:image" content="{{ absolute_url(vich_uploader_asset(page, 'imageFile') | imagine_filter('1200x630')) }}"/>
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+    {% else %}
+        <meta property="og:image" content="{{ absolute_url(asset('images/page_detail_header_backgroung.jpg')) }}"/>
+        <meta property="og:image:width" content="1922">
+        <meta property="og:image:height" content="970">
+    {% endif %}
 {% endblock %}
 
 {% block submenu_header %}
