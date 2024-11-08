@@ -26,7 +26,7 @@ return [
         'version' => '3.2.2',
     ],
     '@hotwired/turbo' => [
-        'version' => '8.0.10',
+        'version' => '8.0.12',
     ],
     '@kurkle/color' => [
         'version' => '0.3.2',
@@ -45,17 +45,17 @@ return [
         'type' => 'css',
     ],
     'chart.js' => [
-        'version' => '4.4.4',
+        'version' => '4.4.6',
     ],
     'icheck-bootstrap/icheck-bootstrap.min.css' => [
         'version' => '3.0.1',
         'type' => 'css',
     ],
     'pdfjs-dist/build/pdf.min.mjs' => [
-        'version' => '4.6.82',
+        'version' => '4.8.69',
     ],
     'pdfjs-dist/build/pdf.worker.min.mjs' => [
-        'version' => '4.6.82',
+        'version' => '4.8.69',
     ],
     'stimulus-autocomplete' => [
         'version' => '3.1.0',

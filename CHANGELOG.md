@@ -4,6 +4,11 @@ Changelog
 ##### Version 6.00.012 (WIP)
  * keep working
 
+##### Version 6.00.012 (WIP)
+ * add meta property og:image
+ * importmap dependencies update
+ * Symfony 6.4.14 update
+
 ##### Version 6.00.011 (2024-09-25)
  * fix broken testing suite
  * composer require friendsofsymfony/ckeditor-bundle
